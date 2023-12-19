@@ -6,13 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:scrollbarDefaultDelayBeforeFade="0"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarSize="0dp"
+        app:elevation="0dp"
+        app:itemIconSize="38dp"
+        app:itemIconTint="@drawable/bnv_color"
+        app:itemPaddingBottom="0dp"
+        app:itemPaddingTop="10dp"
+        app:itemTextColor="@drawable/bnv_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.0"
+        app:menu="@menu/bottom_nav_bar" />
 
+    <FrameLayout
+        android:id="@+id/fl"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
