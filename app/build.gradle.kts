@@ -6,7 +6,9 @@ android {
     namespace = "com.example.applicationscalp_care"
     compileSdk = 34
 
-    viewBinding { enable = true }
+    viewBinding {
+        enable = true
+    }
 
     defaultConfig {
         applicationId = "com.example.applicationscalp_care"
@@ -31,7 +33,7 @@ android {
 }
 
 dependencies {
-
+    implementation("com.android.volley:volley:1.2.1") // 네트워크 통신 라이브러리 추가
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
