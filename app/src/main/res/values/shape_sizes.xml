@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  이미지의 모양 잡아줌  -->
+
+    <!--  동그라미  -->
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!--  둥근 사각형  -->
+    <style name="RoundedSquare">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <!--  모서리 짜름  -->
+    <style name="CornerCut">
+        <item name="cornerSize">40dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <!--  다이아몬드 모양  -->
+    <style name="DiamondCut">
+        <item name="cornerSize">40dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+
+    <!--  모서리 짜를 크기  -->
+    <style name="SpecificCornerCut">
+        <item name="cornerSizeTopRight">40dp</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerSizeBottomLeft">40dp</item>
+        <item name="cornerFamilyBottomLeft">cut</item>
+    </style>
+
+    <!--  둥근 모서리 크기  -->
+    <style name="SpecificCornerRounded">
+        <item name="cornerSizeTopRight">40dp</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeBottomLeft">40dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+    </style>
+
+</resources>

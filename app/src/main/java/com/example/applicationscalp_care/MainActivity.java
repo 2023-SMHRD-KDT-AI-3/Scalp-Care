@@ -1,5 +1,6 @@
 package com.example.applicationscalp_care;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -10,11 +11,13 @@ import com.android.volley.toolbox.StringRequest;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 
 import com.android.volley.RequestQueue;
 import com.example.applicationscalp_care.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -65,5 +68,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 실행 할 때 바로 홈 화면 나올 수 있게
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+
+        // bnv 바 아이콘 클릭 시
+        binding.bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                // 클릭한 item 정보(속성, id, title...)
+                if(R.id.home == item.getItemId()) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+                }else if(R.id.gwanlee == item.getItemId()) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl, new CareFragment()).commit();
+                }else if(R.id.gumsa == item.getItemId()) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl, new TestFragment()).commit();
+                }else if(R.id.jungbo == item.getItemId()) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl, new InformationFragment()).commit();
+                }else if(R.id.duhbogi == item.getItemId()) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl, new MoreSettingFragment()).commit();
+                }
+                return true;
+            }
+        });
     }
 }

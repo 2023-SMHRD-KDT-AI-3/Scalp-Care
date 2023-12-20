@@ -1,15 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TestFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="검사" />
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="@string/testText1"
+                android:textColor="@color/green"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="@+id/imvCircularWithStroke"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="@+id/imvCircularWithStroke"
+                app:layout_constraintTop_toBottomOf="@+id/imvCircularWithStroke" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imvCircularWithStroke"
+                android:layout_width="178dp"
+                android:layout_height="138dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:padding="5dp"
+                android:src="@drawable/doopi"
+                app:shapeAppearanceOverlay="@style/Circular"
+                app:strokeColor="@color/lightred"
+                app:strokeWidth="5dp"
+                tools:layout_editor_absoluteX="177dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="260dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="@string/testTextInfo1"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <Button
+                android:id="@+id/btnTestStart"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="92dp"
+                android:backgroundTint="@color/lightred"
+                android:gravity="center"
+                android:text="@string/btnTestStart"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+            <View
+                android:layout_width="320dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@color/darkgreen" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="@string/testText2"
+                android:textColor="@color/green"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="@+id/imvCircularWithStroke"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="@+id/imvCircularWithStroke"
+                app:layout_constraintTop_toBottomOf="@+id/imvCircularWithStroke" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="178dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:padding="5dp"
+                android:src="@drawable/hair"
+                tools:layout_editor_absoluteX="177dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="260dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="@string/testTextInfo2"
+                android:textColor="@color/green"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintHorizontal_bias="0.538"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <Button
+                android:id="@+id/btnHairStart"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="92dp"
+                android:layout_marginBottom="50dp"
+                android:backgroundTint="@color/lightred"
+                android:gravity="center"
+                android:text="@string/btnTestStart"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView3"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

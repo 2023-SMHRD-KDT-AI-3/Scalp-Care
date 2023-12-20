@@ -3,7 +3,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-
+    <!--  fragment_test.xml  -->
+    <string name="testText1"> 두피 <font color='#FF5B5B'>AI</font> Check! </string>
+    <string name="testTextInfo1">두피 검사를 실시해서 \n 당신의 두피 상태를 확인하세요.</string>
+    <string name="btnTestStart">검사 시작하기</string>
+    <string name="testText2">헤어스타일 <font color='#FF5B5B'>AI</font> 추천</string>
+    <string name="testTextInfo2">사진을 찍고 \n 헤어스타일을 추천 받으세요.</string>
+    <string name="btnHairStart">검사 시작하기</string>
 
 
 
