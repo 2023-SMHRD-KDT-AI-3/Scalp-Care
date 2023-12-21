@@ -20,9 +20,10 @@
         android:layout_height="0dp"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
-        app:itemIconSize="38dp"
+        app:compatShadowEnabled="false"
+        app:itemIconSize="35dp"
         app:itemIconTint="@drawable/bnv_color"
-        app:itemPaddingBottom="0dp"
+        app:itemPaddingBottom="8dp"
         app:itemPaddingTop="10dp"
         app:itemTextColor="@drawable/bnv_color"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +32,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.0"
-        app:menu="@menu/bottom_nav_bar" />
+        app:menu="@menu/bottom_nav_bar"
+        app:itemTextAppearanceActive="@dimen/design_bottom_navigation_active_text_size"
+        />
 
     <FrameLayout
         android:id="@+id/fl"
@@ -46,4 +49,5 @@
         >
 
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
