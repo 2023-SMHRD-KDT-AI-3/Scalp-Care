@@ -54,7 +54,6 @@
                 android:layout_width="142dp"
                 android:layout_height="31dp"
                 android:layout_margin="10dp"
-                android:src="@tools:sample/avatars"
                 app:srcCompat="@drawable/white_garo" />
 
             <TextView
