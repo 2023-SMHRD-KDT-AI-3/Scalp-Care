@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
@@ -24,6 +25,7 @@ public class BoardWriteActivity extends AppCompatActivity {
     private ActivityBoardWriteBinding binding;
 
     // 연결 해야함
+
 
 
     // 앨범 런처
@@ -63,6 +65,14 @@ public class BoardWriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBoardWriteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.tvBack.setOnClickListener(v -> {
+            finish();
+        });
+        binding.imgBack.setOnClickListener(v -> {
+            finish();
+        });
+
 
         // 관리 페이지 플러스 이미지 누를 시 작동
         binding.btnAdd.setOnClickListener(v -> {
