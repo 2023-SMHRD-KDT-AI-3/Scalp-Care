@@ -1,5 +1,6 @@
 package com.example.applicationscalp_care.care;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,13 +32,31 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> {
         return holder;
     }
 
-    @Override //
+    @Override //  RecyclerView의 각 항목에 대한 데이터를 결합하고 해당 데이터를 화면에 표시하는 기능
     public void onBindViewHolder(@NonNull BoardViewHolder holder, int position) {
+        String time = dataset.get(position).getTime();
+        String content = dataset.get(position).getContent();
+        String uid = dataset.get(position).getUid();
 
+        BoardVO vo = dataset.get(position);
+
+        holder.getTvTime().setText(vo.getTime());
+        holder.getTvContent().setText(vo.getContent());
+
+        holder.listener = new BoardItemListener() {
+            @Override
+            public void BoardClickListener(View v, int position) {
+                Intent intent = new Intent(v.getContext(), BoardInsideActivity.class);
+
+                intent.putExtra("time", vo.getTime());
+                intent.putExtra("content", vo.getContent());
+                intent.putExtra("key", keyset.get(position));
+
+                v.getContext().startActivity(intent);
+            }
+        };
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
-    }
+    public int getItemCount() { return dataset.size(); }
 }
