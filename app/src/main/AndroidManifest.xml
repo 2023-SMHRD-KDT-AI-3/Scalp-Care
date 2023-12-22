@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ApplicationScalp_care"
         tools:targetApi="31">
         <activity
+            android:name=".care.BoardWriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".care.BoardInsideActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

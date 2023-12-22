@@ -11,14 +11,9 @@
     <string name="testTextInfo2">사진을 찍고 \n 헤어스타일을 추천 받으세요.</string>
     <string name="btnHairStart">검사 시작하기</string>
 
-
-
-
-
-
-
-
-
+    <!--  fragment_care.xml  -->
+    <string name="btnVsImg">두피 비교하기</string>
+    <string name="tvTitleCare">본인 기록</string>
 
 
 </resources>

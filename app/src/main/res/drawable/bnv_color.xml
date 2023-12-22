@@ -5,6 +5,6 @@
     <item android:color = "@color/lightgreen" android:state_selected="true"/>
 
     <!--  선택하지 않았을 때 색상  -->
-    <item android:color = "@color/gray" android:state_selected="false"/>
+    <item android:color = "@color/grayIcon" android:state_selected="false"/>
 
 </selector>

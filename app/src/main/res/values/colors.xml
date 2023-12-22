@@ -5,10 +5,9 @@
     <color name="darkgreen">#379237</color>
     <color name="green">#00BF63</color>
     <color name="lightgreen">#7ED957</color>
-    <color name="yellow">#F0FF42</color>
-    <color name="lightred">#FF5B5B</color>
-    <color name="gray">#D3D3D3</color>
-
+    <color name="grayIcon">#D3D3D3</color>
+    <color name="grayBg">#F2F2F2</color>
+    <color name="grayText">#AFAFAF</color>
 
 
 
