@@ -35,6 +35,7 @@
                 android:layout_marginTop="20dp"
                 android:text="근처 병원 찾기"
                 android:textAlignment="center"
+                android:textColor="#00BF63"
                 android:textSize="20sp" />
 
             <TextView
@@ -42,7 +43,8 @@
                 android:layout_width="192dp"
                 android:layout_height="43dp"
                 android:layout_marginLeft="60dp"
-                android:text="우리동네 근처 탈모관련 병원들을 한번 찾아보러 가자!" />
+                android:text="우리동네 근처 탈모관련 병원들을 한번 찾아보러 가자!"
+                android:textColor="#7ED957" />
 
             <Button
                 android:id="@+id/button5"
@@ -75,9 +77,9 @@
                 android:contextClickable="false"
                 android:text="두피검사 바로가기"
                 android:textAlignment="viewStart"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 app:cornerRadius="10dp"
-                app:icon="@drawable/iconsai"
+                app:icon="@drawable/ai"
                 app:iconGravity="end"
                 app:iconSize="50dp" />
 
@@ -113,6 +115,7 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginBottom="10dp"
                 android:text="꼭 알아야 할 탈모 소식"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -121,7 +124,7 @@
                 android:layout_height="171dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:text="TextView" />
+                android:background="#F2F2F2" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -131,6 +134,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="10dp"
                 android:text="본인 기록"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -139,7 +143,9 @@
                 android:layout_height="161dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:text="최근 작섣한 게시글"
+                android:layout_marginBottom="80dp"
+                android:background="#F2F2F2"
+                android:text="\n\n\n\n최근 작성한 게시글"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textIsSelectable="false" />
