@@ -4,6 +4,8 @@
     <!-- 인터넷 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".KakaoSdkLoginActivity"
         android:allowBackup="true"
@@ -14,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationScalp_care"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name=".KakaoSdkLoginActivity"
