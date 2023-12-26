@@ -16,10 +16,14 @@
     <string name="tvTitleCare">본인 기록</string>
 
     <!--  activity_board_write.xml  -->
+    <string name="tvBack">뒤로가기</string>
     <string name="tvTitle">게시글 추가</string>
     <string name="tvTime">일자</string>
     <string name="tvContent">내용</string>
     <string name="hintContent">내용을 입력하세요.</string>
     <string name="btnAdd">저장하기</string>
+
+    <!--  fragment_more_setting.xml  -->
+    <string name="tvNim">님</string>
 
 </resources>
