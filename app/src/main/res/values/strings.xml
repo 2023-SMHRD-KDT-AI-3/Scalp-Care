@@ -25,5 +25,10 @@
 
     <!--  fragment_more_setting.xml  -->
     <string name="tvNim">님</string>
+    <string name="btntoGwanlee">본인 기록</string>
+    <string name="btntoGumsa">AI 검사</string>
+    <string name="btntoFav">도움돼요</string>
+    <string name="tvLogout">로그아웃</string>
+    <string name="tvTaltwe">회원탈퇴</string>
 
 </resources>

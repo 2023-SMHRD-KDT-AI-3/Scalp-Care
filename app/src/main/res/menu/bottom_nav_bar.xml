@@ -16,9 +16,9 @@
 
     <!--  검사  -->
     <item
-    android:id="@+id/gumsa"
-    android:icon="@drawable/gumsa"
-    android:title="검사"/>
+        android:id="@+id/gumsa"
+        android:icon="@drawable/gumsa"
+        android:title="검사" />
 
 
     <!--  정보/헤어  -->
