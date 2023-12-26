@@ -42,7 +42,7 @@ public class MoreSettingFragment extends Fragment {
                 Log.d("ClickEvent","클릭 확인됨");
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
-                        "http://192.168.219.50:8089/join",
+                        "http://192.168.219.52:8089/join",
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
