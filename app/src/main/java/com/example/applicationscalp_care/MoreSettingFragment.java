@@ -33,6 +33,7 @@ public class MoreSettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMoreSettingBinding.inflate(inflater, container, false);
+        queue=Volley.newRequestQueue(getContext());
 
         // 회원가입 정보 보내기
         binding.test.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +42,7 @@ public class MoreSettingFragment extends Fragment {
                 Log.d("ClickEvent","클릭 확인됨");
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
-                        "http://10.0.2.2:8080/join",
+                        "http://192.168.219.50:8089/join",
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
