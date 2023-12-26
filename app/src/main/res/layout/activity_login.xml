@@ -8,7 +8,7 @@
     tools:context=".LoginActivity">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_loginGuest"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="68dp"
@@ -16,13 +16,13 @@
         android:text="비회원 계속하기"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="@+id/btn_loginGoogle"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintStart_toStartOf="@+id/btn_loginGoogle"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loginGoogle" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_loginGoogle"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
@@ -35,15 +35,15 @@
         app:iconGravity="end"
         app:iconSize="30dp"
         app:iconTintMode="multiply"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/btn_loginNaver"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/btn_loginNaver"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loginNaver"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_loginNaver"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
@@ -62,9 +62,8 @@
     <Button
         android:id="@+id/btn_loginkakao"
         android:layout_width="300dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="306dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#FAFF00"
         android:text="카카오톡"
         android:textAlignment="viewStart"
@@ -73,14 +72,13 @@
         app:icon="@drawable/kakaotalk"
         app:iconGravity="end"
         app:iconSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/Login_img"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintStart_toStartOf="@+id/Login_img"
+        app:layout_constraintTop_toBottomOf="@+id/Login_img" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/Login_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -90,43 +88,49 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_sero" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="78dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btn_loginkakao"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/LoginOn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
 
         <ImageView
             android:id="@+id/image_profile"
             android:layout_width="200dp"
-            android:layout_height="200dp" />
+            android:layout_height="200dp"
+            android:layout_marginStart="106dp"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="105dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginTop="20dp"
+            android:text="asdfasdfsadf"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/image_profile"
+            app:layout_constraintStart_toStartOf="@+id/image_profile"
+            app:layout_constraintTop_toBottomOf="@+id/image_profile" />
 
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="로그아웃"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:text="로그아웃"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/text_nickname"
+            app:layout_constraintStart_toStartOf="@+id/text_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/text_nickname"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
