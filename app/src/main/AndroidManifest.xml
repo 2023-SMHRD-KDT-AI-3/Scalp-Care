@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- 인터넷 권한 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".KakaoSdkLoginActivity"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,6 +18,9 @@
         android:theme="@style/Theme.ApplicationScalp_care"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".KakaoSdkLoginActivity"
+            android:exported="false" />
         <activity
             android:name=".care.BoardWriteActivity"
             android:exported="false" />
@@ -36,6 +42,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--kakao-->
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao621eb78ca49236a6c13983164f426d08" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
