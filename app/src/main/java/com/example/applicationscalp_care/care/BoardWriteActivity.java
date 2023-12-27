@@ -125,7 +125,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                 
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
-                        "http://192.168.219.52:8089/Boardsave",
+                        "http://192.168.219.50:8089/Boardsave",
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {

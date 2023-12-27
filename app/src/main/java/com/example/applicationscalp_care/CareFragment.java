@@ -50,7 +50,9 @@ public class CareFragment extends Fragment {
         if (queue == null) {
             queue = Volley.newRequestQueue(requireContext());
         }
+
         getBoardData();
+
         // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
         binding.BoardRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.BoardRv.setAdapter(adapter);
@@ -70,21 +72,34 @@ public class CareFragment extends Fragment {
 
     // 정보 가져와야함
     public void getBoardData() {
+        Log.d("CareActivity","데이터 가져올래요!");
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.52:8089/Boardview",
+                "http://192.168.219.50:8089/Boardview",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        Log.d("CareActivity","데이터 가져오나 확인 : " + response);
                         try {
+                            if(response == null){
+                                binding.errorImg.setVisibility(View.VISIBLE);
+                            }else{
+                                binding.errorImg.setVisibility(View.GONE);
+                            }
+                            // JsonArray(List<String>)
                             JSONArray jsonArray = new JSONArray(response);
-                            Log.d("qwer", jsonArray.toString());
+                            Log.d("qwer1", jsonArray.toString());
 
                             // 파싱한 데이터를 데이터셋에 추가
                             for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                Log.d("qwer", jsonObject.toString());
+                                Log.d("CareActivity","여기까진 오는건가?");
+
+                                String JsonItemString = jsonArray.getString(i);
+                                // Json(String) → 객체화
+                                JSONObject jsonObject = new JSONObject(JsonItemString);
+
+                                Log.d("qwer2", jsonObject.toString());
+
                                 // 각 필요한 데이터를 추출
                                 String indate = jsonObject.getString("indate");
                                 String content = jsonObject.getString("content");
@@ -93,19 +108,23 @@ public class CareFragment extends Fragment {
                                 // 데이터셋에 추가
                                 dataset.add(new BoardVO(indate, content, img));
 
+
+
                             }
 
                             // 어댑터에 데이터셋 변경을 알림
                             adapter.notifyDataSetChanged();
 
                         } catch (JSONException e) {
+                            Log.d("CareActivity","여기 문제있어요1111!");
+                            Log.d("CareActivity",e.toString());
                             throw new RuntimeException(e);
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.d("CareActivity","여기 문제있어요2222!");
             }
         }
         );
