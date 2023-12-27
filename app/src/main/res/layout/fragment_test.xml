@@ -6,27 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".TestFragment">
 
+    <ImageView
+        android:id="@+id/scalpLogo2"
+        android:layout_width="141dp"
+        android:layout_height="48dp"
+        android:src="@drawable/white_garo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-1dp" />
+
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/scalpLogo2"
-                android:layout_width="141dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/white_garo" />
 
             <LinearLayout
                 android:layout_width="330dp"
@@ -88,10 +92,10 @@
             <View
                 android:id="@+id/divider"
                 android:layout_width="409dp"
-                android:layout_height="3dp"
+                android:layout_height="14dp"
                 android:layout_marginTop="28dp"
                 android:layout_marginBottom="28dp"
-                android:background="@color/grayBg" />
+                android:background="@color/white" />
 
             <LinearLayout
                 android:layout_width="330dp"
@@ -148,5 +152,14 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="381dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="16dp"
+        android:text="이 검사는 의료 진단이 아닌 병원에서 수집된 데이터를 기반으로 제작된 AI검사입니다. 상세한 검사는 의료기관을 방문해 주세요"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="44dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
