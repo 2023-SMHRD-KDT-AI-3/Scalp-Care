@@ -47,4 +47,7 @@
     <string name="btnLogout">로그아웃</string>
     <string name="btntaltwe">회원탈퇴</string>
 
+    <!--  fragment_information.xml  -->
+
+
 </resources>
