@@ -140,7 +140,7 @@
                         android:textStyle="bold"
                         app:cornerRadius="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.855"
+                        app:layout_constraintHorizontal_bias="0.868"
                         app:layout_constraintStart_toStartOf="@+id/textView13"
                         app:layout_constraintTop_toBottomOf="@+id/textView13" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
