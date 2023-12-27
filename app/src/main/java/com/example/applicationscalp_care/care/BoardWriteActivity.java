@@ -4,6 +4,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -12,17 +13,28 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BoardWriteActivity extends AppCompatActivity {
 
     private ActivityBoardWriteBinding binding;
+    private RequestQueue queue;
 
     // 연결 해야함
 
@@ -90,6 +102,47 @@ public class BoardWriteActivity extends AppCompatActivity {
 
             // 종료
             finish();
+
+
+        });
+
+        queue= Volley.newRequestQueue(this);
+
+        // 저장하기 버튼
+        binding.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("ClickEvent","클릭 확인됨");
+                StringRequest request = new StringRequest(
+                        Request.Method.POST,
+                        "http://192.168.219.52:8089/Boardsave",
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Log.d("responseCheck",response);
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d("responseCheck","errrrrrrrrrrrrrrrrrrror");
+
+                            }
+                        }
+                ){
+                    @Nullable
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> params = new HashMap<>();
+                        params.put("b_content","content");
+                        params.put("b_img","img");
+
+                        return params;
+
+                    }
+                };
+                queue.add(request);
+            }
         });
 
         // activity_board_write.xml에 있는 플러스 이미지 클릭시, 앨범을 띄우는 기능
