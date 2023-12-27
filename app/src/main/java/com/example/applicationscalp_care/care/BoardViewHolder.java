@@ -22,7 +22,8 @@ public class BoardViewHolder extends RecyclerView.ViewHolder implements View.OnC
         // View 객체 초기화
         this.tvTime = itemView.findViewById(R.id.tvTime);
         this.tvContent = itemView.findViewById(R.id.tvContent);
-        itemView.setOnClickListener(this);
+
+        itemView.setOnClickListener(this::onClick);
     }
 
     // View 객체를 접근할 수 있는 getter 생성
