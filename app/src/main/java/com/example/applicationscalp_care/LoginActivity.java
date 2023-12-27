@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 //oAuthToken != null 이라면 로그인 성공
                 if(oAuthToken!=null){
                     // 토큰이 전달된다면 로그인이 성공한 것이고 토큰이 전달되지 않으면 로그인 실패한다.
-                    // updateKakaoLoginUi();
+                    updateKakaoLoginUi();
 
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
