@@ -26,7 +26,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class CareFragment extends Fragment {
 
@@ -36,7 +40,6 @@ public class CareFragment extends Fragment {
     private ArrayList<BoardVO> dataset = null;
     private ArrayList<String> keyset = null;
     private BoardAdapter adapter = null;
-
     private RequestQueue queue;
 
     @Override
@@ -70,7 +73,21 @@ public class CareFragment extends Fragment {
 
     }
 
-    // 정보 가져와야함
+    // 어댑터에서 사용할 날짜 형식 메서드
+    private String formatIndate(String indateString) {
+        try {
+            long indateValue = Long.parseLong(indateString);
+            Date indateDate = new Date(indateValue);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm", Locale.getDefault());
+            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+            return sdf.format(indateDate);
+        } catch (NumberFormatException e) {
+            Log.e("CareActivity", "날짜 파싱 오류: " + e.getMessage());
+            return indateString; // 변환이 실패하면 원본 문자열 반환
+        }
+    }
+
+    // 게시판 출력
     public void getBoardData() {
         Log.d("CareActivity","데이터 가져올래요!");
         StringRequest request = new StringRequest(
@@ -83,8 +100,10 @@ public class CareFragment extends Fragment {
                         try {
                             if(response == null){
                                 binding.errorImg.setVisibility(View.VISIBLE);
+                                binding.errorMsg.setVisibility(View.VISIBLE);
                             }else{
                                 binding.errorImg.setVisibility(View.GONE);
+                                binding.errorMsg.setVisibility(View.GONE);
                             }
                             // JsonArray(List<String>)
                             JSONArray jsonArray = new JSONArray(response);
@@ -101,7 +120,7 @@ public class CareFragment extends Fragment {
                                 Log.d("qwer2", jsonObject.toString());
 
                                 // 각 필요한 데이터를 추출
-                                String indate = jsonObject.getString("indate");
+                                String indate = CareFragment.this.formatIndate(jsonObject.getString("indate"));
                                 String content = jsonObject.getString("content");
                                 String img = jsonObject.getString("img");
 
@@ -120,6 +139,7 @@ public class CareFragment extends Fragment {
                             Log.d("CareActivity",e.toString());
                             throw new RuntimeException(e);
                         }
+
                     }
                 }, new Response.ErrorListener() {
             @Override

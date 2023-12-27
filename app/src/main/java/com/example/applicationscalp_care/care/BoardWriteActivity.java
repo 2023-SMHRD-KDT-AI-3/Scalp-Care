@@ -33,6 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 public class BoardWriteActivity extends AppCompatActivity {
 
@@ -80,6 +81,15 @@ public class BoardWriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityBoardWriteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // 현재 일자 가져옴
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY.MM.dd HH:mm");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+        long currentTimeMillis = System.currentTimeMillis();
+        Date currentDate = new Date(currentTimeMillis);
+        String currentTime = dateFormat.format(currentDate);
+        binding.tvBoardTime.setText(currentTime);
+
 
         binding.tvBack.setOnClickListener(v -> {
             finish();

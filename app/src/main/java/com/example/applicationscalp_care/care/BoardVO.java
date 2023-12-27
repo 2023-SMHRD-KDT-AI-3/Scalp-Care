@@ -1,5 +1,9 @@
 package com.example.applicationscalp_care.care;
 
+import org.json.JSONObject;
+
+import java.util.Date;
+
 public class BoardVO {
 
     // 객체 생성
@@ -23,6 +27,7 @@ public class BoardVO {
         this.content = content;
         this.img = img;
     }
+
 
     // getter 생성
     public String getIndate() {
