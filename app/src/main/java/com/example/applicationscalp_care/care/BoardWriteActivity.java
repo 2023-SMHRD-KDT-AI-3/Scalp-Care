@@ -8,7 +8,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.applicationscalp_care.CareFragment;
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
 
@@ -108,11 +111,18 @@ public class BoardWriteActivity extends AppCompatActivity {
 
         queue= Volley.newRequestQueue(this);
 
-        // 저장하기 버튼
+        // 저장하기 버튼을 누를시 작동
         binding.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("ClickEvent","클릭 확인됨");
+
+                SharedPreferences autoLogin = getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
+                String ucUid = autoLogin.getString("uid","null");
+
+                String content = binding.edtTvContent.getText().toString();
+                String img = binding.imgContent.getDrawable().toString();
+                
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
                         "http://192.168.219.52:8089/Boardsave",
@@ -134,14 +144,17 @@ public class BoardWriteActivity extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
-                        params.put("b_content","content");
-                        params.put("b_img","img");
+                        params.put("content",content);
+                        params.put("img",img);
+                        params.put("ucUid",ucUid);
 
                         return params;
 
                     }
                 };
                 queue.add(request);
+
+                finish();
             }
         });
 

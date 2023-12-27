@@ -3,7 +3,7 @@ package com.example.applicationscalp_care.care;
 public class BoardVO {
 
     // 객체 생성
-    private String time;
+    private String indate;
     private String content;
     private String img;
     private String uid;
@@ -11,16 +11,22 @@ public class BoardVO {
     // 생성자 생성
     public BoardVO(){}
 
-    public BoardVO(String time, String content, String img, String uid) {
-        this.time = time;
+    public BoardVO(String indate, String content, String img, String uid) {
+        this.indate = indate;
         this.content = content;
         this.img = img;
         this.uid = uid;
     }
 
+    public BoardVO(String indate, String content, String img) {
+        this.indate = indate;
+        this.content = content;
+        this.img = img;
+    }
+
     // getter 생성
-    public String getTime() {
-        return time;
+    public String getIndate() {
+        return indate;
     }
 
     public String getContent() {
