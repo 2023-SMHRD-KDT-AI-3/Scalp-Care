@@ -23,6 +23,7 @@
     <string name="tvHairTest">헤어스타일 AI 추천</string>
     <string name="tvHairInfo">사진을 찍고 \n 헤어스타일을 추천 받으세요!</string>
     <string name="btnHairTest">검사하기</string>
+    <string name="tvNotPro">이 검사는 의료 진단이 아닌 병원에서 \n 수집된 데이터를 기반으로 제작된 AI검사입니다. 상세한 검사는 \n 의료기관을 방문해 주세요.</string>
 
     <!--  fragment_care.xml  -->
     <string name="btnVsImg">두피 비교하기</string>
