@@ -57,11 +57,36 @@
 
     <ImageView
         android:id="@+id/btnAddBoard"
-        android:layout_width="51dp"
-        android:layout_height="49dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
-        android:src="@drawable/plus_icon"
+        android:src="@drawable/filled_add_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="264dp"
+        android:src="@drawable/error_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="등록된 게시물이 없습니다!"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintStart_toStartOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        tools:visibility="invisible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
