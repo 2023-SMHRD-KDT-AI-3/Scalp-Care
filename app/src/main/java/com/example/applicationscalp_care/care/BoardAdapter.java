@@ -34,13 +34,13 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> {
 
     @Override //  RecyclerView의 각 항목에 대한 데이터를 결합하고 해당 데이터를 화면에 표시하는 기능
     public void onBindViewHolder(@NonNull BoardViewHolder holder, int position) {
-        String time = dataset.get(position).getTime();
+        String indate = dataset.get(position).getIndate();
         String content = dataset.get(position).getContent();
         String uid = dataset.get(position).getUid();
 
         BoardVO vo = dataset.get(position);
 
-        holder.getTvTime().setText(vo.getTime());
+        holder.getTvTime().setText(vo.getIndate());
         holder.getTvContent().setText(vo.getContent());
 
         holder.listener = new BoardItemListener() {
@@ -48,7 +48,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> {
             public void BoardClickListener(View v, int position) {
                 Intent intent = new Intent(v.getContext(), BoardInsideActivity.class);
 
-                intent.putExtra("time", vo.getTime());
+                intent.putExtra("indate", vo.getIndate());
                 intent.putExtra("content", vo.getContent());
                 intent.putExtra("key", keyset.get(position));
 

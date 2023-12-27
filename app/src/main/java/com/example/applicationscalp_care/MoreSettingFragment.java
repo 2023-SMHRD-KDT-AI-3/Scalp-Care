@@ -41,6 +41,8 @@ public class MoreSettingFragment extends Fragment {
         SharedPreferences autoLogin = getActivity().getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
         String img = autoLogin.getString("img","null");
         String name = autoLogin.getString("name","guest");
+
+
         Glide.with(binding.imvCircularWithStroke).load(img).circleCrop().into(binding.imvCircularWithStroke);
         binding.userName.setText(name);
 
