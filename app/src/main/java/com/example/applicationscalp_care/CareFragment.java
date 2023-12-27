@@ -6,14 +6,25 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.applicationscalp_care.care.BoardAdapter;
 import com.example.applicationscalp_care.care.BoardVO;
 import com.example.applicationscalp_care.care.BoardWriteActivity;
 import com.example.applicationscalp_care.databinding.FragmentCareBinding;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -26,6 +37,8 @@ public class CareFragment extends Fragment {
     private ArrayList<String> keyset = null;
     private BoardAdapter adapter = null;
 
+    private RequestQueue queue;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,7 +47,10 @@ public class CareFragment extends Fragment {
         dataset = new ArrayList<>();
         keyset = new ArrayList<>();
         adapter = new BoardAdapter( dataset, keyset );
-
+        if (queue == null) {
+            queue = Volley.newRequestQueue(requireContext());
+        }
+        getBoardData();
         // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
         binding.BoardRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.BoardRv.setAdapter(adapter);
@@ -46,14 +62,55 @@ public class CareFragment extends Fragment {
         });
         // root 리턴
         return binding.getRoot();
+
+
+
+
     }
 
     // 정보 가져와야함
+    public void getBoardData() {
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                "http://192.168.219.52:8089/Boardview",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
+                        try {
+                            JSONArray jsonArray = new JSONArray(response);
+                            Log.d("qwer", jsonArray.toString());
 
+                            // 파싱한 데이터를 데이터셋에 추가
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                Log.d("qwer", jsonObject.toString());
+                                // 각 필요한 데이터를 추출
+                                String indate = jsonObject.getString("indate");
+                                String content = jsonObject.getString("content");
+                                String img = jsonObject.getString("img");
 
+                                // 데이터셋에 추가
+                                dataset.add(new BoardVO(indate, content, img));
 
+                            }
 
+                            // 어댑터에 데이터셋 변경을 알림
+                            adapter.notifyDataSetChanged();
 
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        );
+        queue.add(request);
+
+    }
 
 }
