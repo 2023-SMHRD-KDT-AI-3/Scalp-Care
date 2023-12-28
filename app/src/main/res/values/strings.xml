@@ -47,7 +47,8 @@
     <string name="btnLogout">로그아웃</string>
     <string name="btntaltwe">회원탈퇴</string>
 
-    <!--  fragment_information.xml  -->
-
+    <!--  activity_info_inside.xml  -->
+    <string name="edtHintDetgul">댓글을 입력하세요.</string>
+    <string name="btndetgul">등록</string>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.applicationscalp_care;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
