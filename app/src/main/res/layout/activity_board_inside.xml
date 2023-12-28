@@ -30,7 +30,7 @@
                 android:layout_height="80dp"
                 android:background="#F3ECEC"
                 android:gravity="center"
-                android:text="오늘의 두피일기"
+                android:text="두피일기"
                 android:textSize="24sp" />
 
             <TextView

@@ -1,6 +1,7 @@
 package com.example.applicationscalp_care.care;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,13 +47,13 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> {
         holder.listener = new BoardItemListener() {
             @Override
             public void BoardClickListener(View v, int position) {
-                Intent intent = new Intent(v.getContext(), BoardInsideActivity.class);
+                    Intent intent = new Intent(v.getContext(), BoardInsideActivity.class);
 
-                intent.putExtra("indate", vo.getIndate());
-                intent.putExtra("content", vo.getContent());
-                intent.putExtra("key", keyset.get(position));
+                    intent.putExtra("indate", vo.getIndate());
+                    intent.putExtra("content", vo.getContent());
 
-                v.getContext().startActivity(intent);
+                    v.getContext().startActivity(intent);
+
             }
         };
     }
