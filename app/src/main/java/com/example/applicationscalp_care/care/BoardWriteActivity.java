@@ -12,13 +12,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
@@ -33,7 +29,6 @@ import com.example.applicationscalp_care.CareFragment;
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
 
-import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -116,11 +111,10 @@ public class BoardWriteActivity extends AppCompatActivity {
 
                 String content = binding.edtTvContent.getText().toString();
                 String img = binding.imgContent.getDrawable().toString();
-                //String img = encodeImageToBase64(binding.imgContent.getDrawable());
                 
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
-                        "http://192.168.219.52:8089/Boardsave",
+                        "http://192.168.219.50:8089/Boardsave",
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
@@ -143,9 +137,6 @@ public class BoardWriteActivity extends AppCompatActivity {
                         params.put("img",img);
                         params.put("ucUid",ucUid);
 
-                        // 추가
-                        Log.d("RequestParams", params.toString());
-
                         return params;
 
                     }
@@ -154,31 +145,6 @@ public class BoardWriteActivity extends AppCompatActivity {
 
                 finish();
             }
-
-
-//            private String encodeImageToBase64(Drawable drawable) {
-//                Bitmap bitmap = getBitmapFromDrawable(drawable);
-//                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-//                byte[] byteArray = byteArrayOutputStream.toByteArray();
-//                return Base64.encodeToString(byteArray, Base64.DEFAULT);
-//            }
-//
-//            private Bitmap getBitmapFromDrawable(Drawable drawable) {
-//                if (drawable instanceof BitmapDrawable) {
-//                    return ((BitmapDrawable) drawable).getBitmap();
-//                } else {
-//                    Bitmap bitmap = Bitmap.createBitmap(
-//                            drawable.getIntrinsicWidth(),
-//                            drawable.getIntrinsicHeight(),
-//                            Bitmap.Config.ARGB_8888
-//                    );
-//                    Canvas canvas = new Canvas(bitmap);
-//                    drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-//                    drawable.draw(canvas);
-//                    return bitmap;
-//                }
-//            }
         });
 
         // activity_board_write.xml에 있는 플러스 이미지 클릭시, 앨범을 띄우는 기능
