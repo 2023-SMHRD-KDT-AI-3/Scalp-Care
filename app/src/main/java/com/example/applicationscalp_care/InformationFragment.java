@@ -84,7 +84,7 @@ public class InformationFragment extends Fragment {
         Log.d("InfoFragment", "데이터 가져올래요!제발");
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.55:8089/Newsview",
+                "http://192.168.219.50:8089/Newsview",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
