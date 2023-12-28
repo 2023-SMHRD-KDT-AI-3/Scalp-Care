@@ -115,7 +115,7 @@
     <TextView
         android:id="@+id/editTextText2"
         android:layout_width="0dp"
-        android:layout_height="155dp"
+        android:layout_height="250dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/corner_round"
         android:ems="10"
@@ -131,8 +131,8 @@
 
     <ImageView
         android:id="@+id/imgContent"
-        android:layout_width="310dp"
-        android:layout_height="135dp"
+        android:layout_width="300dp"
+        android:layout_height="230dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintStart_toStartOf="@+id/textView9"
