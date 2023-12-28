@@ -150,6 +150,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/InfoRv"
         android:layout_width="409dp"
         android:layout_height="358dp"
         app:layout_constraintBottom_toBottomOf="parent"

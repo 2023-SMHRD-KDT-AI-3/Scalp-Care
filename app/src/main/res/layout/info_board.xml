@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvInfoSub"
+        android:id="@+id/tvInfoContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvInfoTitle" />
 
     <TextView
-        android:id="@+id/tvInfoView"
+        android:id="@+id/tvInfoViews"
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:layout_marginLeft="2dp"
@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toStartOf="@+id/imageView8"
         app:layout_constraintHorizontal_bias="0.677"
-        app:layout_constraintStart_toStartOf="@+id/tvInfoDate"
+        app:layout_constraintStart_toStartOf="@+id/tvInfoIndate"
         app:layout_constraintTop_toTopOf="@+id/imageView9"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -66,11 +66,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfoSub"
+        app:layout_constraintTop_toBottomOf="@+id/tvInfoContent"
         app:layout_constraintVertical_bias="0.933" />
 
     <TextView
-        android:id="@+id/tvInfoDate"
+        android:id="@+id/tvInfoIndate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2023.00.00"
@@ -87,9 +87,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/tvInfoView"
+        app:layout_constraintEnd_toStartOf="@+id/tvInfoViews"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tvInfoSub"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfoDate"
+        app:layout_constraintStart_toEndOf="@+id/tvInfoContent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInfoIndate"
         app:srcCompat="@drawable/view_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
