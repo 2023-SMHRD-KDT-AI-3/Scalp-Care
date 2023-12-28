@@ -36,20 +36,20 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoViewHolder> {
     public void onBindViewHolder(@NonNull InfoViewHolder holder, int position) {
         InfoVO vo = dataset.get(position);
 
-        holder.getTvInfoTitle().setText(vo.getInfotitle());
-        holder.getTvInfoSub().setText(vo.getInfosub());
-        holder.getTvInfoView().setText(vo.getInfoview());
-        holder.getTvInfoDate().setText(vo.getInfoindate());
+        holder.getTvInfoTitle().setText(vo.getTitle());
+        holder.getTvInfoContent().setText(vo.getContent());
+        holder.getTvInfoViews().setText(vo.getViews());
+        holder.getTvInfoIndate().setText(vo.getIndate());
 
         holder.listener = new InfoItemListener() {
             @Override
             public void InfoClickListener(View v, int position) {
                 Intent intent = new Intent(v.getContext(), InfoInsideActivity.class);
 
-                intent.putExtra("title", vo.getInfotitle());
-                intent.putExtra("sub", vo.getInfosub());
-                intent.putExtra("view", vo.getInfoview());
-                intent.putExtra("indate", vo.getInfoindate());
+                intent.putExtra("title", vo.getTitle());
+                intent.putExtra("content", vo.getContent());
+                intent.putExtra("views", vo.getViews());
+                intent.putExtra("indate", vo.getIndate());
                 intent.putExtra("key", keyset.get(position));
 
                 v.getContext().startActivity(intent);

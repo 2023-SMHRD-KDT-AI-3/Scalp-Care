@@ -55,6 +55,8 @@ public class InformationFragment extends Fragment {
             queue = Volley.newRequestQueue(requireContext());
         }
 
+        getInfoData();
+
         // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
         binding.InfoRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.InfoRv.setAdapter(adapter);
@@ -68,7 +70,7 @@ public class InformationFragment extends Fragment {
         try {
             long indateValue = Long.parseLong(indateString);
             Date indateDate = new Date(indateValue);
-            SimpleDateFormat sdf = new SimpleDateFormat("YYYY년 MM월 dd일", Locale.getDefault());
+            SimpleDateFormat sdf = new SimpleDateFormat("YYYY.MM.dd", Locale.getDefault());
             sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
             return sdf.format(indateDate);
         } catch (NumberFormatException e) {
@@ -82,7 +84,7 @@ public class InformationFragment extends Fragment {
         Log.d("InfoFragment", "데이터 가져올래요!제발");
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.50:8089/Newsview",
+                "http://192.168.219.55:8089/Newsview",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -104,12 +106,12 @@ public class InformationFragment extends Fragment {
 
                                 // 각 필요한 데이터를 추출
                                 String title = jsonObject.getString("title");
-                                String sub = jsonObject.getString("sub");
-                                String view = jsonObject.getString("view");
+                                String content = jsonObject.getString("content");
+                                String views = jsonObject.getString("views");
                                 String indate = InformationFragment.this.formatIndate(jsonObject.getString("indate"));
 
                                 // 데이터셋에 추가
-                                dataset.add(new InfoVO(title, sub, view, indate));
+                                dataset.add(new InfoVO(title, content, views, indate));
                             }
 
                             // 어댑터에 데이터셋 변경을 알림
