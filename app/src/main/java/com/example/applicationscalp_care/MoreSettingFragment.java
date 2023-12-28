@@ -2,6 +2,7 @@ package com.example.applicationscalp_care;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -23,9 +24,13 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.applicationscalp_care.databinding.FragmentCareBinding;
 import com.example.applicationscalp_care.databinding.FragmentMoreSettingBinding;
+import com.kakao.sdk.user.UserApiClient;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class MoreSettingFragment extends Fragment {
 
@@ -42,9 +47,32 @@ public class MoreSettingFragment extends Fragment {
         String img = autoLogin.getString("img","null");
         String name = autoLogin.getString("name","guest");
 
-
+        // 회원 이름 및 이미지 세팅
         Glide.with(binding.imvCircularWithStroke).load(img).circleCrop().into(binding.imvCircularWithStroke);
         binding.userName.setText(name);
+
+        binding.test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
+                    @Override
+                    public Unit invoke(Throwable throwable) {
+                        SharedPreferences autoLogin = getActivity().getSharedPreferences("autoLogin", Activity.MODE_PRIVATE);
+                        SharedPreferences.Editor autoLoginEdit = autoLogin.edit();
+                        autoLoginEdit.clear();
+                        autoLoginEdit.commit();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
+                        return null;
+                    }
+                });
+
+
+
+
+
+            }
+        });
 
 
 
