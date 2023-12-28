@@ -82,8 +82,8 @@ public class BoardWriteActivity extends AppCompatActivity {
         binding = ActivityBoardWriteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // 현재 일자 가져옴
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY.MM.dd HH:mm");
+        // 게시글 추가페이지에 현재 일자 가져옴
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY년 MM월 dd일 HH:mm");
         dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
         long currentTimeMillis = System.currentTimeMillis();
         Date currentDate = new Date(currentTimeMillis);
@@ -96,27 +96,6 @@ public class BoardWriteActivity extends AppCompatActivity {
         });
         binding.imgBack.setOnClickListener(v -> {
             finish();
-        });
-
-
-        // 관리 페이지 플러스 이미지 누를 시 작동
-        binding.btnAdd.setOnClickListener(v -> {
-
-            SimpleDateFormat format = new SimpleDateFormat("YYYY.MM.dd HH:mm");
-            long now = System.currentTimeMillis();
-            Date today = new Date(now);
-
-            // 날짜(시간), 내용, Uid(사용자 구별 값)
-            String time = format.format(today);
-            String content = binding.edtTvContent.getText().toString();
-            // Uid 추가해야함
-
-            // 이미지 저장
-
-            // 종료
-            finish();
-
-
         });
 
         queue= Volley.newRequestQueue(this);
