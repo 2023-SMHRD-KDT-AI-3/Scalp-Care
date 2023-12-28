@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -20,18 +21,20 @@ public class SplashActivity extends AppCompatActivity {
 
             SharedPreferences autoLogin = getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
             String uid = autoLogin.getString("uid","null");
+
             @Override
             public void run() {
+                Log.d("SplashActivity",uid);
+                Intent intent;
                 // 로그인이 안되어 있으면 LoginActivity로 이동
                 if(uid.equals("null")) {
-                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);
+                    intent = new Intent(SplashActivity.this, LoginActivity.class);
 
                 // 로그인이 되어 있으면 MainActivity로 이동
                 }else{
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    intent = new Intent(SplashActivity.this, MainActivity.class);
                 }
+                startActivity(intent);
                 finish();
             }
         }, 3000);

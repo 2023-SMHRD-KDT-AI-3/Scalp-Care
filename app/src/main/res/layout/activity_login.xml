@@ -81,56 +81,11 @@
         android:id="@+id/Login_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_sero" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/LoginOn"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="invisible">
-
-        <ImageView
-            android:id="@+id/image_profile"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="106dp"
-            android:layout_marginTop="96dp"
-            android:layout_marginEnd="105dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_nickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="20dp"
-            android:text="asdfasdfsadf"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/image_profile"
-            app:layout_constraintStart_toStartOf="@+id/image_profile"
-            app:layout_constraintTop_toBottomOf="@+id/image_profile" />
-
-        <Button
-            android:id="@+id/btn_logout"
-            android:layout_width="300dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="12dp"
-            android:text="로그아웃"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/text_nickname"
-            app:layout_constraintStart_toStartOf="@+id/text_nickname"
-            app:layout_constraintTop_toBottomOf="@+id/text_nickname"
-            app:layout_constraintVertical_bias="0.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

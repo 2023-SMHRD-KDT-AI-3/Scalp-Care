@@ -32,5 +32,13 @@ public class BoardInsideActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(img)
                 .into(binding.imgContent);
+
+        // 뒤로가기
+        binding.tvBack2.setOnClickListener(v ->{
+            finish();
+        });
+        binding.imgBack2.setOnClickListener(v ->{
+            finish();
+        });
     }
 }

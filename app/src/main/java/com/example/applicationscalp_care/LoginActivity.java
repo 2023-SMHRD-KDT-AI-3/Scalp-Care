@@ -58,9 +58,9 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("KeyHash: ", keyHash);
 
         loginButton = findViewById(R.id.btn_loginkakao);
-        nickName = findViewById(R.id.text_nickname);
-        profileImage = findViewById(R.id.image_profile);
-        logoutButton = findViewById(R.id.btn_logout);
+//        nickName = findViewById(R.id.text_nickname);
+//        profileImage = findViewById(R.id.image_profile);
+//        logoutButton = findViewById(R.id.btn_logout);
 
         // 카카오톡이 설치되어 있는지 확인하는 메서드 , 카카오에서 제공함. 콜백 객체를 이용합.
         Function2<OAuthToken,Throwable, Unit> callback =new Function2<OAuthToken, Throwable, Unit>() {
