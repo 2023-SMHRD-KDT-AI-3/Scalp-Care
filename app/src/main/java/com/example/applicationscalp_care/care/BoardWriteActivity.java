@@ -12,11 +12,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,6 +32,8 @@ import com.example.applicationscalp_care.CareFragment;
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
 
+import java.io.ByteArrayOutputStream;
+import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -109,8 +114,18 @@ public class BoardWriteActivity extends AppCompatActivity {
                 SharedPreferences autoLogin = getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
                 String ucUid = autoLogin.getString("uid","null");
 
+                // img → bitmap → base64(String)
                 String content = binding.edtTvContent.getText().toString();
-                String img = binding.imgContent.getDrawable().toString();
+                BitmapDrawable drawable =(BitmapDrawable)binding.imgContent.getDrawable();
+                Bitmap bitmap = drawable.getBitmap();
+
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);  // PNG 형식으로 압축
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+
+                String base64_img = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                Log.d("BoardWriteActivity",String.valueOf(base64_img.length()));
+
                 
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
@@ -134,7 +149,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
                         params.put("content",content);
-                        params.put("img",img);
+                        params.put("img",base64_img);
                         params.put("ucUid",ucUid);
 
                         return params;
