@@ -197,7 +197,7 @@
         android:layout_height="30dp"
         android:background="@drawable/circle_white"
         android:padding="3dp"
-        android:src="@drawable/duhbogi_like_icon"
+        android:src="@drawable/duhbogi_logout_icon"
         app:layout_constraintBottom_toBottomOf="@+id/btnLogout"
         app:layout_constraintEnd_toEndOf="@+id/textView16"
         app:layout_constraintStart_toEndOf="@+id/button9"
