@@ -109,10 +109,11 @@ public class InformationFragment extends Fragment {
                                 String title = jsonObject.getString("title");
                                 String content = jsonObject.getString("content");
                                 String views = jsonObject.getString("views");
+                                String img = jsonObject.getString("img");
                                 String indate = InformationFragment.this.formatIndate(jsonObject.getString("indate"));
 
                                 // 데이터셋에 추가
-                                dataset.add(new InfoVO(title, content, views, indate));
+                                dataset.add(new InfoVO(title, content, views, indate, img));
                             }
 
                             // 어댑터에 데이터셋 변경을 알림

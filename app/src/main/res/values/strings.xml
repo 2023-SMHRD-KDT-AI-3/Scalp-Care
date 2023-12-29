@@ -41,10 +41,10 @@
     <string name="tvNim">님</string>
     <string name="btntoGwanlee">본인 기록</string>
     <string name="btntoGumsa">AI 검사</string>
-    <string name="btntoFav">도움돼요</string>
+    <string name="btnLogout">로그아웃</string>
     <string name="btn">회원탈퇴</string>
     <string name="btnsulmoon">탈모 설문조사</string>
-    <string name="btnLogout">로그아웃</string>
+    <string name="btnTeam">팀원 소개</string>
     <string name="btntaltwe">회원탈퇴</string>
 
     <!--  activity_info_inside.xml  -->

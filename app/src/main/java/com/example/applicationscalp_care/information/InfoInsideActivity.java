@@ -22,14 +22,14 @@ public class InfoInsideActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // intent 객체 불러오기
-        Intent intent = getIntent();
+        Intent data = getIntent();
 
         // Intent에 저장된 정보 페이지 정보들을 가져오기
-        String title = intent.getStringExtra("title");
-        String content = intent.getStringExtra("content");
-        String views = intent.getStringExtra("views");
-        String indate = intent.getStringExtra("indate");
-        String img = intent.getStringExtra("img");
+        String title = data.getStringExtra("title");
+        String content = data.getStringExtra("content");
+        String views = data.getStringExtra("views");
+        String indate = data.getStringExtra("indate");
+        String img = data.getStringExtra("img");
 
         // 뒤로가기
         binding.tvBack4.setOnClickListener(v ->{
