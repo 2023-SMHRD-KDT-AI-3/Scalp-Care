@@ -76,7 +76,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnHospital"
                 android:layout_width="330dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"

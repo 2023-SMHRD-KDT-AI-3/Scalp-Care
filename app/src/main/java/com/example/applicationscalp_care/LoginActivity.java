@@ -124,9 +124,13 @@ public class LoginActivity extends AppCompatActivity {
 
     private void insertLogin(String uid, String name, String classes, String email){
         Log.d("LoginActivity","DB저장 함수 실행");
+        Log.d("qwer",uid);
+        Log.d("qwer",name);
+        Log.d("qwer",classes);
+        Log.d("qwer",email);
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.50:8089/join",
+                "http://192.168.219.52:8089/join",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -156,6 +160,18 @@ public class LoginActivity extends AppCompatActivity {
         };
         queue.add(request);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void updateKakaoLoginUi() {
 
