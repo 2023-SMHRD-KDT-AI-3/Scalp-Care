@@ -72,7 +72,7 @@ public class MoreSettingFragment extends Fragment {
 
         // 팀원소개 클릭시 activity_team_sogae.xml 페이지 이동
         binding.btnTeamSogae.setOnClickListener(v ->{
-            Intent intent = new Intent(getActivity(), ActivityTeamSogaeBinding.class);
+            Intent intent = new Intent(getActivity(), TeamSogaeActivity.class);
             startActivity(intent);
         });
 
