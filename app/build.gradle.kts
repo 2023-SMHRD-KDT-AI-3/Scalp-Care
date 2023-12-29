@@ -43,6 +43,8 @@ dependencies {
 
     implementation ("com.kakao.sdk:v2-user:2.12.0") // 카카오 로그인
 
+    implementation (files("libs/libDaumMapAndroid.jar")) // Kakao maps sdk
+
     //Glide 라이브러리 추가
     //:이미지를 효율적으로 빠르게 불러오는 라이브러리
     annotationProcessor("com.github.bumptech.glide:compiler:4.10.0")
