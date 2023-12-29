@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.applicationscalp_care.databinding.ActivityTeamSogaeBinding;
 import com.example.applicationscalp_care.databinding.FragmentCareBinding;
 import com.example.applicationscalp_care.databinding.FragmentMoreSettingBinding;
 import com.kakao.sdk.user.UserApiClient;
@@ -66,14 +67,14 @@ public class MoreSettingFragment extends Fragment {
                         return null;
                     }
                 });
-
-
-
-
-
             }
         });
 
+        // 팀원소개 클릭시 activity_team_sogae.xml 페이지 이동
+        binding.btnTeamSogae.setOnClickListener(v ->{
+            Intent intent = new Intent(getActivity(), ActivityTeamSogaeBinding.class);
+            startActivity(intent);
+        });
 
 
 

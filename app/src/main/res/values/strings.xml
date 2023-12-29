@@ -51,4 +51,17 @@
     <string name="edtHintDetgul">댓글을 입력하세요.</string>
     <string name="btndetgul">등록</string>
 
+    <!--  activity_team_sogae.xml  -->
+    <string name="tvLeader">오장렬</string>
+    <string name="tvTeamjang">팀장</string>
+    <string name="tvTeamwon">팀원</string>
+    <string name="tvTeam1">이동우</string>
+    <string name="tvTeam2">김주영</string>
+    <string name="tvTeam3">박조시아</string>
+
+
+
+
+
+
 </resources>
