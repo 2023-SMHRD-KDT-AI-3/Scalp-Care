@@ -41,6 +41,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoViewHolder> {
         holder.getTvInfoViews().setText(vo.getViews());
         holder.getTvInfoIndate().setText(vo.getIndate());
 
+        // 정보 페이지 게시물 누르면 InfoInsideActivity 이동
         holder.listener = new InfoItemListener() {
             @Override
             public void InfoClickListener(View v, int position) {
@@ -50,6 +51,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoViewHolder> {
                 intent.putExtra("content", vo.getContent());
                 intent.putExtra("views", vo.getViews());
                 intent.putExtra("indate", vo.getIndate());
+                intent.putExtra("img", vo.getImg());
                 intent.putExtra("key", keyset.get(position));
 
                 v.getContext().startActivity(intent);
