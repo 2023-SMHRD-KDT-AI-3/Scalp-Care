@@ -58,7 +58,8 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.484" />
+        app:layout_constraintVertical_bias="0.484"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/btnAddBoard"
@@ -80,7 +81,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="invisible" />
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/errorMsg"
@@ -92,6 +93,6 @@
         app:layout_constraintEnd_toEndOf="@+id/errorImg"
         app:layout_constraintStart_toStartOf="@+id/errorImg"
         app:layout_constraintTop_toBottomOf="@+id/errorImg"
-        tools:visibility="invisible" />
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
