@@ -33,6 +33,11 @@
     <string name="tvBack">뒤로가기</string>
     <string name="tvTitle">게시글 추가</string>
     <string name="tvTime">일자</string>
+    <string name="tvSangtae">상태</string>
+    <string name="btnYangho">양호</string>
+    <string name="btnGyungjung">경증</string>
+    <string name="btnJoongdungdo">중등도</string>
+    <string name="btnJoongjung">중증</string>
     <string name="tvContent">내용</string>
     <string name="hintContent">내용을 입력하세요.</string>
     <string name="btnAdd">저장하기</string>
