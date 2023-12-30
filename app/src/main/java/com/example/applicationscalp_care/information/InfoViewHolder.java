@@ -1,6 +1,7 @@
 package com.example.applicationscalp_care.information;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,6 @@ public class InfoViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     private TextView tvInfoTitle;
     private TextView tvInfoContent;
     private TextView tvInfoViews;
-    private TextView tvInfoIndate;
 
     // 객체 생성
     InfoItemListener listener;
@@ -25,7 +25,6 @@ public class InfoViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         this.tvInfoTitle = itemView.findViewById(R.id.tvInfoTitle);
         this.tvInfoContent = itemView.findViewById(R.id.tvInfoContent);
         this.tvInfoViews = itemView.findViewById(R.id.tvInfoViews);
-        this.tvInfoIndate = itemView.findViewById(R.id.tvInfoIndate);
 
         itemView.setOnClickListener(this::onClick);
     }
@@ -34,7 +33,6 @@ public class InfoViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public TextView getTvInfoTitle() { return tvInfoTitle; }
     public TextView getTvInfoContent() { return tvInfoContent; }
     public TextView getTvInfoViews() { return tvInfoViews; }
-    public TextView getTvInfoIndate() { return tvInfoIndate; }
 
     @Override
     public void onClick(View v) { this.listener.InfoClickListener(v, getLayoutPosition()); }

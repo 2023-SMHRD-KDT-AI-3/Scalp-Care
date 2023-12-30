@@ -8,9 +8,19 @@ public class InfoVO {
     private String views;
     private String indate;
     private String img;
+    private String ac_uid_uid;
 
     // 생성자 생성
     public InfoVO(){}
+
+    public InfoVO(String title, String content, String views, String indate, String img, String ac_uid_uid) {
+        this.title = title;
+        this.content = content;
+        this.views = views;
+        this.indate = indate;
+        this.img = img;
+        this.ac_uid_uid = ac_uid_uid;
+    }
 
     public InfoVO(String title, String content, String views, String indate, String img) {
         this.title = title;
@@ -20,18 +30,12 @@ public class InfoVO {
         this.img = img;
     }
 
-    public InfoVO(String title, String content, String views, String indate) {
-        this.title = title;
-        this.content = content;
-        this.views = views;
-        this.indate = indate;
-    }
-
     // getter 생성
     public String getTitle() { return title; }
     public String getContent() { return content; }
     public String getViews() { return views; }
     public String getIndate() { return indate; }
     public String getImg() { return img; }
+    public String getAc_uid_uid() { return ac_uid_uid; }
 
 }

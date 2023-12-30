@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <!-- 인터넷 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- kakao map -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <!-- 갤러리 접근 권한 -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
@@ -27,6 +29,9 @@
         android:theme="@style/Theme.ApplicationScalp_care"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".TeamSogaeActivity"
+            android:exported="false" />
         <activity
             android:name=".HospitalActivity"
             android:exported="false" />
@@ -70,7 +75,10 @@
                     android:host="oauth"
                     android:scheme="kakao621eb78ca49236a6c13983164f426d08" />
             </intent-filter>
-        </activity>
+        </activity> <!-- kako map -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="621eb78ca49236a6c13983164f426d08" />
     </application>
 
 </manifest>
