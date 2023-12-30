@@ -6,11 +6,15 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -19,7 +23,6 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -28,12 +31,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import com.example.applicationscalp_care.CareFragment;
-import com.example.applicationscalp_care.R;
+import com.example.applicationscalp_care.MainActivity;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
 
 import java.io.ByteArrayOutputStream;
-import java.nio.file.Files;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -110,12 +114,14 @@ public class BoardWriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d("ClickEvent","클릭 확인됨");
+                Log.d("Base64",Base64.class.getPackage().getImplementationVersion());
 
                 SharedPreferences autoLogin = getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
                 String ucUid = autoLogin.getString("uid","null");
 
                 // img → bitmap → base64(String)
                 String content = binding.edtTvContent.getText().toString();
+
                 BitmapDrawable drawable =(BitmapDrawable)binding.imgContent.getDrawable();
                 Bitmap bitmap = drawable.getBitmap();
 
@@ -126,6 +132,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                 String base64_img = Base64.encodeToString(byteArray, Base64.DEFAULT);
                 Log.d("BoardWriteActivity",String.valueOf(base64_img.length()));
 
+
                 
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
@@ -134,6 +141,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 Log.d("responseCheck",response);
+                                finish();
                             }
                         },
                         new Response.ErrorListener() {
@@ -151,6 +159,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                         params.put("content",content);
                         params.put("img",base64_img);
                         params.put("ucUid",ucUid);
+                        params.put("indate",currentTime);
 
                         return params;
 
@@ -158,16 +167,27 @@ public class BoardWriteActivity extends AppCompatActivity {
                 };
                 queue.add(request);
 
-                finish();
             }
         });
 
         // activity_board_write.xml에 있는 플러스 이미지 클릭시, 앨범을 띄우는 기능
         binding.imgContent.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-            intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
-            albumLauncher.launch(intent);
+
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_MEDIA_IMAGES,Manifest.permission.READ_MEDIA_VIDEO}, 1);
+            }else {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
+                albumLauncher.launch(intent);
+            }
         });
+
+        }
+    public void checkPermission(){
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+        }
 
     }
 }
