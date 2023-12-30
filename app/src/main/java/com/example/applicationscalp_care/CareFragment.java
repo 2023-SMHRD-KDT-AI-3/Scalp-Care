@@ -92,7 +92,7 @@ public class CareFragment extends Fragment {
         Log.d("CareActivity","데이터 가져올래요!");
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.55:8089/Boardview",
+                "http://192.168.219.52:8089/Boardview",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

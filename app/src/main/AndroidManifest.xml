@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <!-- 인터넷 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- kakao map -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- kakao map -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -20,6 +19,9 @@
         android:theme="@style/Theme.ApplicationScalp_care"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".kakaomap.CustomToastDialog"
+            android:exported="false" />
         <activity
             android:name=".HospitalActivity"
             android:exported="false" />
@@ -66,8 +68,13 @@
                     android:host="oauth"
                     android:scheme="kakao621eb78ca49236a6c13983164f426d08" />
             </intent-filter>
-        </activity><!--kako map-->
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="621eb78ca49236a6c13983164f426d08" />
+        </activity> <!-- kako map -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="621eb78ca49236a6c13983164f426d08" />
+        <meta-data
+            android:name="com.kakao.sdk.v2.apikey"
+            android:value="9f80969872d8d710bcc5dfc4dd6603c4" />
     </application>
 
 </manifest>
