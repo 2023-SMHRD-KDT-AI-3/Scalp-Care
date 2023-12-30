@@ -50,6 +50,8 @@ public class CareFragment extends Fragment {
         dataset = new ArrayList<>();
         keyset = new ArrayList<>();
         adapter = new BoardAdapter( dataset, keyset );
+
+
         if (queue == null) {
             queue = Volley.newRequestQueue(requireContext());
         }
@@ -65,6 +67,9 @@ public class CareFragment extends Fragment {
             Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
             startActivity(intent);
         });
+
+
+
         // root 리턴
         return binding.getRoot();
 
@@ -96,14 +101,17 @@ public class CareFragment extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("CareActivity","데이터 가져오나 확인 : " + response);
+                        Log.d("CareActivity",response);
                         try {
-                            if(response == null){
+                            if(response.equals("[]")){
                                 binding.errorImg.setVisibility(View.VISIBLE);
                                 binding.errorMsg.setVisibility(View.VISIBLE);
+                                binding.BoardRv.setVisibility(View.GONE);
                             }else{
                                 binding.errorImg.setVisibility(View.GONE);
                                 binding.errorMsg.setVisibility(View.GONE);
+                                binding.BoardRv.setVisibility(View.VISIBLE);
+
                             }
                             // JsonArray(List<String>)
                             JSONArray jsonArray = new JSONArray(response);

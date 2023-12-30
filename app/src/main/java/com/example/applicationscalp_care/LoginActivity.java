@@ -102,22 +102,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-        // 로그아읏 버튼
-//        logoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
-//                    @Override
-//                    public Unit invoke(Throwable throwable) {
-//                        // updateKakaoLoginUi();
-//                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                        return null;
-//                    }
-//                });
-//            }
-//        });
-//
         updateKakaoLoginUi();
 
     }

@@ -22,6 +22,8 @@ public class SplashActivity extends AppCompatActivity {
             SharedPreferences autoLogin = getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
             String uid = autoLogin.getString("uid","null");
 
+
+
             @Override
             public void run() {
                 Log.d("SplashActivity",uid);

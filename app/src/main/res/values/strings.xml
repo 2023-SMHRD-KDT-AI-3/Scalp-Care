@@ -33,6 +33,11 @@
     <string name="tvBack">뒤로가기</string>
     <string name="tvTitle">게시글 추가</string>
     <string name="tvTime">일자</string>
+    <string name="tvSangtae">상태</string>
+    <string name="btnYangho">양호</string>
+    <string name="btnGyungjung">경증</string>
+    <string name="btnJoongdungdo">중등도</string>
+    <string name="btnJoongjung">중증</string>
     <string name="tvContent">내용</string>
     <string name="hintContent">내용을 입력하세요.</string>
     <string name="btnAdd">저장하기</string>
@@ -41,14 +46,23 @@
     <string name="tvNim">님</string>
     <string name="btntoGwanlee">본인 기록</string>
     <string name="btntoGumsa">AI 검사</string>
-    <string name="btntoFav">도움돼요</string>
+    <string name="btnLogout">로그아웃</string>
     <string name="btn">회원탈퇴</string>
     <string name="btnsulmoon">탈모 설문조사</string>
-    <string name="btnLogout">로그아웃</string>
+    <string name="btnTeam">팀원 소개</string>
     <string name="btntaltwe">회원탈퇴</string>
 
     <!--  activity_info_inside.xml  -->
     <string name="edtHintDetgul">댓글을 입력하세요.</string>
     <string name="btndetgul">등록</string>
+
+    <!--  activity_team_sogae.xml  -->
+    <string name="tvLeader">오장렬</string>
+    <string name="tvTeamjang">팀장</string>
+    <string name="tvTeamwon">팀원</string>
+    <string name="tvTeam1">이동우</string>
+    <string name="tvTeam2">김주영</string>
+    <string name="tvTeam3">박조시아</string>
+
 
 </resources>
