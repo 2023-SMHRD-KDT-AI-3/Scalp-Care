@@ -7,85 +7,170 @@
     android:background="@color/white"
     tools:context=".LoginActivity">
 
-    <Button
-        android:id="@+id/btn_loginGuest"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="68dp"
-        android:backgroundTint="@color/grayIcon"
-        android:text="비회원 계속하기"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <View
+        android:id="@+id/divider15"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="60dp"
+        android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="@+id/btn_loginGoogle"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loginGoogle" />
+
+    <View
+        android:id="@+id/divider14"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="15dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toStartOf="@+id/textView40"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btn_loginGoogle"
         app:layout_constraintTop_toBottomOf="@+id/btn_loginGoogle" />
 
-    <Button
-        android:id="@+id/btn_loginGoogle"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="구글"
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:icon="@drawable/google"
-        app:iconGravity="end"
-        app:iconSize="30dp"
-        app:iconTintMode="multiply"
-        app:layout_constraintEnd_toEndOf="@+id/btn_loginNaver"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btn_loginNaver"
-        app:layout_constraintTop_toBottomOf="@+id/btn_loginNaver"
-        app:strokeColor="@color/black"
-        app:strokeWidth="2dp" />
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="또는"
+        android:textColor="@color/grayText"
+        app:layout_constraintEnd_toEndOf="@+id/btn_loginGoogle"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/btn_loginGoogle"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loginGoogle" />
 
-    <Button
+    <ImageView
+        android:id="@+id/Login_img"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/white_sero" />
+
+    <TextView
+        android:id="@+id/btn_loginkakao"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/kakaotalk_login"
+        android:gravity="center"
+        android:text="카카오톡 계정으로 로그인"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/Login_img" />
+
+    <TextView
         android:id="@+id/btn_loginNaver"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#24FF00"
-        android:text="네이버"
-        android:textAlignment="viewStart"
-        android:textSize="20sp"
-        app:icon="@drawable/naver"
-        app:iconGravity="end"
-        app:iconSize="30dp"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/naver_login"
+        android:gravity="center"
+        android:text="네이버 계정으로 로그인"
         app:layout_constraintEnd_toEndOf="@+id/btn_loginkakao"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btn_loginkakao"
         app:layout_constraintTop_toBottomOf="@+id/btn_loginkakao" />
 
-    <Button
-        android:id="@+id/btn_loginkakao"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#FAFF00"
-        android:text="카카오톡"
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:icon="@drawable/kakaotalk"
-        app:iconGravity="end"
-        app:iconSize="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/Login_img"
+    <TextView
+        android:id="@+id/btn_loginGoogle"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/google_login"
+        android:gravity="center"
+        android:text="구글 계정으로 로그인"
+        app:layout_constraintEnd_toEndOf="@+id/btn_loginNaver"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_loginNaver"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loginNaver" />
+
+    <TextView
+        android:id="@+id/btn_loginGuest"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/guest_login"
+        android:gravity="center"
+        android:text="비회원으로 계속하기"
+        android:textColor="@color/grayText"
+        app:layout_constraintEnd_toEndOf="@+id/divider15"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/divider14"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="로그인"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/Login_img"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/Login_img"
         app:layout_constraintTop_toBottomOf="@+id/Login_img" />
 
     <ImageView
-        android:id="@+id/Login_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/white_sero" />
+        android:id="@+id/imageView16"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_loginNaver"
+        app:layout_constraintStart_toStartOf="@+id/btn_loginNaver"
+        app:layout_constraintTop_toTopOf="@+id/btn_loginNaver"
+        app:srcCompat="@drawable/naver_login_icon" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_loginGoogle"
+        app:layout_constraintStart_toStartOf="@+id/btn_loginGoogle"
+        app:layout_constraintTop_toTopOf="@+id/btn_loginGoogle"
+        app:layout_constraintVertical_bias="0.466"
+        app:srcCompat="@drawable/google_login_icon" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_loginkakao"
+        app:layout_constraintStart_toStartOf="@+id/btn_loginkakao"
+        app:layout_constraintTop_toTopOf="@+id/btn_loginkakao"
+        app:srcCompat="@drawable/kakao_login_icon" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_loginGuest"
+        app:layout_constraintStart_toStartOf="@+id/btn_loginGuest"
+        app:layout_constraintTop_toTopOf="@+id/btn_loginGuest"
+        app:layout_constraintVertical_bias="0.466"
+        app:srcCompat="@drawable/img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

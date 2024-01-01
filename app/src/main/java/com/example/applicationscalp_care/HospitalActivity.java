@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,16 +13,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.applicationscalp_care.kakaomap.CustomToastDialog;
+import com.example.applicationscalp_care.kakaomap.KakaoAPI;
+import com.example.applicationscalp_care.kakaomap.Place;
+import com.example.applicationscalp_care.kakaomap.ResultSearchKeyword;
+
 import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
-public class HospitalActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-    private static final int ACCESS_FINE_LOCATION = 1000;
+public class HospitalActivity extends AppCompatActivity implements MapView.POIItemEventListener{
+
+    private static final int ACCESS_FINE_LOCATION = 3000;
+    private static final String API_KEY = "KakaoAK 9f80969872d8d710bcc5dfc4dd6603c4";
     private MapView mapView;
-    MapPoint MARKER_POINT2 = MapPoint.mapPointWithGeoCoord(35.159407, 126.883793);
-    MapPoint MARKER_POINT3 = MapPoint.mapPointWithGeoCoord(35.128063, 126.792336);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,25 +41,13 @@ public class HospitalActivity extends AppCompatActivity {
         mapView = new MapView(this);
         setContentView(mapView);
 
-        if (checkLocationService()) {
-            // GPS가 켜져있을 경우
-            permissionCheck();
-        } else {
-            // GPS가 꺼져있을 경우
-            Toast.makeText(this, "GPS를 켜주세요", Toast.LENGTH_SHORT).show();
-        }
+        // POI 이벤트 리스너 등록
+        mapView.setPOIItemEventListener(this);
+
+        startTracking();
+
     }
 
-    // 위치 권한 확인
-    private void permissionCheck() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_FINE_LOCATION);
-        } else {
-            startTracking();
-        }
-    }
 
     // 권한 요청 후 동작
     @Override
@@ -61,61 +59,142 @@ public class HospitalActivity extends AppCompatActivity {
                 Toast.makeText(this, "위치 권한이 승인되었습니다", Toast.LENGTH_SHORT).show();
                 startTracking();
             } else {
-                // 권한 요청 후 거절됨 (다시 요청 or 토스트)
+                // 권한 요청 후 거절됨
                 Toast.makeText(this, "위치 권한이 거절되었습니다", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    // GPS가 켜져있는지 확인
-    private boolean checkLocationService() {
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        return locationManager != null && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-    }
+
 
     // 현재 위치
     private void startTracking() {
-        mapView.setShowCurrentLocationMarker(true);
-        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (locationManager != null && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            // ACCESS_FINE_LOCATION 권한이 부여되었는지 확인
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                // 권한이 부여 확인 -> 마지막으로 알려진 위치를 가져옴
+                android.location.Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if (location != null) {
+                    double currentLatitude = location.getLatitude();
+                    double currentLongitude = location.getLongitude();
 
-        // 현재 위치로 지도 중심 이동
-        MapPoint currentLocation = mapView.getMapCenterPoint();
-        mapView.setMapCenterPoint(currentLocation, true);
+                    mapView.setShowCurrentLocationMarker(false);
+                    mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeadingWithoutMapMoving);
 
-        // "현재위치" 마커 추가
-        MapPOIItem currentLocationMarker = new MapPOIItem();
-        currentLocationMarker.setItemName("현재위치");
-        currentLocationMarker.setTag(1); // 태그는 유일한 값으로 설정
-        currentLocationMarker.setMapPoint(currentLocation);
-        currentLocationMarker.setMarkerType(MapPOIItem.MarkerType.BluePin);
-        currentLocationMarker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
-        mapView.addPOIItem(currentLocationMarker);
+                    // 현재 위치로 지도 중심 이동
+                     MapPoint currentLocation = MapPoint.mapPointWithGeoCoord(currentLatitude, currentLongitude);
+                     mapView.setMapCenterPoint(currentLocation, true);
 
+                    // 현재 위치를 기반으로 병원 검색
+                    searchHospitalsNearby(currentLatitude, currentLongitude);
 
-        addCustomMarker2();
-        addCustomMarker3();
+                } else {
+                    Toast.makeText(this, "위치 정보를 가져올 수 없습니다", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                // 권한이 부여되지 않음 -> 권한을 요청
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_FINE_LOCATION);
+            }
+        } else {
+            Toast.makeText(this, "GPS를 켜주세요", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    // 마커 추가
-    private void addCustomMarker2() {
-        // 병원1 마커 추가
+    // 주변 병원 검색
+    private void searchHospitalsNearby(double latitude, double longitude) {
+        // 검색 API 호출
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://dapi.kakao.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        KakaoAPI api = retrofit.create(KakaoAPI.class);
+
+        Call<ResultSearchKeyword> call = api.getSearchKeyword(API_KEY, "탈모",  longitude,latitude);
+        Log.d("현재 위도", String.valueOf(latitude));
+        Log.d("현재 경도", String.valueOf(longitude));
+
+        call.enqueue(new Callback<ResultSearchKeyword>() {
+            @Override
+            public void onResponse(Call<ResultSearchKeyword> call, retrofit2.Response<ResultSearchKeyword> response) {
+                if (response.isSuccessful()) {
+                    ResultSearchKeyword result = response.body();
+                    if (result != null && result.documents != null && !result.documents.isEmpty()) {
+                        // 검색 결과를 마커로 표시
+                        Log.d("현재 result.documents",result.documents.toString());
+                        for (Place place : result.documents) {
+                            addMarkerForPlace(place);
+                        }
+                    }
+                } else {
+                    // 서버 응답이 실패한 경우
+                    Log.e("HospitalActivity", "서버 응답 실패: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResultSearchKeyword> call, Throwable t) {
+                Log.w("HospitalActivity", "통신 실패: " + t.getMessage());
+            }
+        });
+    }
+
+    private void addMarkerForPlace(Place place) {
         MapPOIItem customMarker = new MapPOIItem();
-        customMarker.setItemName("나용필모피부과의원");
-        customMarker.setTag(2); // 다른 태그로 설정
-        customMarker.setMapPoint(MARKER_POINT2);
+        customMarker.setItemName(place.place_name);
+        customMarker.setMapPoint(MapPoint.mapPointWithGeoCoord(place.y, place.x));
+        Log.d("현재 위도1", String.valueOf(place.y));
+        Log.d("현재 경도1", String.valueOf(place.x));
         customMarker.setMarkerType(MapPOIItem.MarkerType.YellowPin);
         customMarker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+        customMarker.setUserObject(place); // -> userObject
         mapView.addPOIItem(customMarker);
     }
-    private void addCustomMarker3() {
-        // 병원2 마커 추가
-        MapPOIItem customMarker = new MapPOIItem();
-        customMarker.setItemName("편안손한방병원");
-        customMarker.setTag(3); // 다른 태그로 설정
-        customMarker.setMapPoint(MARKER_POINT3);
-        customMarker.setMarkerType(MapPOIItem.MarkerType.YellowPin);
-        customMarker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
-        mapView.addPOIItem(customMarker);
+
+    @Override
+    public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
+
+    }
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
+        // 마커를 클릭할 때 호출되는 메서드
+        Object userObject = mapPOIItem.getUserObject();
+        Log.d("현재 마커 클릭","현재 마커 클릭!");
+
+        if (userObject instanceof Place) {
+            // 마커에 첨부된 데이터가 Place 객체인 경우
+            Log.d("현재 객체","객체맞아!");
+            Place selectedPlace = (Place) userObject;
+            showPlaceDetails(selectedPlace);
+        } else {
+            Log.d("현재 객체", "userObject는 Place 클래스의 인스턴스가 아닙니다!");
+        }
+    }
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
+
+    }
+
+    @Override
+    public void onDraggablePOIItemMoved(MapView mapView, MapPOIItem mapPOIItem, MapPoint mapPoint) {
+
+    }
+
+    private void showPlaceDetails(Place place) {
+        // 선택된 장소의 상세 정보(주소)
+        String place_name = place.place_name;
+        String address = place.address_name;
+        String roadAddress = place.road_address_name;
+        String phone = place.phone;
+        String place_url = place.place_url;
+
+        String message ="< "+ place_name +" >"+ "\n\n주소 : " + address + "\n도로명 주소: " + roadAddress + "\n전화번호 : " + phone + "\n url : "+ place_url;
+        CustomToastDialog.show(this, message);
     }
 
 }
