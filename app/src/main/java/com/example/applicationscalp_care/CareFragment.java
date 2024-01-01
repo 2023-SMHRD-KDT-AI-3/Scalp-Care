@@ -1,16 +1,28 @@
 package com.example.applicationscalp_care;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.os.Handler;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -29,7 +41,9 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 public class CareFragment extends Fragment {
@@ -41,6 +55,19 @@ public class CareFragment extends Fragment {
     private ArrayList<String> keyset = null;
     private BoardAdapter adapter = null;
     private RequestQueue queue;
+
+
+    private ActivityResultLauncher<Intent> writeLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    Log.d("CareActivity","다시 데이터 가져오기");
+                    getBoardData();
+
+                }
+            }
+    );
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,18 +91,15 @@ public class CareFragment extends Fragment {
 
         // 작동 버튼 클릭시 BoardWriteActivity로 이동하는 기능 구현
         binding.btnAddBoard.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
-            startActivity(intent);
-        });
 
+            Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
+            writeLauncher.launch(intent);
+
+        });
 
 
         // root 리턴
         return binding.getRoot();
-
-
-
-
     }
 
     // 어댑터에서 사용할 날짜 형식 메서드
@@ -97,7 +121,7 @@ public class CareFragment extends Fragment {
         Log.d("CareActivity","데이터 가져올래요!");
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.55:8089/Boardview",
+                "http://192.168.219.50:8089/Boardview",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -117,6 +141,8 @@ public class CareFragment extends Fragment {
                             JSONArray jsonArray = new JSONArray(response);
                             Log.d("qwer1", jsonArray.toString());
 
+                            dataset.clear();
+
                             // 파싱한 데이터를 데이터셋에 추가
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 Log.d("CareActivity","여기까진 오는건가?");
@@ -130,12 +156,10 @@ public class CareFragment extends Fragment {
                                 // 각 필요한 데이터를 추출
                                 String indate = CareFragment.this.formatIndate(jsonObject.getString("indate"));
                                 String content = jsonObject.getString("content");
-                                String img = jsonObject.getString("img");
+                                int uc_num = jsonObject.getInt("ucNum");
 
                                 // 데이터셋에 추가
-                                dataset.add(new BoardVO(indate, content, img));
-
-
+                                dataset.add(new BoardVO(uc_num, indate, content));
 
                             }
 
@@ -143,8 +167,6 @@ public class CareFragment extends Fragment {
                             adapter.notifyDataSetChanged();
 
                         } catch (JSONException e) {
-                            Log.d("CareActivity","여기 문제있어요1111!");
-                            Log.d("CareActivity",e.toString());
                             throw new RuntimeException(e);
                         }
 
@@ -155,7 +177,20 @@ public class CareFragment extends Fragment {
                 Log.d("CareActivity","여기 문제있어요2222!");
             }
         }
-        );
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                SharedPreferences autoLogin = getActivity().getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
+                String ucUid = autoLogin.getString("uid","null");
+                Log.d("CareFragment",ucUid);
+
+                Map<String, String> params = new HashMap<>();
+                params.put("ucUid",ucUid);
+                return params;
+
+            }
+        };
         queue.add(request);
 
     }

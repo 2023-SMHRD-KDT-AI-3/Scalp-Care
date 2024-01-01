@@ -172,7 +172,7 @@ public class BoardWriteActivity extends AppCompatActivity {
 
         // activity_board_write.xml에 있는 플러스 이미지 클릭시, 앨범을 띄우는 기능
         binding.imgContent.setOnClickListener(v -> {
-
+            // 권한 물어보기
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_MEDIA_IMAGES,Manifest.permission.READ_MEDIA_VIDEO}, 1);
             }else {
