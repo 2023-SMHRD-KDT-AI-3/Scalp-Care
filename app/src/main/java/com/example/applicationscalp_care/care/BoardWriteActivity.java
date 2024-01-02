@@ -49,6 +49,8 @@ public class BoardWriteActivity extends AppCompatActivity {
     private ActivityBoardWriteBinding binding;
     private RequestQueue queue;
 
+    String writeURL="http://192.168.219.56:8089/Boardsave";
+
     // 연결 해야함
 
 
@@ -133,10 +135,10 @@ public class BoardWriteActivity extends AppCompatActivity {
                 Log.d("BoardWriteActivity",String.valueOf(base64_img.length()));
 
 
-                
+                // 작성 내용 DB저장
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
-                        "http://192.168.219.50:8089/Boardsave",
+                        writeURL,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {

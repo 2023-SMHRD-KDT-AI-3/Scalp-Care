@@ -56,6 +56,8 @@ public class CareFragment extends Fragment {
     private BoardAdapter adapter = null;
     private RequestQueue queue;
 
+    String boradviewURL = "http://192.168.219.56:8089/Boardview";
+
 
     private ActivityResultLauncher<Intent> writeLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -121,7 +123,7 @@ public class CareFragment extends Fragment {
         Log.d("CareActivity","데이터 가져올래요!");
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.50:8089/Boardview",
+                boradviewURL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

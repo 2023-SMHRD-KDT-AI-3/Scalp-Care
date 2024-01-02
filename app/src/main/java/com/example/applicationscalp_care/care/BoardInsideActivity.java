@@ -40,6 +40,8 @@ public class BoardInsideActivity extends AppCompatActivity {
     private ActivityBoardInsideBinding binding;
 
     private RequestQueue queue;
+
+    String getImgURL = "http://192.168.219.56:8089/getImage";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +61,7 @@ public class BoardInsideActivity extends AppCompatActivity {
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.50:8089/getImage",
+                getImgURL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
