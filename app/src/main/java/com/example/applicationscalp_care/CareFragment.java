@@ -56,7 +56,7 @@ public class CareFragment extends Fragment {
     private BoardAdapter adapter = null;
     private RequestQueue queue;
 
-    String boradviewURL = "http://192.168.219.56:8089/Boardview";
+    String boradviewURL = "http://192.168.219.52:8089/Boardview";
 
 
     private ActivityResultLauncher<Intent> writeLauncher = registerForActivityResult(

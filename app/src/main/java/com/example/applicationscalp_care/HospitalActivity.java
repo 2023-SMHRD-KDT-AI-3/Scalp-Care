@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,8 @@ import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -33,18 +36,35 @@ public class HospitalActivity extends AppCompatActivity implements MapView.POIIt
     private static final String API_KEY = "KakaoAK 9f80969872d8d710bcc5dfc4dd6603c4";
     private MapView mapView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospital);
+        Log.d("현재 동작?","1");
 
+        // 현재 위치 버튼
+        Button btnReturnToCurrentLocation = findViewById(R.id.btnReturnToCurrentLocation);
+        btnReturnToCurrentLocation.bringToFront();
+
+        // 지도
         mapView = new MapView(this);
         setContentView(mapView);
 
-        // POI 이벤트 리스너 등록
+        // POI(POIItemEventListener) 이벤트 리스너 등록
         mapView.setPOIItemEventListener(this);
 
+        // 현재 위치
         startTracking();
+
+        // 현재 위치 버튼 클릭시 동작
+        if (btnReturnToCurrentLocation != null) {
+            btnReturnToCurrentLocation.setOnClickListener(view -> startTracking());
+        } else {
+            // 버튼을 찾을 수 없는 경우
+            Log.e("현재 버튼 상태", "버튼을 찾을 수 없습니다.");
+        }
+
 
     }
 
@@ -148,12 +168,18 @@ public class HospitalActivity extends AppCompatActivity implements MapView.POIIt
         customMarker.setMapPoint(MapPoint.mapPointWithGeoCoord(place.y, place.x));
         Log.d("현재 위도1", String.valueOf(place.y));
         Log.d("현재 경도1", String.valueOf(place.x));
-        customMarker.setMarkerType(MapPOIItem.MarkerType.YellowPin);
-        customMarker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+
+        // 병원 커스텀 이미지 마커
+        customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
+        customMarker.setCustomImageResourceId(R.drawable.hospital);
+        // 선택될 때 보일 이미지 - x
+        customMarker.setCustomSelectedImageResourceId(R.drawable.hospital2);
+
         customMarker.setUserObject(place); // -> userObject
         mapView.addPOIItem(customMarker);
     }
 
+    // POI 여기 부터
     @Override
     public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
 
@@ -184,17 +210,26 @@ public class HospitalActivity extends AppCompatActivity implements MapView.POIIt
     public void onDraggablePOIItemMoved(MapView mapView, MapPOIItem mapPOIItem, MapPoint mapPoint) {
 
     }
+    // POI 여기 까지
 
+
+    // POI 동작 -> 선택된 장소의 상세 정보
     private void showPlaceDetails(Place place) {
-        // 선택된 장소의 상세 정보(주소)
         String place_name = place.place_name;
         String address = place.address_name;
         String roadAddress = place.road_address_name;
         String phone = place.phone;
-        String place_url = place.place_url;
+        float preDistance = place.distance/1000.0f;
+        String distance = String.format("%.1f Km", preDistance); // 소수점 포매팅
 
-        String message ="< "+ place_name +" >"+ "\n\n주소 : " + address + "\n도로명 주소: " + roadAddress + "\n전화번호 : " + phone + "\n url : "+ place_url;
-        CustomToastDialog.show(this, message);
+        ArrayList<String> asd = new ArrayList<>();
+        asd.add(place_name);
+        asd.add(address);
+        asd.add(roadAddress);
+        asd.add(phone);
+        asd.add(String.valueOf(distance));
+
+        CustomToastDialog.show(this,asd);
     }
 
 }

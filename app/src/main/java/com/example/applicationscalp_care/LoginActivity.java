@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private View loginButton;
     private RequestQueue queue;
 
-    String loginURL =  "http://192.168.219.56:8089/join";
+    String loginURL =  "http://192.168.219.52:8089/join";
 
     @SuppressLint("MissingInflatedId")
     @Override

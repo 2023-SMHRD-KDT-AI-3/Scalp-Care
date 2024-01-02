@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HospitalActivity">
 
-    <net.daum.android.map.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <Button
+        android:id="@+id/btnReturnToCurrentLocation"
+        android:layout_width="179dp"
+        android:layout_height="54dp"
+        android:text="현재 위치로 돌아가기"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="589dp" />
 
-</RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="283dp"
+        android:layout_height="465dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <net.daum.android.map.MapView
+            android:id="@+id/mapView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="589dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
