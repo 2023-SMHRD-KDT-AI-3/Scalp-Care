@@ -47,7 +47,9 @@
         android:id="@+id/Login_img"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/white_sero" />
@@ -155,7 +157,7 @@
     <ImageView
         android:id="@+id/imageView18"
         android:layout_width="40dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_marginStart="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_loginkakao"
         app:layout_constraintStart_toStartOf="@+id/btn_loginkakao"
@@ -171,6 +173,6 @@
         app:layout_constraintStart_toStartOf="@+id/btn_loginGuest"
         app:layout_constraintTop_toTopOf="@+id/btn_loginGuest"
         app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/img" />
+        app:srcCompat="@drawable/scalp_login_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

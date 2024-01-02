@@ -52,7 +52,8 @@ public class MoreSettingFragment extends Fragment {
         Glide.with(binding.imvCircularWithStroke).load(img).circleCrop().into(binding.imvCircularWithStroke);
         binding.userName.setText(name);
 
-        binding.test.setOnClickListener(new View.OnClickListener() {
+        // 로그아웃후 로그인 페이지로 이동
+        binding.btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {

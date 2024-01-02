@@ -7,6 +7,7 @@ import java.util.Date;
 public class BoardVO {
 
     // 객체 생성
+    private int uc_num;
     private String indate;
     private String content;
     private String img;
@@ -15,21 +16,27 @@ public class BoardVO {
     // 생성자 생성
     public BoardVO(){}
 
-    public BoardVO(String indate, String content, String img, String uid) {
+    public BoardVO(int uc_num, String indate, String content, String img, String uid) {
+        this.uc_num = uc_num;
         this.indate = indate;
         this.content = content;
         this.img = img;
         this.uid = uid;
     }
 
-    public BoardVO(String indate, String content, String img) {
+    public BoardVO(int uc_num,String indate, String content) {
+        this.uc_num = uc_num;
         this.indate = indate;
         this.content = content;
-        this.img = img;
     }
 
 
     // getter 생성
+
+    public long getUc_num() {
+        return uc_num;
+    }
+
     public String getIndate() {
         return indate;
     }

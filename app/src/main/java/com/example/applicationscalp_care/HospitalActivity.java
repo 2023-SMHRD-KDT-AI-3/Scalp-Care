@@ -22,6 +22,8 @@ import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -191,10 +193,16 @@ public class HospitalActivity extends AppCompatActivity implements MapView.POIIt
         String address = place.address_name;
         String roadAddress = place.road_address_name;
         String phone = place.phone;
-        String place_url = place.place_url;
+        float distance = place.distance/1000;
 
-        String message ="< "+ place_name +" >"+ "\n\n주소 : " + address + "\n도로명 주소: " + roadAddress + "\n전화번호 : " + phone + "\n url : "+ place_url;
-        CustomToastDialog.show(this, message);
+        ArrayList<String> asd = new ArrayList<>();
+        asd.add(place_name);
+        asd.add(address);
+        asd.add(roadAddress);
+        asd.add(phone);
+        asd.add(String.valueOf(distance));
+
+        CustomToastDialog.show(this,asd);
     }
 
 }

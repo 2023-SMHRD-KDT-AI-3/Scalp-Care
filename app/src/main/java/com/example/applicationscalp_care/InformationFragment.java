@@ -44,6 +44,8 @@ public class InformationFragment extends Fragment {
     private InfoAdapter adapter = null;
     private RequestQueue queue;
 
+    String getInfoURL = "http://192.168.219.56:8089/Newsview";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,7 +87,7 @@ public class InformationFragment extends Fragment {
         Log.d("InfoFragment", "데이터 가져올래요!제발");
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.50:8089/Newsview",
+                getInfoURL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
