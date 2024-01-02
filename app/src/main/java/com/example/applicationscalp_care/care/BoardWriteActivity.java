@@ -53,8 +53,6 @@ public class BoardWriteActivity extends AppCompatActivity {
 
     // 연결 해야함
 
-
-
     // 앨범 런처
     private ActivityResultLauncher<Intent> albumLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -177,6 +175,7 @@ public class BoardWriteActivity extends AppCompatActivity {
             // 권한 물어보기
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_MEDIA_IMAGES,Manifest.permission.READ_MEDIA_VIDEO}, 1);
+
             }else {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
@@ -185,11 +184,5 @@ public class BoardWriteActivity extends AppCompatActivity {
         });
 
         }
-    public void checkPermission(){
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
-        }
-
-    }
 }
