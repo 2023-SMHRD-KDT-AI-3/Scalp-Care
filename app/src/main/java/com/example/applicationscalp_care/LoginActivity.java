@@ -39,9 +39,9 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
     private static final String TAG = "LoginActivity";
     private View loginButton;
-
-
     private RequestQueue queue;
+
+    String loginURL =  "http://192.168.219.56:8089/join";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("qwer",email);
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                "http://192.168.219.52:8089/join",
+                loginURL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
