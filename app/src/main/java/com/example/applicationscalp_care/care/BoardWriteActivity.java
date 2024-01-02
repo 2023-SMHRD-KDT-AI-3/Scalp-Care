@@ -49,7 +49,7 @@ public class BoardWriteActivity extends AppCompatActivity {
     private ActivityBoardWriteBinding binding;
     private RequestQueue queue;
 
-    String writeURL="http://192.168.219.56:8089/Boardsave";
+    String writeURL="http://192.168.219.52:8089/Boardsave";
 
     // 연결 해야함
 
