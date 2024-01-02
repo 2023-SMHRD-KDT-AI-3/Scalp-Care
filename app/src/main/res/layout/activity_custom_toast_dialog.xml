@@ -49,6 +49,7 @@
         android:layout_height="0dp"
         android:gravity="center|left"
         android:text="TextView"
+        android:textColor="#007BB5"
         app:layout_constraintBottom_toBottomOf="@+id/imageView14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

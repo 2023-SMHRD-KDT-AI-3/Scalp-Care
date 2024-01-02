@@ -219,7 +219,8 @@ public class HospitalActivity extends AppCompatActivity implements MapView.POIIt
         String address = place.address_name;
         String roadAddress = place.road_address_name;
         String phone = place.phone;
-        float distance = place.distance/1000;
+        float preDistance = place.distance/1000.0f;
+        String distance = String.format("%.1f Km", preDistance); // 소수점 포매팅
 
         ArrayList<String> asd = new ArrayList<>();
         asd.add(place_name);

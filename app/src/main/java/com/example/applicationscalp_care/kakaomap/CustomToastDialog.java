@@ -2,6 +2,9 @@ package com.example.applicationscalp_care.kakaomap;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -29,6 +32,18 @@ public class CustomToastDialog {
         TextView hospitalphone = view.findViewById(R.id.hospitalphone);
         TextView hospitalguri = view.findViewById(R.id.hospitalguri);
 
+        // hospitalphone(전화번호) 클릭시
+        hospitalphone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNumber = hospitalphone.getText().toString();
+
+                // 휴대전화 키패드에 띄움
+                showDialPad(context, phoneNumber);
+            }
+        });
+
+
         String aa = asd.get(0);
         String bb = asd.get(1);
         String cc = asd.get(2);
@@ -39,10 +54,20 @@ public class CustomToastDialog {
         hospitaljuso.setText(bb);
         hospitaldoro.setText(cc);
         hospitalphone.setText(dd);
-        hospitalguri.setText(ee + "Km");
+        hospitalguri.setText(ee);
+
+        // 밑줄 긋기
+        hospitalphone.setPaintFlags(hospitalphone.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         dialog.setContentView(view);
         dialog.show();
 
+    }
+
+    // 전화걸기 앱으로 이동하여 전화번호를 휴대전화 키패드에 띄움
+    private static void showDialPad(Context context, String phoneNumber) {
+        Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+        dialIntent.setData(Uri.parse("tel:" + phoneNumber));
+        context.startActivity(dialIntent);
     }
 }
