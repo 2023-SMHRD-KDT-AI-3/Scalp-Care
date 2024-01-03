@@ -3,6 +3,7 @@ package com.example.applicationscalp_care.information;
 public class InfoVO {
 
     // 객체 생성
+    private int ac_num;
     private String title;
     private String content;
     private String views;
@@ -13,7 +14,8 @@ public class InfoVO {
     // 생성자 생성
     public InfoVO(){}
 
-    public InfoVO(String title, String content, String views, String indate, String img, String ac_uid_uid) {
+    public InfoVO(int ac_num, String title, String content, String views, String indate, String img, String ac_uid_uid) {
+        this.ac_num = ac_num;
         this.title = title;
         this.content = content;
         this.views = views;
@@ -22,7 +24,8 @@ public class InfoVO {
         this.ac_uid_uid = ac_uid_uid;
     }
 
-    public InfoVO(String title, String content, String views, String indate, String img) {
+    public InfoVO(int ac_num, String title, String content, String views, String indate, String img) {
+        this.ac_num = ac_num;
         this.title = title;
         this.content = content;
         this.views = views;
@@ -31,6 +34,10 @@ public class InfoVO {
     }
 
     // getter 생성
+
+    public long getAc_num() {
+        return ac_num;
+    }
     public String getTitle() { return title; }
     public String getContent() { return content; }
     public String getViews() { return views; }

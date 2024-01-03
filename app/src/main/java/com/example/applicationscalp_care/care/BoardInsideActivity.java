@@ -45,19 +45,25 @@ public class BoardInsideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // 바인딩 초기화
         binding = ActivityBoardInsideBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // Volley
         queue= Volley.newRequestQueue(this);
 
-        Log.d("test","여기 안옴?");
+        Log.d("BoardInsideActivity1","여기 안옴?");
 
+        // intent 객체 불러오기
         Intent data = getIntent();
 
+        // Intent에 저장된 정보 페이지 정보들을 가져오기
         String indate = data.getStringExtra("indate");
         String content = data.getStringExtra("content");
         Long ucNum = data.getLongExtra("ucNum",0);
 
-        Log.d("test11",String.valueOf(ucNum));
+        Log.d("BoardInsideActivity2",String.valueOf(ucNum));
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,
@@ -82,12 +88,14 @@ public class BoardInsideActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("ucNum", String.valueOf(ucNum));
+                Log.d("ucNum", String.valueOf(ucNum));
                 return params;
             }
 
         };
         queue.add(request);
 
+        // 날짜 및 내용
         binding.tvInsideTime.setText(indate);
         binding.tvInsideContent.setText(content);
 
