@@ -41,7 +41,7 @@ public class BoardInsideActivity extends AppCompatActivity {
 
     private RequestQueue queue;
 
-    String getImgURL = "http://192.168.219.56:8089/getImage";
+    String getImgURL = "http://192.168.219.52:8089/getImage";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
