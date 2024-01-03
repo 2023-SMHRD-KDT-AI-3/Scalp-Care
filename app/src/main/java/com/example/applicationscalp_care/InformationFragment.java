@@ -108,6 +108,7 @@ public class InformationFragment extends Fragment {
                                 Log.d("qwer2", jsonObject.toString());
 
                                 // 각 필요한 데이터를 추출
+                                int ac_num = jsonObject.getInt("acNum");
                                 String title = jsonObject.getString("title");
                                 String content = jsonObject.getString("content");
                                 String views = jsonObject.getString("views");
@@ -115,7 +116,7 @@ public class InformationFragment extends Fragment {
                                 String indate = InformationFragment.this.formatIndate(jsonObject.getString("indate"));
 
                                 // 데이터셋에 추가
-                                dataset.add(new InfoVO(title, content, views, indate, img));
+                                dataset.add(new InfoVO(ac_num, title, content, views, indate, img));
                             }
 
                             // 어댑터에 데이터셋 변경을 알림

@@ -50,6 +50,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoViewHolder> {
                 intent.putExtra("content", vo.getContent());
                 intent.putExtra("views", vo.getViews());
                 intent.putExtra("indate", vo.getIndate());
+                intent.putExtra("acNum", vo.getAc_num());
 
                 v.getContext().startActivity(intent);
             }
