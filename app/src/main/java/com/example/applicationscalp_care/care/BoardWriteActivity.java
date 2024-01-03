@@ -192,7 +192,7 @@ public class BoardWriteActivity extends AppCompatActivity {
             }
         });
 
-        }
+    }
 
     // 상태 : 양호/경증/중등도/중증 버튼 중에 클릭 시
     public void onRadioButtonClicked(View view) {
