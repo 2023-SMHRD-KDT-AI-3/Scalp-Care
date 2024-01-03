@@ -6,6 +6,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -16,6 +17,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,6 +36,7 @@ import com.android.volley.toolbox.Volley;
 
 import com.example.applicationscalp_care.CareFragment;
 import com.example.applicationscalp_care.MainActivity;
+import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
 
 import java.io.ByteArrayOutputStream;
@@ -51,9 +54,8 @@ public class BoardWriteActivity extends AppCompatActivity {
 
     String writeURL="http://192.168.219.56:8089/Boardsave";
 
-    // 연결 해야함
-
-
+    // 객체 생성
+    AppCompatRadioButton yanghobtn, gyungjungbtn, joongdungbtn, joongjungbtn;
 
     // 앨범 런처
     private ActivityResultLauncher<Intent> albumLauncher = registerForActivityResult(
@@ -101,7 +103,13 @@ public class BoardWriteActivity extends AppCompatActivity {
         String currentTime = dateFormat.format(currentDate);
         binding.tvBoardTime.setText(currentTime);
 
+        // 초기화 작업
+        yanghobtn = findViewById(R.id.yanghobtn);
+        gyungjungbtn = findViewById(R.id.gyungjungbtn);
+        joongdungbtn = findViewById(R.id.joongdungbtn);
+        joongjungbtn = findViewById(R.id.joongjungbtn);
 
+        // 뒤로가기
         binding.tvBack.setOnClickListener(v -> {
             finish();
         });
@@ -184,7 +192,55 @@ public class BoardWriteActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    // 상태 : 양호/경증/중등도/중증 버튼 중에 클릭 시
+    public void onRadioButtonClicked(View view) {
+        boolean selected = ((AppCompatRadioButton) view).isChecked();
+
+        if (view.getId() == R.id.yanghobtn && selected) {
+            // '양호' 버튼을 클릭했을 때 특정 동작 수행
+            yanghobtn.setTextColor(Color.WHITE);
+            yanghobtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_on));
+            gyungjungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            gyungjungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+            joongdungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            joongdungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+            joongjungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            joongjungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+        } else if (view.getId() == R.id.gyungjungbtn && selected) {
+            // '경증' 버튼을 클릭했을 때 특정 동작 수행
+            gyungjungbtn.setTextColor(Color.WHITE);
+            gyungjungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_on));
+            yanghobtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            yanghobtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+            joongdungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            joongdungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+            joongjungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            joongjungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+        } else if (view.getId() == R.id.joongdungbtn && selected) {
+            // '중등도' 버튼을 클릭했을 때 특정 동작 수행
+            joongdungbtn.setTextColor(Color.WHITE);
+            joongdungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_on));
+            gyungjungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            gyungjungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+            yanghobtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            yanghobtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+            joongjungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            joongjungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+        } else if (view.getId() == R.id.joongjungbtn && selected) {
+            // '중증' 버튼을 클릭했을 때 특정 동작 수행
+            joongjungbtn.setTextColor(Color.WHITE);
+            joongjungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_on));
+            gyungjungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            gyungjungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+            joongdungbtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            joongdungbtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
+            yanghobtn.setTextColor(ContextCompat.getColor(this, R.color.lightgreen));
+            yanghobtn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.sangtae_btn_off));
         }
+    }
+
     public void checkPermission(){
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
