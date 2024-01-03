@@ -48,8 +48,8 @@ public class TestFragment extends Fragment {
         // 앨범 및 카메라 띄우기
         binding.btnDoopiTest.setOnClickListener(v -> {
             // 권한 물어보기
-            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CAMERA, android.Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_VIDEO}, 1);
+            if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.CAMERA, android.Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_VIDEO}, 1);
             }else {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");

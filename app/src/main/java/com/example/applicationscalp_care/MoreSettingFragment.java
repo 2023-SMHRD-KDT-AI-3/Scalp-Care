@@ -45,7 +45,7 @@ public class MoreSettingFragment extends Fragment {
         binding.btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(requireContext()).setMessage("로그아웃").setMessage("로그아웃 하시겠습니까?")
+                new AlertDialog.Builder(requireContext()).setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?")
                         .setPositiveButton("로그아웃", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
