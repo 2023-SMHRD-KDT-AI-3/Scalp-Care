@@ -45,7 +45,7 @@ public class InformationFragment extends Fragment {
     private InfoAdapter adapter = null;
     private RequestQueue queue;
 
-    String getInfoURL = "http://192.168.219.56:8089/Newsview";
+    String getInfoURL = "http://192.168.219.52:8089/Newsview";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
