@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -57,7 +58,13 @@ public class TestFragment extends Fragment {
             }
         });
 
-
+        // 로고 누를 시, 홈 페이지 이동
+        binding.scalpLogo2.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            HomeFragment homeFragment = new HomeFragment();
+            transaction.replace(R.id.fl, homeFragment);
+            transaction.commit();
+        });
 
         return binding.getRoot();
     }

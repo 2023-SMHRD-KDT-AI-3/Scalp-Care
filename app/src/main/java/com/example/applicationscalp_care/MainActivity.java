@@ -76,11 +76,11 @@ public class MainActivity extends AppCompatActivity {
         } else if (moveFl.equals("care")) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fl, new CareFragment()).commit();
         } else if (moveFl.equals("test")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new TestFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
         } else if (moveFl.equals("info")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new InformationFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
         } else if (moveFl.equals("moreset")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new MoreSettingFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
         }
 
 

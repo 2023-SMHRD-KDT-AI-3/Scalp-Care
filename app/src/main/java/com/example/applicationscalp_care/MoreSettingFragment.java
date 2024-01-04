@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,7 +79,13 @@ public class MoreSettingFragment extends Fragment {
             startActivity(intent);
         });
 
-
+        // 로고 누를 시, 홈 페이지 이동
+        binding.scalpLogo.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            HomeFragment homeFragment = new HomeFragment();
+            transaction.replace(R.id.fl, homeFragment);
+            transaction.commit();
+        });
 
         return binding.getRoot();
     }

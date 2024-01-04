@@ -14,6 +14,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Handler;
@@ -135,7 +136,13 @@ public class CareFragment extends Fragment {
             datePickerDialog.show();
         });
 
-
+        // 로고 누를 시, 홈 페이지 이동
+        binding.scalpLogo4.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            HomeFragment homeFragment = new HomeFragment();
+            transaction.replace(R.id.fl, homeFragment);
+            transaction.commit();
+        });
 
 
 

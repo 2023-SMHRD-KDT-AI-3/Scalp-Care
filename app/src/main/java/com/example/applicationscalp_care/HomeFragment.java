@@ -58,6 +58,13 @@ public class HomeFragment extends Fragment {
             transaction.replace(R.id.fl, careFragment);
             transaction.commit();
         });
+        // 로고 누를 시, 홈 페이지 이동
+        binding.scalpLogo7.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            HomeFragment homeFragment = new HomeFragment();
+            transaction.replace(R.id.fl, homeFragment);
+            transaction.commit();
+        });
 
 
         return binding.getRoot();
