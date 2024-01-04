@@ -138,7 +138,7 @@
                     app:layout_constraintStart_toEndOf="@+id/infoInsideTime"
                     app:layout_constraintTop_toTopOf="@+id/infoInsideTime"
                     app:layout_constraintVertical_bias="0.4"
-                    app:srcCompat="@drawable/view_icon" />
+                    app:srcCompat="@drawable/info_view_icon" />
 
                 <TextView
                     android:id="@+id/infoInsideViews"
@@ -208,7 +208,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:background="@drawable/corner_round"
+                    android:background="@drawable/shape_corner_round_white"
                     android:ems="10"
                     android:hint="@string/edtHintDetgul"
                     android:inputType="text"
@@ -242,7 +242,7 @@
                     android:layout_height="0dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="50dp"
-                    android:background="@drawable/corner_round"
+                    android:background="@drawable/shape_corner_round_white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/button"
                     app:layout_constraintHorizontal_bias="0.508"
