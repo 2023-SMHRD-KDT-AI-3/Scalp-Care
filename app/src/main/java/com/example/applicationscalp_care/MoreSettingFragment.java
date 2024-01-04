@@ -50,6 +50,7 @@ public class MoreSettingFragment extends Fragment {
                         .setPositiveButton("로그아웃", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                // 로그아웃 누를 시
                                 Toast.makeText(getActivity().getApplicationContext(), "로그아웃 성공", Toast.LENGTH_SHORT).show();
                                 UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
                                     @Override
@@ -67,6 +68,7 @@ public class MoreSettingFragment extends Fragment {
                         }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                // 취소 누를 시
                                 Toast.makeText(getActivity().getApplicationContext(), "취소", Toast.LENGTH_SHORT).show();
                             }
                         }).show();
@@ -86,6 +88,29 @@ public class MoreSettingFragment extends Fragment {
             transaction.replace(R.id.fl, homeFragment);
             transaction.commit();
         });
+
+        // 회원탈퇴 누를 시, 팝업창
+        binding.btnTaltwe.setOnClickListener(v -> {
+
+            new AlertDialog.Builder(requireContext()).setTitle("회원탈퇴").setMessage("회원탈퇴 하시겠습니까?")
+                    .setPositiveButton("회원탈퇴", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // 회원탈퇴 누를 시
+                            Toast.makeText(getActivity().getApplicationContext(), "회원탈퇴 성공", Toast.LENGTH_SHORT).show();
+
+
+
+                        }
+                    }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // 취소 누를 시
+                            Toast.makeText(getActivity().getApplicationContext(), "취소", Toast.LENGTH_SHORT).show();
+                        }
+                    }).show();
+        });
+
 
         return binding.getRoot();
     }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.applicationscalp_care.databinding.FragmentHomeBinding;
+import com.example.applicationscalp_care.home.HospitalActivity;
 
 
 public class HomeFragment extends Fragment {

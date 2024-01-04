@@ -40,7 +40,7 @@
             android:name=".kakaomap.CustomToastDialog"
             android:exported="false" />
         <activity
-            android:name=".HospitalActivity"
+            android:name=".home.HospitalActivity"
             android:exported="false" />
         <activity
             android:name=".information.InfoInsideActivity"

@@ -1,4 +1,4 @@
-package com.example.applicationscalp_care;
+package com.example.applicationscalp_care.home;
 
 import android.Manifest;
 import android.content.Context;
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.kakaomap.CustomToastDialog;
 import com.example.applicationscalp_care.kakaomap.KakaoAPI;
 import com.example.applicationscalp_care.kakaomap.Place;
