@@ -27,6 +27,12 @@
 
     <!--  fragment_care.xml  -->
     <string name="btnVsImg">두피 비교하기</string>
+    <string name="tvDateFilter">날짜 필터</string>
+    <string name="tvHintDateStart">0000-00-00</string>
+    <string name="tvDateStart">시작 날짜</string>
+    <string name="tvHintDateEnd">0000-00-00</string>
+    <string name="tvDateEnd">종료 날짜</string>
+    <string name="btnDateResult">검색</string>
     <string name="tvTitleCare">본인 기록</string>
 
     <!--  activity_board_write.xml  -->
@@ -64,5 +70,17 @@
     <string name="tvTeam2">김주영</string>
     <string name="tvTeam3">박조시아</string>
 
+    <!--  activity_test_result.xml  -->
+    <string name="tvTestResult">검사 결과</string>
+    <string name="tvDateResult">일자:</string>
+    <string name="tvSangtaeResult">상태</string>
+    <string name="tvSangtaeResultInfo">(양호/경증/중등도/중증)</string>
+    <string name="tvMisae">미세각질상태:</string>
+    <string name="tvPG">피지과다:</string>
+    <string name="tvSyee">모낭사이홍반:</string>
+    <string name="tvNongpo">모낭홍반농포:</string>
+    <string name="tvBDum">비듬:</string>
+    <string name="tvTalmo">탈모:</string>
+    <string name="btnTestResultDone">확인 완료</string>
 
 </resources>

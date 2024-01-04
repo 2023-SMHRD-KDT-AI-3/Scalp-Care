@@ -156,7 +156,7 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <ImageView
-                    android:id="@+id/imageView11"
+                    android:id="@+id/btnlike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -167,18 +167,18 @@
                     app:srcCompat="@drawable/thumbs_up_off" />
 
                 <ImageView
-                    android:id="@+id/imageView12"
+                    android:id="@+id/btnhate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView52"
-                    app:layout_constraintStart_toEndOf="@+id/textView52"
-                    app:layout_constraintTop_toTopOf="@+id/textView52"
+                    app:layout_constraintBottom_toBottomOf="@+id/likeCount"
+                    app:layout_constraintStart_toEndOf="@+id/likeCount"
+                    app:layout_constraintTop_toTopOf="@+id/likeCount"
                     app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/thumbs_down_off" />
 
                 <TextView
-                    android:id="@+id/textView52"
+                    android:id="@+id/likeCount"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="3dp"
@@ -186,12 +186,12 @@
                     android:text="0"
                     android:textColor="@color/lightgreen"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-                    app:layout_constraintStart_toEndOf="@+id/imageView11"
-                    app:layout_constraintTop_toTopOf="@+id/imageView11" />
+                    app:layout_constraintBottom_toBottomOf="@+id/btnlike"
+                    app:layout_constraintStart_toEndOf="@+id/btnlike"
+                    app:layout_constraintTop_toTopOf="@+id/btnlike" />
 
                 <TextView
-                    android:id="@+id/textView55"
+                    android:id="@+id/hateCount"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="3dp"
@@ -199,9 +199,9 @@
                     android:text="0"
                     android:textColor="@color/lightgreen"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView12"
-                    app:layout_constraintStart_toEndOf="@+id/imageView12"
-                    app:layout_constraintTop_toTopOf="@+id/imageView12" />
+                    app:layout_constraintBottom_toBottomOf="@+id/btnhate"
+                    app:layout_constraintStart_toEndOf="@+id/btnhate"
+                    app:layout_constraintTop_toTopOf="@+id/btnhate" />
 
                 <EditText
                     android:id="@+id/editTextText"
@@ -216,9 +216,9 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView11"
+                    app:layout_constraintEnd_toEndOf="@+id/btnlike"
                     app:layout_constraintStart_toStartOf="@+id/textView51"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+                    app:layout_constraintTop_toBottomOf="@+id/btnlike" />
 
                 <Button
                     android:id="@+id/button"
@@ -233,7 +233,7 @@
                     app:iconPadding="0dp"
                     app:layout_constraintBottom_toBottomOf="@+id/editTextText"
                     app:layout_constraintEnd_toEndOf="@+id/textView51"
-                    app:layout_constraintStart_toEndOf="@+id/imageView11"
+                    app:layout_constraintStart_toEndOf="@+id/btnlike"
                     app:layout_constraintTop_toTopOf="@+id/editTextText" />
 
                 <TextView
@@ -250,6 +250,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/editTextText" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/infoChatList"
                     android:layout_width="315dp"
                     android:layout_height="0dp"
                     android:layout_marginTop="5dp"

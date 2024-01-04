@@ -9,6 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // 클릭한 item 정보(속성, id, title...)
                 if(R.id.home == item.getItemId()) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(
+                            // 1) 어디에
+                            R.id.fl,
+                            // 2) 어떤 프래그먼트
+                            new HomeFragment()
+                    ).commit();
                 }else if(R.id.gwanlee == item.getItemId()) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fl, new CareFragment()).commit();
                 }else if(R.id.gumsa == item.getItemId()) {
@@ -57,5 +62,27 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        // 로고 누를 시 홈으로 이동
+        Intent intent = getIntent();
+        String moveFl = getIntent().getStringExtra("moveFl");
+        if(moveFl.equals("home")){
+            getSupportFragmentManager().beginTransaction().replace(
+                    // 1) 어디에
+                    R.id.fl,
+                    // 2) 어떤 프래그먼트
+                    new HomeFragment()
+            ).commit();
+        } else if (moveFl.equals("care")) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new CareFragment()).commit();
+        } else if (moveFl.equals("test")) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+        } else if (moveFl.equals("info")) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+        } else if (moveFl.equals("moreset")) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+        }
+
+
     }
 }

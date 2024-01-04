@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -29,6 +32,7 @@ import com.kakao.sdk.user.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.zip.Deflater;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -58,52 +62,61 @@ public class LoginActivity extends AppCompatActivity {
         String keyHash = Utility.INSTANCE.getKeyHash(this);
         Log.d("KeyHash: ", keyHash);
 
-        loginButton = findViewById(R.id.btn_loginkakao);
-
-        // 카카오톡이 설치되어 있는지 확인하는 메서드 , 카카오에서 제공함. 콜백 객체를 이용합.
-        Function2<OAuthToken,Throwable, Unit> callback =new Function2<OAuthToken, Throwable, Unit>() {
+        // 카카오 버튼 클릭 시 팝업창
+        binding.btnLoginkakao.setOnClickListener(new View.OnClickListener() {
             @Override
-            // 콜백 메서드 ,
-            public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
-                Log.e(TAG,"CallBack Method " + oAuthToken);
+            public void onClick(View v) {
+                new AlertDialog.Builder(LoginActivity.this).setTitle("'Kakao'을(를) 사용하여 로그인하려고 합니다.").setMessage("사용자에 관한 정보를 앱 및 웹 사이트가 공유하게 됩니다.")
+                        .setPositiveButton("계속", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
-                //oAuthToken != null 이라면 로그인 성공
-                if(oAuthToken!=null){
-                    // 토큰이 전달된다면 로그인이 성공한 것이고 토큰이 전달되지 않으면 로그인 실패한다.
+                                loginButton = findViewById(R.id.btn_loginkakao);
 
-                    // updateKakaoLoginUi();
-                    updateKakaoLoginUi();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                                // 카카오톡이 설치되어 있는지 확인하는 메서드 , 카카오에서 제공함. 콜백 객체를 이용합.
+                                Function2<OAuthToken,Throwable, Unit> callback =new Function2<OAuthToken, Throwable, Unit>() {
+                                    @Override
+                                    // 콜백 메서드 ,
+                                    public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
+                                        Log.e(TAG,"CallBack Method " + oAuthToken);
 
-                }else {
-                    //로그인 실패
-                    Log.e(TAG, "invoke: login fail" );
-                }
+                                        //oAuthToken != null 이라면 로그인 성공
+                                        if(oAuthToken!=null){
+                                            // 토큰이 전달된다면 로그인이 성공한 것이고 토큰이 전달되지 않으면 로그인 실패한다.
 
-                return null;
-            }
-        };
+                                            // updateKakaoLoginUi();
+                                            updateKakaoLoginUi();
+                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
 
-        // 로그인 버튼 클릭 리스너
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                                        }else {
+                                            //로그인 실패
+                                            Log.e(TAG, "invoke: login fail" );
+                                        }
 
-                // 해당 기기에 카카오톡이 설치되어 있는 확인
-                if(UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
-                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback);
-                }else{
-                    // 카카오톡이 설치되어 있지 않다면
-                    UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
-                }
-                updateKakaoLoginUi();
+                                        return null;
+                                    }
+                                };
+                                        // 해당 기기에 카카오톡이 설치되어 있는 확인
+                                        if(UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
+                                            UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback);
+                                        }else{
+                                            // 카카오톡이 설치되어 있지 않다면
+                                            UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
+                                        }
+                                        updateKakaoLoginUi();
 
+                                updateKakaoLoginUi();
+                            }
+                        }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(LoginActivity.this.getApplicationContext(), "취소", Toast.LENGTH_SHORT).show();
+                            }
+                        }).show();
             }
         });
-        updateKakaoLoginUi();
-
     }
 
     private void insertLogin(String uid, String name, String classes, String email){
@@ -144,18 +157,6 @@ public class LoginActivity extends AppCompatActivity {
         };
         queue.add(request);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     private void updateKakaoLoginUi() {
 

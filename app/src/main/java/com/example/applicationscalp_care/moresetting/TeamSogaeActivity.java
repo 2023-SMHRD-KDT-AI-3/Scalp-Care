@@ -1,4 +1,4 @@
-package com.example.applicationscalp_care;
+package com.example.applicationscalp_care.moresetting;
 
 import androidx.appcompat.app.AppCompatActivity;
 

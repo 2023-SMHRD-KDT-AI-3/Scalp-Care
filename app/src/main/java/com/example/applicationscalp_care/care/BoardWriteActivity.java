@@ -52,7 +52,7 @@ public class BoardWriteActivity extends AppCompatActivity {
     private ActivityBoardWriteBinding binding;
     private RequestQueue queue;
 
-    String writeURL="http://192.168.219.56:8089/Boardsave";
+    String writeURL="http://192.168.219.52:8089/Boardsave";
 
     // 객체 생성
     AppCompatRadioButton yanghobtn, gyungjungbtn, joongdungbtn, joongjungbtn;
@@ -142,6 +142,8 @@ public class BoardWriteActivity extends AppCompatActivity {
                 String base64_img = Base64.encodeToString(byteArray, Base64.DEFAULT);
                 Log.d("BoardWriteActivity",String.valueOf(base64_img.length()));
 
+                // 1/2/3/4로 변환
+                int conditionValue = getSelectedConditionValue();
 
                 // 작성 내용 DB저장
                 StringRequest request = new StringRequest(
@@ -170,6 +172,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                         params.put("img",base64_img);
                         params.put("ucUid",ucUid);
                         params.put("indate",currentTime);
+                        params.put("ucCondition", String.valueOf(conditionValue));
 
                         return params;
 
@@ -177,6 +180,21 @@ public class BoardWriteActivity extends AppCompatActivity {
                 };
                 queue.add(request);
 
+            }
+
+            // 양호/경증/중등도/중증 버튼 중에 클릭 시 1/2/3/4로 변환
+            private int getSelectedConditionValue() {
+                if (yanghobtn.isChecked()) {
+                    return 1;
+                } else if (gyungjungbtn.isChecked()) {
+                    return 2;
+                } else if (joongdungbtn.isChecked()) {
+                    return 3;
+                } else if (joongjungbtn.isChecked()) {
+                    return 4;
+                } else {
+                    return 0;
+                }
             }
         });
 

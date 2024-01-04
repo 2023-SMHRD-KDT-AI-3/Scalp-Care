@@ -33,6 +33,7 @@ public class SplashActivity extends AppCompatActivity {
                 // 로그인이 되어 있으면 MainActivity로 이동
                 }else{
                     intent = new Intent(SplashActivity.this, MainActivity.class);
+                    intent.putExtra("moveFl","home");
                 }
                 startActivity(intent);
                 finish();
