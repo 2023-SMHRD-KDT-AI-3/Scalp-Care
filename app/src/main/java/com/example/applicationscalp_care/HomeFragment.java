@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,9 +30,34 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
-
+        // 두피 버튼 누를 시 검사 페이지 이동
+        binding.goTest1.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            TestFragment testFragment = new TestFragment();
+            transaction.replace(R.id.fl, testFragment);
+            transaction.commit();
+        });
+        // 헤어 버튼 누를 시 검사 페이지 이동
+        binding.goTest2.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            TestFragment testFragment = new TestFragment();
+            transaction.replace(R.id.fl, testFragment);
+            transaction.commit();
+        });
+        // 더보기 버튼 누를 시 정보 페이지 이동
+        binding.goInfo.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            InformationFragment informationFragment = new InformationFragment();
+            transaction.replace(R.id.fl, informationFragment);
+            transaction.commit();
+        });
+        // 게시글 누를 시 관리 페이지 이동
+        binding.goMyBoard.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            CareFragment careFragment = new CareFragment();
+            transaction.replace(R.id.fl, careFragment);
+            transaction.commit();
+        });
 
 
         return binding.getRoot();

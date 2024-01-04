@@ -34,13 +34,13 @@
             android:name=".test.TestResultActivity"
             android:exported="false" />
         <activity
+            android:name=".moresetting.TeamSogaeActivity"
+            android:exported="false" />
+        <activity
             android:name=".kakaomap.CustomToastDialog"
             android:exported="false" />
         <activity
             android:name=".HospitalActivity"
-            android:exported="false" />
-        <activity
-            android:name=".pagingActivity"
             android:exported="false" />
         <activity
             android:name=".information.InfoInsideActivity"

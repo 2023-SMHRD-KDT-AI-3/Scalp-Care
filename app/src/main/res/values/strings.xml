@@ -27,6 +27,12 @@
 
     <!--  fragment_care.xml  -->
     <string name="btnVsImg">두피 비교하기</string>
+    <string name="tvDateFilter">날짜 필터</string>
+    <string name="tvHintDateStart">0000-00-00</string>
+    <string name="tvDateStart">시작 날짜</string>
+    <string name="tvHintDateEnd">0000-00-00</string>
+    <string name="tvDateEnd">종료 날짜</string>
+    <string name="btnDateResult">검색</string>
     <string name="tvTitleCare">본인 기록</string>
 
     <!--  activity_board_write.xml  -->
