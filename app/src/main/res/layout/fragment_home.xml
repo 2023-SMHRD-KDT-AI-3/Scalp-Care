@@ -30,7 +30,7 @@
                 android:layout_width="141dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="2dp"
-                android:src="@drawable/white_garo"
+                android:src="@drawable/logo_white_garo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@drawable/hospital" />
+                    android:src="@drawable/home_hospital_icon" />
             </LinearLayout>
 
             <Button
@@ -211,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/corner_round_gray"
+                android:background="@drawable/shape_corner_round_gray"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -236,7 +236,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="6dp"
                         android:layout_weight="1"
-                        android:background="@drawable/best_shape"
+                        android:background="@drawable/shape_best_shape"
                         android:gravity="center"
                         android:text="BEST"
                         android:textColor="@color/white"
@@ -432,7 +432,7 @@
                         android:layout_width="330dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="5dp"
-                        android:background="@drawable/corner_round_gray"
+                        android:background="@drawable/shape_corner_round_gray"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView49" />
@@ -441,7 +441,7 @@
                         android:id="@+id/goMyBoard"
                         android:layout_width="300dp"
                         android:layout_height="60dp"
-                        android:background="@drawable/corner_round"
+                        android:background="@drawable/shape_corner_round_white"
                         android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/textView66"

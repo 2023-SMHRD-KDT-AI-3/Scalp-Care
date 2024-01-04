@@ -5,32 +5,32 @@
     <!--  홈  -->
     <item
         android:id="@+id/home"
-        android:icon="@drawable/home"
+        android:icon="@drawable/bnv_home"
         android:title="홈"/>
 
     <!--  관리  -->
     <item
     android:id="@+id/gwanlee"
-    android:icon="@drawable/gwanlee"
+    android:icon="@drawable/bnv_gwanlee"
     android:title="관리"/>
 
     <!--  검사  -->
     <item
         android:id="@+id/gumsa"
-        android:icon="@drawable/gumsa"
+        android:icon="@drawable/bnv_gumsa"
         android:title="검사" />
 
 
     <!--  정보/헤어  -->
     <item
         android:id="@+id/jungbo"
-        android:icon="@drawable/jungbo"
+        android:icon="@drawable/bnv_jungbo"
         android:title="정보"/>
 
     <!--  더보기  -->
     <item
         android:id="@+id/duhbogi"
-        android:icon="@drawable/duhbogi"
+        android:icon="@drawable/bnv_duhbogi"
         android:title="더보기"/>
 
 </menu>
