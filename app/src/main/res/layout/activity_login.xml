@@ -75,6 +75,7 @@
         android:background="@drawable/login_naver_login"
         android:gravity="center"
         android:text="네이버 계정으로 로그인"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/btn_loginkakao"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btn_loginkakao"
