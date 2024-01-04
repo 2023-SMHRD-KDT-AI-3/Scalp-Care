@@ -111,6 +111,22 @@ public class MoreSettingFragment extends Fragment {
                     }).show();
         });
 
+        // 본인 기록 누를 시, 관리 페이지 이동
+        binding.btnGoCare.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            CareFragment careFragment = new CareFragment();
+            transaction.replace(R.id.fl, careFragment);
+            transaction.commit();
+        });
+
+        // AI 검사 누를 시, 검사 페이지 이동
+        binding.btnGoTest.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            TestFragment testFragment = new TestFragment();
+            transaction.replace(R.id.fl, testFragment);
+            transaction.commit();
+        });
+
 
         return binding.getRoot();
     }

@@ -134,11 +134,12 @@
 
                 <ImageView
                     android:id="@+id/imageView7"
-                    android:layout_width="80dp"
+                    android:layout_width="117dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginLeft="13dp"
                     android:layout_weight="1"
-                    android:src="@drawable/ai" />
+                    android:src="@drawable/home_ai_icon" />
             </LinearLayout>
 
             <LinearLayout
@@ -181,7 +182,7 @@
                     android:layout_height="57dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:src="@drawable/fileiconstwig" />
+                    android:src="@drawable/home_hair_icon" />
             </LinearLayout>
 
             <View

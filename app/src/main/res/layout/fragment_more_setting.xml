@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="TextView"
+        android:text="Guest"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="@+id/imvCircularWithStroke"
         app:layout_constraintHorizontal_bias="0.875"
@@ -65,6 +65,7 @@
         android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/user_name"
+        app:layout_constraintEnd_toEndOf="@+id/imvCircularWithStroke"
         app:layout_constraintStart_toEndOf="@+id/user_name"
         app:layout_constraintTop_toTopOf="@+id/user_name"
         app:layout_constraintVertical_bias="1.0" />
@@ -81,26 +82,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imvCircularWithStroke" />
 
     <View
-        android:id="@+id/divider8"
-        android:layout_width="370dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="@+id/test"
-        app:layout_constraintEnd_toEndOf="@+id/test"
-        app:layout_constraintStart_toStartOf="@+id/test"
-        app:layout_constraintTop_toBottomOf="@+id/test" />
-
-    <View
-        android:id="@+id/divider9"
-        android:layout_width="370dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="@+id/button12"
-        app:layout_constraintEnd_toEndOf="@+id/button12"
-        app:layout_constraintStart_toStartOf="@+id/button12"
-        app:layout_constraintTop_toBottomOf="@+id/button12" />
-
-    <View
         android:id="@+id/divider10"
         android:layout_width="370dp"
         android:layout_height="1dp"
@@ -111,9 +92,39 @@
         app:layout_constraintTop_toBottomOf="@+id/btnTeamSogae" />
 
     <View
+        android:id="@+id/divider9"
+        android:layout_width="370dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@+id/btnTaltwe2"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="@+id/btnTaltwe2"
+        app:layout_constraintTop_toBottomOf="@+id/btnTaltwe2" />
+
+    <View
+        android:id="@+id/divider18"
+        android:layout_width="370dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@+id/btnTaltwe3"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="@+id/btnTaltwe3"
+        app:layout_constraintTop_toBottomOf="@+id/btnTaltwe3" />
+
+    <View
+        android:id="@+id/divider19"
+        android:layout_width="370dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="@+id/btnTaltwe4"
+        app:layout_constraintTop_toBottomOf="@+id/btnTaltwe4" />
+
+    <View
         android:id="@+id/divider7"
         android:layout_width="0dp"
-        android:layout_height="5dp"
+        android:layout_height="20dp"
         android:layout_marginTop="32dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,8 +132,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTaltwe"
+        app:layout_constraintTop_toBottomOf="@+id/btnTaltwe" />
+
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnGoCare"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:backgroundTint="@color/grayBg"
@@ -131,12 +152,12 @@
         android:textColor="@color/black"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toStartOf="@+id/button9"
+        app:layout_constraintEnd_toStartOf="@+id/btnGoTest"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="@+id/textView16" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnGoTest"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:backgroundTint="@color/grayBg"
@@ -144,11 +165,11 @@
         android:text="@string/btntoGumsa"
         android:textColor="@color/black"
         app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button8"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
         app:layout_constraintEnd_toStartOf="@+id/btnLogout"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toTopOf="@+id/button8"
+        app:layout_constraintStart_toEndOf="@+id/btnGoCare"
+        app:layout_constraintTop_toTopOf="@+id/btnGoCare"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -160,22 +181,22 @@
         android:text="@string/btnLogout"
         android:textColor="@color/black"
         app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/button9"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGoTest"
         app:layout_constraintEnd_toEndOf="@+id/textView16"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="@+id/button9" />
+        app:layout_constraintStart_toEndOf="@+id/btnGoTest"
+        app:layout_constraintTop_toTopOf="@+id/btnGoTest" />
 
     <View
         android:id="@+id/divider5"
         android:layout_width="1dp"
         android:layout_height="50dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="@+id/button8"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoCare"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toTopOf="@+id/button8"
+        app:layout_constraintStart_toEndOf="@+id/btnGoCare"
+        app:layout_constraintTop_toTopOf="@+id/btnGoCare"
         app:layout_constraintVertical_bias="0.6" />
 
     <View
@@ -185,9 +206,9 @@
         android:background="?android:attr/listDivider"
         android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="@+id/button9"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoTest"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintStart_toEndOf="@+id/btnGoTest"
         app:layout_constraintTop_toTopOf="@+id/textView16"
         app:layout_constraintVertical_bias="0.6" />
 
@@ -200,7 +221,7 @@
         android:src="@drawable/duhbogi_logout_icon"
         app:layout_constraintBottom_toBottomOf="@+id/btnLogout"
         app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintStart_toEndOf="@+id/btnGoTest"
         app:layout_constraintTop_toTopOf="@+id/btnLogout"
         app:layout_constraintVertical_bias="0.321" />
 
@@ -211,10 +232,10 @@
         android:background="@drawable/circle_white"
         android:padding="3dp"
         android:src="@drawable/duhbogi_gwanlee_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/button8"
-        app:layout_constraintEnd_toEndOf="@+id/button8"
+        app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoCare"
         app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="@+id/button8"
+        app:layout_constraintTop_toTopOf="@+id/btnGoCare"
         app:layout_constraintVertical_bias="0.321" />
 
     <ImageView
@@ -225,51 +246,16 @@
         android:padding="3dp"
         android:src="@drawable/duhbogi_gumsa_icon"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="@+id/button9"
-        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoTest"
+        app:layout_constraintStart_toEndOf="@+id/btnGoCare"
         app:layout_constraintTop_toTopOf="@+id/textView16"
         app:layout_constraintVertical_bias="0.321" />
 
     <Button
-        android:id="@+id/test"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/white"
-        android:gravity="center|left"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="test"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/divider7"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/divider7"
-        app:layout_constraintTag="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/divider7" />
-
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/white"
-        android:gravity="center|left"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="@string/btnsulmoon"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/test"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/test"
-        app:layout_constraintTop_toBottomOf="@+id/test" />
-
-    <Button
         android:id="@+id/btnTaltwe"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="4dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="2dp"
         android:backgroundTint="@color/white"
         android:gravity="center|left"
         android:insetTop="0dp"
@@ -283,10 +269,76 @@
         app:layout_constraintTop_toBottomOf="@+id/btnTeamSogae" />
 
     <Button
+        android:id="@+id/btnTaltwe2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center|left"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="공지사항"
+        android:textColor="@color/black"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/divider8"
+        app:layout_constraintTop_toBottomOf="@+id/divider8" />
+
+    <Button
+        android:id="@+id/btnTaltwe3"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center|left"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="개인정보 취급방침"
+        android:textColor="@color/black"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnTaltwe2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTaltwe2"
+        app:layout_constraintTop_toBottomOf="@+id/divider9" />
+
+    <Button
+        android:id="@+id/btnTaltwe4"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center|left"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="FAQ"
+        android:textColor="@color/black"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTaltwe3"
+        app:layout_constraintTop_toBottomOf="@+id/divider18" />
+
+    <Button
+        android:id="@+id/btnTaltwe5"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center|left"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="1:1 문의"
+        android:textColor="@color/black"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnTaltwe4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTaltwe4"
+        app:layout_constraintTop_toBottomOf="@+id/divider19" />
+
+    <Button
         android:id="@+id/btnTeamSogae"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="4dp"
+        android:layout_height="60dp"
         android:backgroundTint="@color/white"
         android:gravity="center|left"
         android:insetTop="0dp"
@@ -294,16 +346,8 @@
         android:text="@string/btnTeam"
         android:textColor="@color/black"
         app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/button12"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button12"
-        app:layout_constraintTop_toBottomOf="@+id/button12" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintEnd_toEndOf="@+id/divider7"
+        app:layout_constraintStart_toStartOf="@+id/divider7"
+        app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
