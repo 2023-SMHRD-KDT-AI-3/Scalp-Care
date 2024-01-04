@@ -174,7 +174,7 @@ public class HospitalActivity extends AppCompatActivity implements MapView.POIIt
         customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
         customMarker.setCustomImageResourceId(R.drawable.home_hospital_icon);
         // 선택될 때 보일 이미지 - x
-        customMarker.setCustomSelectedImageResourceId(R.drawable.hospital2);
+        customMarker.setCustomSelectedImageResourceId(R.drawable.home_hospital_icon);
 
         customMarker.setUserObject(place); // -> userObject
         mapView.addPOIItem(customMarker);

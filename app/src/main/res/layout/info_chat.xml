@@ -6,6 +6,15 @@
     android:layout_height="wrap_content"
     android:background="@color/white">
 
+    <View
+        android:id="@+id/divider17"
+        android:layout_width="390dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView45"
         android:layout_width="wrap_content"
@@ -24,13 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
-        android:background="@drawable/info_chat_other_color"
+        android:background="@color/white"
         android:padding="7dp"
         android:text="TextView"
         android:textColor="@color/black"
-        android:textCursorDrawable="@drawable/info_chat_me_color"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,13 +46,14 @@
         android:id="@+id/textView67"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
         android:text="TextView"
         android:textColor="@color/grayText"
-        app:layout_constraintBottom_toBottomOf="@+id/tvInfoChatOther"
-        app:layout_constraintStart_toEndOf="@+id/tvInfoChatOther"
-        app:layout_constraintTop_toTopOf="@+id/tvInfoChatOther"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvInfoChatOther"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvInfoChatOther"
+        app:layout_constraintTop_toBottomOf="@+id/tvInfoChatOther" />
 
     <TextView
         android:id="@+id/textView86"
