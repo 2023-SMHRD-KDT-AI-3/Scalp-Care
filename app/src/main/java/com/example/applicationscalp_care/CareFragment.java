@@ -35,6 +35,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.applicationscalp_care.care.BoardAdapter;
 import com.example.applicationscalp_care.care.BoardVO;
 import com.example.applicationscalp_care.care.BoardWriteActivity;
+import com.example.applicationscalp_care.care.ScalpCompareActivity;
 import com.example.applicationscalp_care.databinding.FragmentCareBinding;
 
 import org.json.JSONArray;
@@ -144,9 +145,11 @@ public class CareFragment extends Fragment {
             transaction.commit();
         });
 
-
-
-
+        // 두피 비교하기 누를 시, ScalpCompareActivity로 이동
+        binding.btnVsImg.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ScalpCompareActivity.class);
+            startActivity(intent);
+        });
 
         // root 리턴
         return binding.getRoot();

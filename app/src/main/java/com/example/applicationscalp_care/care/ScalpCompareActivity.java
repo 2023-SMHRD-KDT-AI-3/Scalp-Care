@@ -17,8 +17,13 @@ public class ScalpCompareActivity extends AppCompatActivity {
         binding = ActivityScalpCompareBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-
+        // 뒤로가기
+        binding.imgBack3.setOnClickListener(v -> {
+            finish();
+        });
+        binding.tvBack3.setOnClickListener(v -> {
+            finish();
+        });
 
 
 
