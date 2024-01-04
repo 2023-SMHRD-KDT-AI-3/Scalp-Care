@@ -189,7 +189,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
     <TextView
-        android:id="@+id/textView74"
+        android:id="@+id/result1"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="52dp"
@@ -203,67 +203,67 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView75"
+        android:id="@+id/result2"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/lightgreen"
         app:layout_constraintBottom_toBottomOf="@+id/textView64"
-        app:layout_constraintEnd_toEndOf="@+id/textView74"
-        app:layout_constraintStart_toStartOf="@+id/textView74"
+        app:layout_constraintEnd_toEndOf="@+id/result1"
+        app:layout_constraintStart_toStartOf="@+id/result1"
         app:layout_constraintTop_toTopOf="@+id/textView64"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView76"
+        android:id="@+id/result3"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/lightgreen"
         app:layout_constraintBottom_toBottomOf="@+id/textView65"
-        app:layout_constraintEnd_toEndOf="@+id/textView75"
-        app:layout_constraintStart_toStartOf="@+id/textView75"
+        app:layout_constraintEnd_toEndOf="@+id/result2"
+        app:layout_constraintStart_toStartOf="@+id/result2"
         app:layout_constraintTop_toTopOf="@+id/textView65"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView77"
+        android:id="@+id/result4"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/lightgreen"
         app:layout_constraintBottom_toBottomOf="@+id/textView71"
-        app:layout_constraintEnd_toEndOf="@+id/textView76"
-        app:layout_constraintStart_toStartOf="@+id/textView76"
+        app:layout_constraintEnd_toEndOf="@+id/result3"
+        app:layout_constraintStart_toStartOf="@+id/result3"
         app:layout_constraintTop_toTopOf="@+id/textView71"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView78"
+        android:id="@+id/result5"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/lightgreen"
         app:layout_constraintBottom_toBottomOf="@+id/textView72"
-        app:layout_constraintEnd_toEndOf="@+id/textView77"
-        app:layout_constraintStart_toStartOf="@+id/textView77"
+        app:layout_constraintEnd_toEndOf="@+id/result4"
+        app:layout_constraintStart_toStartOf="@+id/result4"
         app:layout_constraintTop_toTopOf="@+id/textView72"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView79"
+        android:id="@+id/result6"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/lightgreen"
         app:layout_constraintBottom_toBottomOf="@+id/textView73"
-        app:layout_constraintEnd_toEndOf="@+id/textView78"
-        app:layout_constraintStart_toStartOf="@+id/textView78"
+        app:layout_constraintEnd_toEndOf="@+id/result5"
+        app:layout_constraintStart_toStartOf="@+id/result5"
         app:layout_constraintTop_toTopOf="@+id/textView73"
         app:layout_constraintVertical_bias="0.0" />
 

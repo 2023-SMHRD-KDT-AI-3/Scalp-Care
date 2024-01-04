@@ -38,6 +38,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.applicationscalp_care.databinding.FragmentTestBinding;
+import com.example.applicationscalp_care.test.TestResultActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -96,6 +97,10 @@ public class TestFragment extends Fragment {
                                     @Override
                                     public void onResponse(String response) {
                                         Log.d("responseCheck", response);
+                                        Intent intent = new Intent(getActivity(), TestResultActivity.class);
+                                        intent.putExtra("response",response);
+                                        intent.putExtra("img",imgUri.toString());
+                                        startActivity(intent);
 
                                     }
                                 },
