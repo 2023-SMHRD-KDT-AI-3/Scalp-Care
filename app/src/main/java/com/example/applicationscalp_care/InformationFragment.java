@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
@@ -63,6 +64,15 @@ public class InformationFragment extends Fragment {
         // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
         binding.InfoRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.InfoRv.setAdapter(adapter);
+
+
+        // 로고 누를 시, 홈 페이지 이동
+        binding.scalpLogo3.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            HomeFragment homeFragment = new HomeFragment();
+            transaction.replace(R.id.fl, homeFragment);
+            transaction.commit();
+        });
 
         // root 리턴
         return binding.getRoot();

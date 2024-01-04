@@ -1,6 +1,7 @@
 package com.example.applicationscalp_care;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Handler;
@@ -21,6 +23,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -98,6 +101,51 @@ public class CareFragment extends Fragment {
             writeLauncher.launch(intent);
 
         });
+
+        // 달력 해당 날짜 먼저 보여줌
+        int selectedYear = 2023;
+        int selectedMonth = 5;
+        int selectedDayOfMonth = 10;
+
+        // 시작 날짜
+        binding.tvStartDate.setOnClickListener(v ->{
+            // 달력 리스너
+            DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year1, int monthOfYear1, int dayOfMonth1) {
+                    binding.tvStartDate.setText(year1 + "-" + (monthOfYear1 + 1) + "-" + dayOfMonth1);
+                }
+            };
+            // 달력 dialog
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateSetListener, selectedYear, selectedMonth, selectedDayOfMonth);
+            // 보여주기
+            datePickerDialog.show();
+        });
+        // 종료 날짜
+        binding.tvEndDate.setOnClickListener(v ->{
+            // 달력 리스너
+            DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year2, int monthOfYear2, int dayOfMonth2) {
+                    binding.tvEndDate.setText(year2 + "-" + (monthOfYear2 + 1) + "-" + dayOfMonth2);
+                }
+            };
+            // 달력 dialog
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateSetListener, selectedYear, selectedMonth, selectedDayOfMonth);
+            // 보여주기
+            datePickerDialog.show();
+        });
+
+        // 로고 누를 시, 홈 페이지 이동
+        binding.scalpLogo4.setOnClickListener(v -> {
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            HomeFragment homeFragment = new HomeFragment();
+            transaction.replace(R.id.fl, homeFragment);
+            transaction.commit();
+        });
+
+
+
 
 
         // root 리턴
