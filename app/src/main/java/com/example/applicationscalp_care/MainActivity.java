@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 로고 누를 시 홈으로 이동
-        Intent intent = getIntent();
         String moveFl = getIntent().getStringExtra("moveFl");
         if(moveFl.equals("home")){
             getSupportFragmentManager().beginTransaction().replace(

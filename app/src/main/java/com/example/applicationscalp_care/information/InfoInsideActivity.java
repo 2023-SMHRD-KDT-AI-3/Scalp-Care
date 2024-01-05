@@ -2,6 +2,7 @@ package com.example.applicationscalp_care.information;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Context;
@@ -9,11 +10,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -50,6 +54,11 @@ public class InfoInsideActivity extends AppCompatActivity {
     private ArrayList<String> keyset = null;
     private reviewAdapter adapter = null;
     private RequestQueue queue;
+
+    // 좋아요 애니메이션
+    ImageView btnLike, btnHate, thumbsUp, thumbsDown;
+    AnimatedVectorDrawableCompat avd;
+    AnimatedVectorDrawable avd2;
 
     String getImgURL2 = "http://192.168.219.52:8089/getImage2";
     String likeInsertURL =  "http://192.168.219.52:8089/likeInsert";
@@ -154,7 +163,11 @@ public class InfoInsideActivity extends AppCompatActivity {
         binding.imgBack4.setOnClickListener(v ->{
             finish();
         });
-
+        // 좋아요, 싫어요 애니메이션 초기화 작업
+        btnLike = findViewById(R.id.btnlike);
+        btnHate = findViewById(R.id.btnhate);
+        thumbsUp = findViewById(R.id.thumbsUpMove);
+        thumbsDown = findViewById(R.id.thumbsDownMove);
 
         // 좋아요를 클릭했을때
         binding.btnlike.setOnClickListener(new View.OnClickListener() {
@@ -414,6 +427,16 @@ public class InfoInsideActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         if(response.equals("1")){
+                            final Drawable drawable = thumbsUp.getDrawable();
+                            // 좋아요 애니메이션
+                            thumbsUp.setAlpha(0.70f);
+                            if (drawable instanceof AnimatedVectorDrawableCompat) {
+                                avd = (AnimatedVectorDrawableCompat) drawable;
+                                avd.start();
+                            } else if (drawable instanceof  AnimatedVectorDrawable) {
+                                avd2 = (AnimatedVectorDrawable) drawable;
+                                avd2.start();
+                            }
                             binding.btnlike.setImageResource(R.drawable.thumbs_up_on);
                         }else {
                             binding.btnlike.setImageResource(R.drawable.thumbs_up_off);
@@ -458,6 +481,16 @@ public class InfoInsideActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         if(response.equals("1")){
+                            final Drawable drawable = thumbsDown.getDrawable();
+                            // 싫어요 애니메이션
+                            thumbsDown.setAlpha(0.70f);
+                            if (drawable instanceof AnimatedVectorDrawableCompat) {
+                                avd = (AnimatedVectorDrawableCompat) drawable;
+                                avd.start();
+                            } else if (drawable instanceof  AnimatedVectorDrawable) {
+                                avd2 = (AnimatedVectorDrawable) drawable;
+                                avd2.start();
+                            }
                             binding.btnhate.setImageResource(R.drawable.thumbs_down_on);
                         }else {
                             binding.btnhate.setImageResource(R.drawable.thumbs_down_off);

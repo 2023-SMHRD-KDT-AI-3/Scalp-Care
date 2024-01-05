@@ -4,19 +4,16 @@
     <!-- 인터넷 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- kakao map -->
-
-    <!-- 카카오 맵 관련 권한-->
+    <!-- 카카오 맵 관련 권한 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 갤러리 접근 권한 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- 카메라 접근 권한 -->
+    <uses-permission android:name="android.permission.CAMERA" />
 
-    <!-- 갤러리 접근 권한 -->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
-
-
-    <!-- 카메라 접근 권한 -->
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:name=".KakaoSdkLoginActivity"
@@ -30,6 +27,9 @@
         android:theme="@style/Theme.ApplicationScalp_care"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".care.ScalpCompareActivity"
+            android:exported="false" />
         <activity
             android:name=".test.TestResultActivity"
             android:exported="false" />

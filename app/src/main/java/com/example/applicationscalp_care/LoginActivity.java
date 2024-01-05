@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private View loginButton;
     private RequestQueue queue;
 
-    String loginURL =  "http://192.168.219.52:8089/join";
+    String loginURL =  "http://192.168.219.56:8089/join";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -62,6 +62,29 @@ public class LoginActivity extends AppCompatActivity {
         String keyHash = Utility.INSTANCE.getKeyHash(this);
         Log.d("KeyHash: ", keyHash);
 
+        // 카카오톡이 설치되어 있는지 확인하는 메서드 , 카카오에서 제공함. 콜백 객체를 이용합.
+        Function2<OAuthToken,Throwable, Unit> callback =new Function2<OAuthToken, Throwable, Unit>() {
+            @Override
+            // 콜백 메서드 ,
+            public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
+                Log.e(TAG,"CallBack Method " + oAuthToken);
+
+                //oAuthToken != null 이라면 로그인 성공
+                if(oAuthToken!=null){
+                    // 토큰이 전달된다면 로그인이 성공한 것이고 토큰이 전달되지 않으면 로그인 실패한다.
+                    saveuser();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("moveFl","home");
+                    startActivity(intent);
+                    finish();
+                }else {
+                    //로그인 실패
+                    Log.e(TAG, "invoke: login fail" );
+                }
+                return null;
+            }
+        };
+
         // 카카오 버튼 클릭 시 팝업창
         binding.btnLoginkakao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,44 +93,14 @@ public class LoginActivity extends AppCompatActivity {
                         .setPositiveButton("계속", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
-                                loginButton = findViewById(R.id.btn_loginkakao);
-
-                                // 카카오톡이 설치되어 있는지 확인하는 메서드 , 카카오에서 제공함. 콜백 객체를 이용합.
-                                Function2<OAuthToken,Throwable, Unit> callback =new Function2<OAuthToken, Throwable, Unit>() {
-                                    @Override
-                                    // 콜백 메서드 ,
-                                    public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
-                                        Log.e(TAG,"CallBack Method " + oAuthToken);
-
-                                        //oAuthToken != null 이라면 로그인 성공
-                                        if(oAuthToken!=null){
-                                            // 토큰이 전달된다면 로그인이 성공한 것이고 토큰이 전달되지 않으면 로그인 실패한다.
-
-                                            // updateKakaoLoginUi();
-                                            updateKakaoLoginUi();
-                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                            startActivity(intent);
-                                            finish();
-
-                                        }else {
-                                            //로그인 실패
-                                            Log.e(TAG, "invoke: login fail" );
-                                        }
-
-                                        return null;
-                                    }
-                                };
-                                        // 해당 기기에 카카오톡이 설치되어 있는 확인
-                                        if(UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
-                                            UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback);
-                                        }else{
-                                            // 카카오톡이 설치되어 있지 않다면
-                                            UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
-                                        }
-                                        updateKakaoLoginUi();
-
-                                updateKakaoLoginUi();
+                                // 해당 기기에 카카오톡이 설치되어 있는 확인
+                                if(UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)){
+                                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback);
+                                }else{
+                                    // 카카오톡이 설치되어 있지 않다면
+                                    UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
+                                }
+                                saveuser();
                             }
                         }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
                             @Override
@@ -115,6 +108,8 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this.getApplicationContext(), "취소", Toast.LENGTH_SHORT).show();
                             }
                         }).show();
+                saveuser();
+
             }
         });
     }
@@ -158,7 +153,7 @@ public class LoginActivity extends AppCompatActivity {
         queue.add(request);
     }
 
-    private void updateKakaoLoginUi() {
+    private void saveuser() {
 
         // 로그인 여부에 따른 UI 설정
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
@@ -175,6 +170,8 @@ public class LoginActivity extends AppCompatActivity {
 
                     // 로그인 분류
                     String classes = "kakao";
+
+                    // 유저 이미지
                     String img = user.getKakaoAccount().getProfile().getThumbnailImageUrl().toString();
 
                     // 유저 정보 DB 저장
