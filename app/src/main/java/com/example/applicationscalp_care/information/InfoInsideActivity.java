@@ -2,6 +2,7 @@ package com.example.applicationscalp_care.information;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,16 +23,32 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.example.applicationscalp_care.CareFragment;
+import com.example.applicationscalp_care.InformationFragment;
 import com.example.applicationscalp_care.R;
+import com.example.applicationscalp_care.care.BoardVO;
 import com.example.applicationscalp_care.databinding.ActivityInfoInsideBinding;
+import com.example.applicationscalp_care.review.reviewAdapter;
+import com.example.applicationscalp_care.review.reviewVO;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 
 public class InfoInsideActivity extends AppCompatActivity {
 
     private ActivityInfoInsideBinding binding;
-
+    private ArrayList<reviewVO> dataset = null;
+    private ArrayList<String> keyset = null;
+    private reviewAdapter adapter = null;
     private RequestQueue queue;
 
     String getImgURL2 = "http://192.168.219.52:8089/getImage2";
@@ -41,6 +58,8 @@ public class InfoInsideActivity extends AppCompatActivity {
     String hateViewURL =  "http://192.168.219.52:8089/hateView";
     String likeCheckIconURL =  "http://192.168.219.52:8089/likeCheckIcon";
     String hateCheckIconURL =  "http://192.168.219.52:8089/hateCheckIcon";
+    String reviewInsertURL =  "http://192.168.219.52:8089/reviewInsert";
+    String reviewViewURL =  "http://192.168.219.52:8089/reviewView";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +72,17 @@ public class InfoInsideActivity extends AppCompatActivity {
         // Volley
         queue= Volley.newRequestQueue(this);
 
+        // 어댑터에서 관리하는 데이터 목록을 저장하는 ArrayList
+        dataset = new ArrayList<>();
+        // 데이터와 관련된 키 또는 식별자 목록을 저장하는 ArrayList
+        keyset = new ArrayList<>();
+        // 데이터를 가져와서 뷰에 표시, dataset 및 keyset을 어댑터의 생성자에 전달
+        adapter = new reviewAdapter(dataset, keyset);
+
         // intent 객체 불러오기
         Intent data = getIntent();
 
-        // Intent에 저장된 정보 페이지 정보들을 가져오기
+        // Intent에 저장된 info 정보 페이지 정보들을 가져오기
         String title = data.getStringExtra("title");
         String content = data.getStringExtra("content");
         String views = data.getStringExtra("views");
@@ -72,6 +98,12 @@ public class InfoInsideActivity extends AppCompatActivity {
         likeCheckIcon();
         // 싫어요 그림 체크
         hateCheckIcon();
+        // 리뷰 출력
+        reviewView();
+
+        // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
+        binding.infoChatList.setLayoutManager(new LinearLayoutManager(this));
+        binding.infoChatList.setAdapter(adapter);
 
 
         // acNum을 이용해 사진 불러오기
@@ -242,6 +274,53 @@ public class InfoInsideActivity extends AppCompatActivity {
             }
         });
 
+        // 댓글 등록 버튼을 클릭했을때
+        binding.btnReviewSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("review 클릭!","클릭!");
+
+                // 사용자가 입력한 댓글 내용 가져오기
+                String rv_content = binding.edtReviewContent.getText().toString();
+
+                // 로그인한 사용자 정보(uid) 가져오기
+                SharedPreferences autoLogin = getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
+                String reUid = autoLogin.getString("uid","null");
+                StringRequest request = new StringRequest(
+                        Request.Method.POST,
+                        reviewInsertURL,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Log.d("review response","댓글 등록 완료!");
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.d("review error","다시 해봐!");
+                            }
+                        }
+                ){
+                    @Nullable
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> params = new HashMap<>();
+
+                        params.put("reAcNum", String.valueOf(acNum));
+                        params.put("reUid",reUid);
+                        params.put("content",rv_content);
+
+                        return params;
+
+                    }
+                };
+                queue.add(request);
+            }
+        });
+
+
+
     }
 
     // 좋아요 갯수 출력
@@ -411,7 +490,95 @@ public class InfoInsideActivity extends AppCompatActivity {
             }
         };
         queue.add(request);
-
     }
+
+
+    // 댓글 출력
+    public void reviewView() {
+        Log.d("reviewView", "리뷰 오는 중");
+
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                reviewViewURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("reviewView", response);
+                        try {
+                            JSONArray jsonArray = null;
+                            jsonArray = new JSONArray(response);
+
+                            // 홀수 인덱스에는 사용자 이름, 짝수 인덱스에는 댓글 데이터
+                            for (int i = 0; i < jsonArray.length(); i=i+2) {
+                                Log.d("reviewView","여기까진 오는건가?");
+
+                                String JsonItemString1 = jsonArray.getString(i);
+                                // Json(String) → 객체화
+                                JSONObject jsonObject1 = new JSONObject(JsonItemString1);
+                                String re_uid_name = jsonObject1.getString("name");
+
+                                // Json(String) → 객체화
+                                String JsonItemString2 = jsonArray.getString(i+1);
+                                JSONObject jsonObject2 = new JSONObject(JsonItemString2);
+
+                                // 각 필요한 데이터를 추출
+                                int re_num = jsonObject2.getInt("reNum");
+                                String content = jsonObject2.getString("content");
+                                String indate = InfoInsideActivity.this.formatIndate(jsonObject2.getString("indate"));
+
+                                reviewVO vo = new reviewVO(re_num, content, indate, re_uid_name);
+
+                                // 데이터셋에 추가
+                                dataset.add(vo);
+
+                            }
+
+                            // 어댑터에 데이터셋 변경을 알림
+                            adapter.notifyDataSetChanged();
+
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("reviewView", "review 에러 !");
+            }
+        }
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                Intent data = getIntent();
+                Long acNum = data.getLongExtra("acNum",0);
+                params.put("reAcNum", String.valueOf(acNum));
+
+                return params;
+
+            }
+        };
+        queue.add(request);
+    }
+
+    // date 가져오는 거
+    private String formatIndate(String indateString) {
+        try {
+            long indateValue = Long.parseLong(indateString);
+            Date indateDate = new Date(indateValue);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm", Locale.getDefault());
+            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+            return sdf.format(indateDate);
+        } catch (NumberFormatException e) {
+            Log.e("CareActivity", "날짜 파싱 오류: " + e.getMessage());
+            return indateString; // 변환이 실패하면 원본 문자열 반환
+        }
+    }
+
+
 
 }

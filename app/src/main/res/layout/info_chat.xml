@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView45"
+        android:id="@+id/tvReviewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvInfoChatOther"
+        android:id="@+id/tvReviewContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -40,20 +40,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView45" />
+        app:layout_constraintTop_toBottomOf="@+id/tvReviewName" />
 
     <TextView
-        android:id="@+id/textView67"
+        android:id="@+id/tvReviewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:text="TextView"
         android:textColor="@color/grayText"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tvInfoChatOther"
+        app:layout_constraintEnd_toEndOf="@+id/tvReviewContent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvInfoChatOther"
-        app:layout_constraintTop_toBottomOf="@+id/tvInfoChatOther" />
+        app:layout_constraintStart_toStartOf="@+id/tvReviewContent"
+        app:layout_constraintTop_toBottomOf="@+id/tvReviewContent" />
 
     <TextView
         android:id="@+id/textView86"
@@ -62,8 +62,8 @@
         android:gravity="center"
         android:text="님"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView45"
-        app:layout_constraintStart_toEndOf="@+id/textView45"
-        app:layout_constraintTop_toTopOf="@+id/textView45" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvReviewName"
+        app:layout_constraintStart_toEndOf="@+id/tvReviewName"
+        app:layout_constraintTop_toTopOf="@+id/tvReviewName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

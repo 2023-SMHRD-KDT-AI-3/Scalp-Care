@@ -204,7 +204,7 @@
                     app:layout_constraintTop_toTopOf="@+id/btnhate" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/edtReviewContent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -221,7 +221,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/btnlike" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btnReviewSave"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:backgroundTint="@color/green"
@@ -231,10 +231,10 @@
                     android:textSize="12sp"
                     app:cornerRadius="10dp"
                     app:iconPadding="0dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/editTextText"
+                    app:layout_constraintBottom_toBottomOf="@+id/edtReviewContent"
                     app:layout_constraintEnd_toEndOf="@+id/textView51"
                     app:layout_constraintStart_toEndOf="@+id/btnlike"
-                    app:layout_constraintTop_toTopOf="@+id/editTextText" />
+                    app:layout_constraintTop_toTopOf="@+id/edtReviewContent" />
 
                 <TextView
                     android:id="@+id/textView63"
@@ -244,10 +244,10 @@
                     android:layout_marginBottom="50dp"
                     android:background="@drawable/shape_corner_round_white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/button"
+                    app:layout_constraintEnd_toEndOf="@+id/btnReviewSave"
                     app:layout_constraintHorizontal_bias="0.508"
-                    app:layout_constraintStart_toStartOf="@+id/editTextText"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+                    app:layout_constraintStart_toStartOf="@+id/edtReviewContent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtReviewContent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/infoChatList"

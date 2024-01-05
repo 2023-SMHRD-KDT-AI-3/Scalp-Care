@@ -6,17 +6,19 @@ public class reviewVO {
     private int re_num;
     private String content;
     private String indate;
-    private String re_ac_num_ac_num;
     private String re_uid_uid;
 
+    private String re_uid_name;
+
     // 생성자 생성
-    public reviewVO(int re_num, String content, String indate, String re_ac_num_ac_num, String re_uid_uid) {
+
+    public reviewVO(int re_num, String content, String indate, String re_uid_name) {
         this.re_num = re_num;
         this.content = content;
         this.indate = indate;
-        this.re_ac_num_ac_num = re_ac_num_ac_num;
-        this.re_uid_uid = re_uid_uid;
+        this.re_uid_name = re_uid_name;
     }
+
 
     // getter 생성
 
@@ -32,11 +34,12 @@ public class reviewVO {
         return indate;
     }
 
-    public String getRe_ac_num_ac_num() {
-        return re_ac_num_ac_num;
-    }
 
     public String getRe_uid_uid() {
         return re_uid_uid;
+    }
+
+    public String getRe_uid_name() {
+        return re_uid_name;
     }
 }
