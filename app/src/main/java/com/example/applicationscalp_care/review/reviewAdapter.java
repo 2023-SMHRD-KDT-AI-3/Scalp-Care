@@ -10,7 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.applicationscalp_care.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class reviewAdapter extends RecyclerView.Adapter<reviewViewHolder> {
 
@@ -40,8 +44,17 @@ public class reviewAdapter extends RecyclerView.Adapter<reviewViewHolder> {
         holder.getTvReviewContent().setText(vo.getContent());
         holder.getTvReviewDate().setText(vo.getIndate());
 
+
+        // 작성 시간을 변환하여 표시
+//        String getIndate = dataset.get(position).getIndate();
+//        String formatTime = timeDi(getIndate);
+//        holder.getTvReviewDate().setText(formatTime);
+
+
     }
 
     @Override
     public int getItemCount() { return dataset.size(); }
+
+
 }

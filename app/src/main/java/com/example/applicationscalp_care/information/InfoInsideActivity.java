@@ -2,8 +2,8 @@ package com.example.applicationscalp_care.information;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
 import com.android.volley.AuthFailureError;
@@ -39,6 +40,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -95,7 +97,7 @@ public class InfoInsideActivity extends AppCompatActivity {
         String title = data.getStringExtra("title");
         String content = data.getStringExtra("content");
         String views = data.getStringExtra("views");
-        String indate = data.getStringExtra("indate");
+        String indate = InfoInsideActivity.this.formatIndate(data.getStringExtra("indate"));
         String img = data.getStringExtra("img");
         Long acNum = data.getLongExtra("acNum",0);
 
@@ -293,6 +295,9 @@ public class InfoInsideActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("review 클릭!","클릭!");
 
+                // 기존 데이터셋 지우기
+                dataset.clear();
+
                 // 사용자가 입력한 댓글 내용 가져오기
                 String rv_content = binding.edtReviewContent.getText().toString();
 
@@ -306,6 +311,12 @@ public class InfoInsideActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 Log.d("review response","댓글 등록 완료!");
+
+                                // 댓글 등록 후 키보드를 내림
+                                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                                imm.hideSoftInputFromWindow(binding.edtReviewContent.getWindowToken(), 0);
+                                binding.edtReviewContent.setText(""); // 댓글 내용 지우기
+
                             }
                         },
                         new Response.ErrorListener() {
@@ -329,6 +340,16 @@ public class InfoInsideActivity extends AppCompatActivity {
                     }
                 };
                 queue.add(request);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        likeView();
+                        hateView();
+                        likeCheckIcon();
+                        hateCheckIcon();
+                        reviewView();
+                    }
+                }, 1000); // 1000 밀리초 (1초) 딜레이
             }
         });
 
@@ -603,9 +624,25 @@ public class InfoInsideActivity extends AppCompatActivity {
         try {
             long indateValue = Long.parseLong(indateString);
             Date indateDate = new Date(indateValue);
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm", Locale.getDefault());
-            sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
-            return sdf.format(indateDate);
+            long currentTime = System.currentTimeMillis();
+            long timeDifference = currentTime - indateValue;
+
+            if (timeDifference < 60 * 1000) { // 1분 미만
+                return "방금 전";
+            } else if (timeDifference < 60 * 60 * 1000) { // 1시간 미만
+                long minutes = timeDifference / (60 * 1000);
+                return minutes + "분 전";
+            } else if (timeDifference < 24 * 60 * 60 * 1000) { // 1일 미만
+                long hours = timeDifference / (60 * 60 * 1000);
+                return hours + "시간 전";
+            } else if (timeDifference < 7 * 24 * 60 * 60 * 1000) { // 7일 미만
+                long days = timeDifference / (24 * 60 * 60 * 1000);
+                return days + "일 전";
+            } else {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm", Locale.getDefault());
+                sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+                return sdf.format(indateDate);
+            }
         } catch (NumberFormatException e) {
             Log.e("CareActivity", "날짜 파싱 오류: " + e.getMessage());
             return indateString; // 변환이 실패하면 원본 문자열 반환
