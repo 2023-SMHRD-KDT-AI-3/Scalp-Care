@@ -71,6 +71,7 @@ public class InfoInsideActivity extends AppCompatActivity {
     String hateCheckIconURL =  "http://192.168.219.52:8089/hateCheckIcon";
     String reviewInsertURL =  "http://192.168.219.52:8089/reviewInsert";
     String reviewViewURL =  "http://192.168.219.52:8089/reviewView";
+    String ViewPlusURL =  "http://192.168.219.52:8089/ViewPlus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +112,8 @@ public class InfoInsideActivity extends AppCompatActivity {
         hateCheckIcon();
         // 리뷰 출력
         reviewView();
+        // 조회수 증가 메소드에 글번호(Ac_num)를 담아 보냄
+        ViewPlus(acNum);
 
         // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
         binding.infoChatList.setLayoutManager(new LinearLayoutManager(this));
@@ -150,7 +153,7 @@ public class InfoInsideActivity extends AppCompatActivity {
 
         // 날짜 및 조회수
         binding.infoInsideTime.setText(indate);
-        binding.infoInsideViews.setText(views);
+
         // 제목 및 내용
         binding.infoInsideTitle.setText(title);
         binding.infoInsideContent.setText(content);
@@ -649,6 +652,38 @@ public class InfoInsideActivity extends AppCompatActivity {
         }
     }
 
+    // 조회수 갯수 증가 후 출력
+    public void ViewPlus(long acNum){
+        Log.d("acNUm 오냐", String.valueOf(acNum));
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                ViewPlusURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("ViewPlus","View Count: " + response);
+                        binding.infoInsideViews.setText(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("ViewPlus","다시 도전!");
+                    }
+                }
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
 
+                params.put("acNum", String.valueOf(acNum));
+
+                return params;
+
+            }
+        };
+        queue.add(request);
+    }
 
 }

@@ -1,22 +1,34 @@
 package com.example.applicationscalp_care.information;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.example.applicationscalp_care.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InfoAdapter extends RecyclerView.Adapter<InfoViewHolder> {
 
     // 객체 생성
     private ArrayList<InfoVO> dataset;
     private ArrayList<String> keyset;
+
+
 
     public InfoAdapter(ArrayList<InfoVO> dataset, ArrayList<String> keyset) {
         // 초기화
@@ -39,6 +51,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoViewHolder> {
         holder.getTvInfoTitle().setText(vo.getTitle());
         holder.getTvInfoContent().setText(vo.getContent());
         holder.getTvInfoViews().setText(vo.getViews());
+        holder.getTvInfoIndate().setText(vo.getIndate());
 
         // 정보 페이지 게시물 누르면 InfoInsideActivity 이동
         holder.listener = new InfoItemListener() {
@@ -59,4 +72,7 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoViewHolder> {
 
     @Override
     public int getItemCount() { return dataset.size(); }
+
+
+
 }
