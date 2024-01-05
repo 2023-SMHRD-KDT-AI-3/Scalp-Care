@@ -84,12 +84,18 @@ public class CareFragment extends Fragment {
         keyset = new ArrayList<>();
         adapter = new BoardAdapter( dataset, keyset );
 
-
         if (queue == null) {
             queue = Volley.newRequestQueue(requireContext());
         }
 
         getBoardData();
+
+        SharedPreferences nowPage = getActivity().getSharedPreferences("page", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = nowPage.edit();
+        editor.putString("page","care");
+        editor.commit();
+
+
 
         // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
         binding.BoardRv.setLayoutManager(new LinearLayoutManager(getActivity()));
