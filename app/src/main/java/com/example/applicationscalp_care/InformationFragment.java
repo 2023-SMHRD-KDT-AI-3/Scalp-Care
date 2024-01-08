@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.applicationscalp_care.care.BoardVO;
 import com.example.applicationscalp_care.databinding.FragmentInformationBinding;
 import com.example.applicationscalp_care.information.InfoAdapter;
+import com.example.applicationscalp_care.information.InfoInsideActivity;
 import com.example.applicationscalp_care.information.InfoVO;
 
 import org.json.JSONArray;
@@ -30,6 +31,8 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -46,6 +49,7 @@ public class InformationFragment extends Fragment {
     private RequestQueue queue;
 
     String getInfoURL = "http://192.168.219.52:8089/Newsview";
+    String NewsviewBestURL = "http://192.168.219.52:8089/NewsviewBest";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,7 +63,10 @@ public class InformationFragment extends Fragment {
             queue = Volley.newRequestQueue(requireContext());
         }
 
+        // 게시판 출력
         getInfoData();
+        // 인기 정보글 출력
+        NewsviewBest();
 
         // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
         binding.InfoRv.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -73,6 +80,8 @@ public class InformationFragment extends Fragment {
             transaction.replace(R.id.fl, homeFragment);
             transaction.commit();
         });
+
+
 
         // root 리턴
         return binding.getRoot();
@@ -128,7 +137,6 @@ public class InformationFragment extends Fragment {
                                 // 데이터셋에 추가
                                 dataset.add(new InfoVO(ac_num, title, content, views, indate, img));
                             }
-
                             // 어댑터에 데이터셋 변경을 알림
                             adapter.notifyDataSetChanged();
 
@@ -142,6 +150,122 @@ public class InformationFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("InfoFragment", "여기 문제있음2222");
+            }
+        }
+        );
+        queue.add(request);
+    }
+
+
+    // 인기 정보글 출력
+    public void NewsviewBest() {
+        Log.d("베스트", "왔니?");
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                NewsviewBestURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            // JsonArray(List<String>)
+                            JSONArray jsonArray = new JSONArray(response);
+
+
+                            // 파싱한 데이터를 데이터셋에 추가
+                            for (int i = 0; i < jsonArray.length(); i++) {
+
+                                String JsonItemString = jsonArray.getString(i);
+                                // Json(Stirng) → 객체화
+                                JSONObject jsonObject = new JSONObject(JsonItemString);
+
+                                Log.d("베스트", jsonObject.toString());
+
+                                // 각 필요한 데이터를 추출
+                                Long ac_num = (long) jsonObject.getInt("acNum");
+                                String title = jsonObject.getString("title");
+                                String content = jsonObject.getString("content");
+                                String views = jsonObject.getString("views");
+                                String img = jsonObject.getString("img");
+                                String indate = InformationFragment.this.formatIndate(jsonObject.getString("indate"));
+
+                                if(i == 0){
+                                    binding.tvTop1.setText(title);
+
+                                    // 인기 정보글 1위 클릭 시
+                                    binding.tvTop1.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Log.d("베스트","클릭");
+
+                                            Intent intent = new Intent(getActivity(), InfoInsideActivity.class);
+                                            intent.putExtra("title", title);
+                                            intent.putExtra("content", content);
+                                            intent.putExtra("views", views);
+                                            intent.putExtra("indate", indate);
+                                            intent.putExtra("acNum", ac_num);
+                                            Log.d("베스트 title : ", title);
+                                            Log.d("베스트 acNum : ", String.valueOf(ac_num));
+
+                                            startActivity(intent);
+                                        }
+                                    });
+
+                                }else if (i==1){
+                                    binding.tvTop2.setText(title);
+
+                                    // 인기 정보글 2위 클릭 시
+                                    binding.tvTop2.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Log.d("베스트","클릭");
+                                            Intent intent = new Intent(getActivity(), InfoInsideActivity.class);
+                                            intent.putExtra("title", title);
+                                            intent.putExtra("content", content);
+                                            intent.putExtra("views", views);
+                                            intent.putExtra("indate", indate);
+                                            intent.putExtra("acNum", ac_num);
+                                            Log.d("베스트 title : ", title);
+                                            Log.d("베스트 acNum : ", String.valueOf(ac_num));
+
+                                            startActivity(intent);
+                                        }
+                                    });
+
+                                } else if (i==2) {
+                                    binding.tvTop3.setText(title);
+
+                                    // 인기 정보글 3위 클릭 시
+                                    binding.tvTop3.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Log.d("베스트","클릭");
+                                            Intent intent = new Intent(getActivity(), InfoInsideActivity.class);
+                                            intent.putExtra("title", title);
+                                            intent.putExtra("content", content);
+                                            intent.putExtra("views", views);
+                                            intent.putExtra("indate", indate);
+                                            intent.putExtra("acNum", ac_num);
+                                            Log.d("베스트 title : ", title);
+
+                                            startActivity(intent);
+                                        }
+                                    });
+                                }
+
+
+
+                            }
+
+                        } catch (JSONException e) {
+                            Log.d("베스트 에러", e.toString());
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("베스트", "에러2");
             }
         }
         );

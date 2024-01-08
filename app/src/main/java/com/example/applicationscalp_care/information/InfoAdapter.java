@@ -74,5 +74,4 @@ public class InfoAdapter extends RecyclerView.Adapter<InfoViewHolder> {
     public int getItemCount() { return dataset.size(); }
 
 
-
 }

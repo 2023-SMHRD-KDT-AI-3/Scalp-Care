@@ -15,7 +15,7 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTop3" />
 
     <ImageView
         android:id="@+id/scalpLogo3"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/scalpLogo3" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/tvTop1"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:text="관리자가 올린 게시글"
@@ -55,7 +55,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tvTop2"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:text="관리자가 올린 게시글"
@@ -68,7 +68,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/tvTop3"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
