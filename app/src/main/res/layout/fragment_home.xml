@@ -278,7 +278,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView62"
+                        android:id="@+id/tvBest1"
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -306,7 +306,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView57"
+                        android:id="@+id/tvBest2"
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -335,7 +335,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView59"
+                        android:id="@+id/tvBest3"
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
