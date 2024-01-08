@@ -81,7 +81,9 @@
     <string name="tvNongpo">모낭홍반농포:</string>
     <string name="tvBDum">비듬:</string>
     <string name="tvTalmo">탈모:</string>
+    <string name="tvSangtaeClick">두피 텍스트들을 누르면 해당 두피에 대한 원인 및 증상을 볼 수 있습니다.</string>
     <string name="btnTestResultDone">확인 완료</string>
+    <string name="btnTestGoBoardWrite">게시글 작성</string>
 
     <!--  두피 상태 상세정보 페이지들  -->
     <string name="tvMisaeGak">미세각질상태</string>

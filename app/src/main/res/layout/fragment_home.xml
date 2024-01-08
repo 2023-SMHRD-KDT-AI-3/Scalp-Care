@@ -449,7 +449,7 @@
                         app:layout_constraintTop_toTopOf="@+id/textView66" />
 
                     <TextView
-                        android:id="@+id/textView68"
+                        android:id="@+id/tvGoMyBoardDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -462,7 +462,7 @@
                         app:layout_constraintTop_toTopOf="@+id/goMyBoard" />
 
                     <TextView
-                        android:id="@+id/textView69"
+                        android:id="@+id/tvGoMyBoardContent"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -470,8 +470,8 @@
                         android:visibility="invisible"
                         app:layout_constraintEnd_toEndOf="@+id/goMyBoard"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/textView68"
-                        app:layout_constraintTop_toBottomOf="@+id/textView68" />
+                        app:layout_constraintStart_toStartOf="@+id/tvGoMyBoardDate"
+                        app:layout_constraintTop_toBottomOf="@+id/tvGoMyBoardDate" />
 
                     <TextView
                         android:id="@+id/textView70"

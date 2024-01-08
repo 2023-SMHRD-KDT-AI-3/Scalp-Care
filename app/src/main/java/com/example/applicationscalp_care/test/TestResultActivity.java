@@ -10,6 +10,8 @@ import android.util.Log;
 
 import com.example.applicationscalp_care.MainActivity;
 import com.example.applicationscalp_care.R;
+import com.example.applicationscalp_care.TestFragment;
+import com.example.applicationscalp_care.care.BoardWriteActivity;
 import com.example.applicationscalp_care.databinding.ActivityTestResultBinding;
 
 public class TestResultActivity extends AppCompatActivity {
@@ -70,20 +72,23 @@ public class TestResultActivity extends AppCompatActivity {
             startActivity(intent6);
         });
 
-        // 밑줄 긋기
-        binding.tvMisae.setPaintFlags(binding.tvMisae.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        binding.tvPGee.setPaintFlags(binding.tvPGee.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        binding.tvSiee.setPaintFlags(binding.tvSiee.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        binding.tvNongpo.setPaintFlags(binding.tvNongpo.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        binding.tvBedum.setPaintFlags(binding.tvBedum.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        binding.tvTalmo.setPaintFlags(binding.tvTalmo.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
+        // 확인완료 누를 시 검사 페이지로 이동
         binding.btnTestDone.setOnClickListener(v -> {
 
-            Intent mainIntent = new Intent(this, MainActivity.class);
+            Intent mainIntent = new Intent(this, TestFragment.class);
             startActivity(mainIntent);
             finish();
 
         });
+
+        // 게시글 작성 누를 시 게시글 작성 페이지로 이동
+        binding.btnTestGoBoardWrite.setOnClickListener(v -> {
+
+            Intent mainIntent = new Intent(this, BoardWriteActivity.class);
+            startActivity(mainIntent);
+            finish();
+
+        });
+
     }
 }
