@@ -7,10 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -20,8 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.applicationscalp_care.R;
-import com.example.applicationscalp_care.databinding.ActivityBoardInsideBinding;
 import com.example.applicationscalp_care.databinding.ActivityBoardRvBinding;
 
 import org.json.JSONArray;
@@ -43,7 +38,7 @@ public class BoardRvActivity extends AppCompatActivity {
     private ArrayList<String> keyset = null;
     private BoardAdapter adapter = null;
     private RequestQueue queue;
-    String boradviewURL = "http://192.168.219.52:8089/Boardview";
+    String boradviewURL = "http://192.168.219.57:8089/Boardview";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

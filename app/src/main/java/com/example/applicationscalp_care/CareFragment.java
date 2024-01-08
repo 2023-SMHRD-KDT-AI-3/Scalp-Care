@@ -5,7 +5,6 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResult;
@@ -17,8 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.os.Handler;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,7 +57,7 @@ public class CareFragment extends Fragment {
     private BoardAdapter adapter = null;
     private RequestQueue queue;
 
-    String boradviewURL = "http://192.168.219.52:8089/Boardview";
+    String boradviewURL = "http://192.168.219.57:8089/Boardview";
 
 
     private ActivityResultLauncher<Intent> writeLauncher = registerForActivityResult(

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBeDumBinding;
 
 public class BeDumActivity extends AppCompatActivity {

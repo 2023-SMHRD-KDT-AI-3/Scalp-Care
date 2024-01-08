@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.textclassifier.ConversationActions;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,7 +18,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.applicationscalp_care.care.BoardVO;
 import com.example.applicationscalp_care.databinding.FragmentInformationBinding;
 import com.example.applicationscalp_care.information.InfoAdapter;
 import com.example.applicationscalp_care.information.InfoInsideActivity;
@@ -31,8 +29,6 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -48,8 +44,8 @@ public class InformationFragment extends Fragment {
     private InfoAdapter adapter = null;
     private RequestQueue queue;
 
-    String getInfoURL = "http://192.168.219.52:8089/Newsview";
-    String NewsviewBestURL = "http://192.168.219.52:8089/NewsviewBest";
+    String getInfoURL = "http://192.168.219.57:8089/Newsview";
+    String NewsviewBestURL = "http://192.168.219.57:8089/NewsviewBest";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

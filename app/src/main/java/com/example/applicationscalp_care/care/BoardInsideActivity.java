@@ -3,17 +3,12 @@ package com.example.applicationscalp_care.care;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -22,16 +17,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
-import com.example.applicationscalp_care.CareFragment;
-import com.example.applicationscalp_care.R;
+
 import com.example.applicationscalp_care.databinding.ActivityBoardInsideBinding;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +29,7 @@ public class BoardInsideActivity extends AppCompatActivity {
 
     private RequestQueue queue;
 
-    String getImgURL = "http://192.168.219.56:8089/getImage";
+    String getImgURL = "http://192.168.219.57:8089/getImage";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

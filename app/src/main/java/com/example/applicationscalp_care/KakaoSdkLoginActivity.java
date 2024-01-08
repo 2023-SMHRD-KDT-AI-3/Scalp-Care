@@ -1,9 +1,6 @@
 package com.example.applicationscalp_care;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Application;
-import android.os.Bundle;
 
 import com.kakao.sdk.common.KakaoSdk;
 

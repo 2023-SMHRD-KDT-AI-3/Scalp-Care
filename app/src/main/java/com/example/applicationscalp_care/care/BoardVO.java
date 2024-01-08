@@ -1,9 +1,5 @@
 package com.example.applicationscalp_care.care;
 
-import org.json.JSONObject;
-
-import java.util.Date;
-
 public class BoardVO {
 
     // 객체 생성

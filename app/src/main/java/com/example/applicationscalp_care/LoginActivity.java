@@ -12,8 +12,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,7 +21,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 import com.example.applicationscalp_care.databinding.ActivityLoginBinding;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.common.util.Utility;
@@ -32,10 +29,8 @@ import com.kakao.sdk.user.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.zip.Deflater;
 
 import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
@@ -45,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     private View loginButton;
     private RequestQueue queue;
 
-    String loginURL =  "http://192.168.219.56:8089/join";
+    String loginURL =  "http://192.168.219.57:8089/join";
 
     @SuppressLint("MissingInflatedId")
     @Override

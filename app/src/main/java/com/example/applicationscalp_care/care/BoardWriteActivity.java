@@ -34,8 +34,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import com.example.applicationscalp_care.CareFragment;
-import com.example.applicationscalp_care.MainActivity;
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
 
@@ -52,7 +50,7 @@ public class BoardWriteActivity extends AppCompatActivity {
     private ActivityBoardWriteBinding binding;
     private RequestQueue queue;
 
-    String writeURL="http://192.168.219.52:8089/Boardsave";
+    String writeURL="http://192.168.219.57:8089/Boardsave";
 
     // 객체 생성
     AppCompatRadioButton yanghobtn, gyungjungbtn, joongdungbtn, joongjungbtn;
