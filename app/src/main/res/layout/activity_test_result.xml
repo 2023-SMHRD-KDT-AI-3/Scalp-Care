@@ -7,295 +7,322 @@
     android:background="@color/white"
     tools:context=".care.BoardInsideActivity">
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="match_parent"
+    <ScrollView
+        android:id="@+id/scrollView12"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:text="@string/tvTestResult"
-        android:textColor="@color/green"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="330dp"
-        android:layout_height="485dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/shape_corner_round_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.131" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imgContent"
-        android:layout_width="0dp"
-        android:layout_height="220dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="@+id/textView16"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/tvSangtaeResult"
-        android:textColor="@color/lightgreen"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imgContent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toStartOf="@+id/imgContent"
-        app:layout_constraintTop_toBottomOf="@+id/imgContent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                tools:context=".care.BoardInsideActivity">
 
-    <TextView
-        android:id="@+id/tvInsideContent"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="@string/tvSangtaeResultInfo"
-        android:textColor="@color/lightgreen"
-        app:layout_constraintBottom_toBottomOf="@+id/textView17"
-        app:layout_constraintEnd_toEndOf="@+id/imgContent"
-        app:layout_constraintHorizontal_bias="0.321"
-        app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toTopOf="@+id/textView17"
-        app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@string/tvTestResult"
+                    android:textColor="@color/green"
+                    android:textSize="45sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnTestDone"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/lightgreen"
-        android:text="@string/btnTestResultDone"
-        app:layout_constraintEnd_toStartOf="@+id/guideline9"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="330dp"
+                    android:layout_height="485dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/shape_corner_round_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="@+id/textView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textView14"
+                    app:layout_constraintVertical_bias="0.131" />
 
-    <Button
-        android:id="@+id/btnTestGoBoardWrite"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/green"
-        android:text="@string/btnTestGoBoardWrite"
-        app:layout_constraintEnd_toEndOf="@+id/btnTestDone"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnTestDone"
-        app:layout_constraintTop_toBottomOf="@+id/btnTestDone" />
+                <ImageView
+                    android:id="@+id/imgContent"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/textView16"
+                    app:layout_constraintStart_toStartOf="@+id/textView16"
+                    app:layout_constraintTop_toTopOf="@+id/textView16"
+                    app:srcCompat="@drawable/ic_launcher_background" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tvSangtaeResult"
+                    android:textColor="@color/lightgreen"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/imgContent"
+                    app:layout_constraintHorizontal_bias="0.158"
+                    app:layout_constraintStart_toStartOf="@+id/imgContent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgContent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
+                <TextView
+                    android:id="@+id/tvInsideContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/tvSangtaeResultInfo"
+                    android:textColor="@color/lightgreen"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView17"
+                    app:layout_constraintEnd_toEndOf="@+id/imgContent"
+                    app:layout_constraintHorizontal_bias="0.321"
+                    app:layout_constraintStart_toEndOf="@+id/textView17"
+                    app:layout_constraintTop_toTopOf="@+id/textView17"
+                    app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/tvMisae"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/tvMisae"
-        android:textColor="@color/green"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvInsideContent"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                <Button
+                    android:id="@+id/btnTestDone"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/lightgreen"
+                    android:text="@string/btnTestResultDone"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/guideline6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
-    <TextView
-        android:id="@+id/tvPGee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/tvPG"
-        android:textColor="@color/green"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvMisae"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvMisae"
-        app:layout_constraintTop_toBottomOf="@+id/tvMisae" />
+                <Button
+                    android:id="@+id/btnTestGoBoardWrite"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="30dp"
+                    android:backgroundTint="@color/green"
+                    android:text="@string/btnTestGoBoardWrite"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/btnTestDone"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/btnTestDone"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTestDone" />
 
-    <TextView
-        android:id="@+id/tvSiee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/tvSyee"
-        android:textColor="@color/green"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvPGee"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvPGee"
-        app:layout_constraintTop_toBottomOf="@+id/tvPGee" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.1" />
 
-    <TextView
-        android:id="@+id/tvNongpo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/tvNongpo"
-        android:textColor="@color/green"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvSiee"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvSiee"
-        app:layout_constraintTop_toBottomOf="@+id/tvSiee" />
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9" />
 
-    <TextView
-        android:id="@+id/tvBedum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/tvBDum"
-        android:textColor="@color/green"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvNongpo"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvNongpo"
-        app:layout_constraintTop_toBottomOf="@+id/tvNongpo" />
+                <TextView
+                    android:id="@+id/tvMisae"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tvMisae"
+                    android:textColor="@color/green"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tvInsideContent"
+                    app:layout_constraintHorizontal_bias="0.099"
+                    app:layout_constraintStart_toStartOf="@+id/textView17"
+                    app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-    <TextView
-        android:id="@+id/tvTalmo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/tvTalmo"
-        android:textColor="@color/green"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvBedum"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvBedum"
-        app:layout_constraintTop_toBottomOf="@+id/tvBedum" />
+                <TextView
+                    android:id="@+id/tvPGee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tvPG"
+                    android:textColor="@color/green"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tvMisae"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tvMisae"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMisae" />
 
-    <TextView
-        android:id="@+id/result1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="52dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvMisae"
-        app:layout_constraintEnd_toEndOf="@+id/tvInsideContent"
-        app:layout_constraintStart_toEndOf="@+id/tvMisae"
-        app:layout_constraintTop_toTopOf="@+id/tvMisae"
-        app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/tvSiee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tvSyee"
+                    android:textColor="@color/green"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tvPGee"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tvPGee"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPGee" />
 
-    <TextView
-        android:id="@+id/result2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvPGee"
-        app:layout_constraintEnd_toEndOf="@+id/result1"
-        app:layout_constraintStart_toStartOf="@+id/result1"
-        app:layout_constraintTop_toTopOf="@+id/tvPGee"
-        app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/tvNongpo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tvNongpo"
+                    android:textColor="@color/green"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tvSiee"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tvSiee"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSiee" />
 
-    <TextView
-        android:id="@+id/result3"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvSiee"
-        app:layout_constraintEnd_toEndOf="@+id/result2"
-        app:layout_constraintStart_toStartOf="@+id/result2"
-        app:layout_constraintTop_toTopOf="@+id/tvSiee"
-        app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/tvBedum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tvBDum"
+                    android:textColor="@color/green"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tvNongpo"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tvNongpo"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNongpo" />
 
-    <TextView
-        android:id="@+id/result4"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvNongpo"
-        app:layout_constraintEnd_toEndOf="@+id/result3"
-        app:layout_constraintStart_toStartOf="@+id/result3"
-        app:layout_constraintTop_toTopOf="@+id/tvNongpo"
-        app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/tvTalmo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tvTalmo"
+                    android:textColor="@color/green"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/tvBedum"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tvBedum"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBedum" />
 
-    <TextView
-        android:id="@+id/result5"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvBedum"
-        app:layout_constraintEnd_toEndOf="@+id/result4"
-        app:layout_constraintStart_toStartOf="@+id/result4"
-        app:layout_constraintTop_toTopOf="@+id/tvBedum"
-        app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/result1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="52dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvMisae"
+                    app:layout_constraintEnd_toEndOf="@+id/tvInsideContent"
+                    app:layout_constraintStart_toEndOf="@+id/tvMisae"
+                    app:layout_constraintTop_toTopOf="@+id/tvMisae"
+                    app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/result6"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTalmo"
-        app:layout_constraintEnd_toEndOf="@+id/result5"
-        app:layout_constraintStart_toStartOf="@+id/result5"
-        app:layout_constraintTop_toTopOf="@+id/tvTalmo"
-        app:layout_constraintVertical_bias="0.0" />
+                <TextView
+                    android:id="@+id/result2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvPGee"
+                    app:layout_constraintEnd_toEndOf="@+id/result1"
+                    app:layout_constraintStart_toStartOf="@+id/result1"
+                    app:layout_constraintTop_toTopOf="@+id/tvPGee"
+                    app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textView50"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="@string/tvSangtaeClick"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                <TextView
+                    android:id="@+id/result3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSiee"
+                    app:layout_constraintEnd_toEndOf="@+id/result2"
+                    app:layout_constraintStart_toStartOf="@+id/result2"
+                    app:layout_constraintTop_toTopOf="@+id/tvSiee"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/result4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvNongpo"
+                    app:layout_constraintEnd_toEndOf="@+id/result3"
+                    app:layout_constraintStart_toStartOf="@+id/result3"
+                    app:layout_constraintTop_toTopOf="@+id/tvNongpo"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/result5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvBedum"
+                    app:layout_constraintEnd_toEndOf="@+id/result4"
+                    app:layout_constraintStart_toStartOf="@+id/result4"
+                    app:layout_constraintTop_toTopOf="@+id/tvBedum"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/result6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTalmo"
+                    app:layout_constraintEnd_toEndOf="@+id/result5"
+                    app:layout_constraintStart_toStartOf="@+id/result5"
+                    app:layout_constraintTop_toTopOf="@+id/tvTalmo"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView50"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/tvSangtaeClick"
+                    app:layout_constraintEnd_toEndOf="@+id/textView16"
+                    app:layout_constraintStart_toStartOf="@+id/textView16"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
