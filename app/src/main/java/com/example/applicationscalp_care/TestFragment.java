@@ -55,7 +55,7 @@ public class TestFragment extends Fragment {
     private FragmentTestBinding binding;
     private RequestQueue queue;
 
-    String modelURL = "http://192.168.219.56:5000/model";
+    String modelURL = "http://192.168.219.57:5000/model";
 
 
     private ActivityResultLauncher<Intent> albumLauncher = registerForActivityResult(
