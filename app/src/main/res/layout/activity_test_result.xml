@@ -77,15 +77,26 @@
     <Button
         android:id="@+id/btnTestDone"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/green"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/lightgreen"
         android:text="@string/btnTestResultDone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+
+    <Button
+        android:id="@+id/btnTestGoBoardWrite"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/btnTestGoBoardWrite"
+        app:layout_constraintEnd_toEndOf="@+id/btnTestDone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTestDone"
+        app:layout_constraintTop_toBottomOf="@+id/btnTestDone" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -275,5 +286,16 @@
         app:layout_constraintStart_toStartOf="@+id/result5"
         app:layout_constraintTop_toTopOf="@+id/tvTalmo"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/tvSangtaeClick"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
