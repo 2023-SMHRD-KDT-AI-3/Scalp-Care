@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -36,12 +39,11 @@ import java.util.TimeZone;
 public class BoardRvActivity extends AppCompatActivity {
 
     private ActivityBoardRvBinding binding;
-    String boradviewURL = "http://192.168.219.52:8089/Boardview";
     private ArrayList<BoardVO> dataset = null;
     private ArrayList<String> keyset = null;
     private BoardAdapter adapter = null;
     private RequestQueue queue;
-
+    String boradviewURL = "http://192.168.219.52:8089/Boardview";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +69,13 @@ public class BoardRvActivity extends AppCompatActivity {
         binding.BoardRvCompare.setLayoutManager(new LinearLayoutManager(this));
         binding.BoardRvCompare.setAdapter(adapter);
 
+        // 데이터 받아옴
         Intent data = getIntent();
         String indate = data.getStringExtra("indate");
         String content = data.getStringExtra("content");
         Long ucNum = data.getLongExtra("ucNum",0);
 
+        // 데이터 반환
         Intent intent = new Intent();
         intent.putExtra("indate",indate);
         intent.putExtra("content",content);
@@ -100,7 +104,6 @@ public class BoardRvActivity extends AppCompatActivity {
 
                             // 파싱한 데이터를 데이터셋에 추가
                             for (int i = 0; i < jsonArray.length(); i++) {
-                                Log.d("ScalpCompareActivity","여기까진 오는건가?");
 
                                 String JsonItemString = jsonArray.getString(i);
                                 // Json(String) → 객체화
@@ -112,6 +115,7 @@ public class BoardRvActivity extends AppCompatActivity {
                                 String indate = BoardRvActivity.this.formatIndate(jsonObject.getString("indate"));
                                 String content = jsonObject.getString("content");
                                 int uc_num = jsonObject.getInt("ucNum");
+                                Log.d("이미지 uc_numuc_num", String.valueOf(uc_num));
 
                                 // 데이터셋에 추가
                                 dataset.add(new BoardVO(uc_num, indate, content));
@@ -162,5 +166,9 @@ public class BoardRvActivity extends AppCompatActivity {
             return indateString; // 변환이 실패하면 원본 문자열 반환
         }
     }
+
+
+
+
 
 }

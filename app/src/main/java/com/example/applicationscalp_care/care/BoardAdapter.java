@@ -80,9 +80,12 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> {
 
             }
         };
+
     }
 
 
     @Override
     public int getItemCount() { return dataset.size(); }
+
+
 }
