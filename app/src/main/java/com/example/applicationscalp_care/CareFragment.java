@@ -213,9 +213,10 @@ public class CareFragment extends Fragment {
                                 String indate = CareFragment.this.formatIndate(jsonObject.getString("indate"));
                                 String content = jsonObject.getString("content");
                                 int uc_num = jsonObject.getInt("ucNum");
+                                String result = jsonObject.getString("result");
 
                                 // 데이터셋에 추가
-                                dataset.add(new BoardVO(uc_num, indate, content));
+                                dataset.add(new BoardVO(uc_num, indate, content, result));
 
                             }
 

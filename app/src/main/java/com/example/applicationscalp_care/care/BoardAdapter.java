@@ -64,6 +64,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> {
                     intent.putExtra("indate", vo.getIndate());
                     intent.putExtra("content", vo.getContent());
                     intent.putExtra("ucNum",vo.getUc_num());
+                    intent.putExtra("result",vo.getResult());
                     v.getContext().startActivity(intent);
 
                 }else if(page.equals("compare")){
@@ -71,6 +72,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardViewHolder> {
                     intent.putExtra("indate", vo.getIndate());
                     intent.putExtra("content", vo.getContent());
                     intent.putExtra("ucNum",vo.getUc_num());
+                    intent.putExtra("result",vo.getResult());
 
                     ((Activity)v.getContext()).setResult(Activity.RESULT_OK,intent);
                     ((Activity) v.getContext()).finish();

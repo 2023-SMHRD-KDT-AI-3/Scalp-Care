@@ -195,8 +195,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                         params.put("img",base64_img);
                         params.put("ucUid",ucUid);
                         params.put("indate",currentTime);
-                        params.put("result",String.valueOf(conditionValue));
-                        params.put("ucCondition", String.valueOf(conditionValue));
+                        params.put("result",result);
 
                         return params;
 
