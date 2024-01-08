@@ -20,6 +20,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.applicationscalp_care.databinding.FragmentHomeBinding;
 import com.example.applicationscalp_care.home.HospitalActivity;
 import com.example.applicationscalp_care.information.InfoInsideActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +36,8 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private RequestQueue queue;
+
+    private BottomNavigationView bnv;
     String NewsviewBestURL = "http://192.168.219.57:8089/NewsviewBest";
 
     @Override
@@ -45,6 +48,9 @@ public class HomeFragment extends Fragment {
         if (queue == null) {
             queue = Volley.newRequestQueue(requireContext());
         }
+
+        // bnv 초기화
+        bnv = getActivity().findViewById(R.id.bnv);
 
         // 근처 병원 찾기 버튼
         binding.btnHospital.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +66,8 @@ public class HomeFragment extends Fragment {
             TestFragment testFragment = new TestFragment();
             transaction.replace(R.id.fl, testFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.gumsa);
         });
         // 헤어 버튼 누를 시 검사 페이지 이동
         binding.goTest2.setOnClickListener(v -> {
@@ -67,6 +75,8 @@ public class HomeFragment extends Fragment {
             TestFragment testFragment = new TestFragment();
             transaction.replace(R.id.fl, testFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.gumsa);
         });
         // 더보기 버튼 누를 시 정보 페이지 이동
         binding.goInfo.setOnClickListener(v -> {
@@ -74,6 +84,8 @@ public class HomeFragment extends Fragment {
             InformationFragment informationFragment = new InformationFragment();
             transaction.replace(R.id.fl, informationFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.jungbo);
         });
         // 게시글 누를 시 관리 페이지 이동
         binding.goMyBoard.setOnClickListener(v -> {
@@ -81,6 +93,8 @@ public class HomeFragment extends Fragment {
             CareFragment careFragment = new CareFragment();
             transaction.replace(R.id.fl, careFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.gwanlee);
         });
         // 로고 누를 시, 홈 페이지 이동
         binding.scalpLogo7.setOnClickListener(v -> {
@@ -88,6 +102,8 @@ public class HomeFragment extends Fragment {
             HomeFragment homeFragment = new HomeFragment();
             transaction.replace(R.id.fl, homeFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.home);
         });
 
         // 인기 정보글 출력

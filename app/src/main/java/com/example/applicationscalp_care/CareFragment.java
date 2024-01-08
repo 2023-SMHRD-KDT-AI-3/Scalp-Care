@@ -34,6 +34,7 @@ import com.example.applicationscalp_care.care.BoardVO;
 import com.example.applicationscalp_care.care.BoardWriteActivity;
 import com.example.applicationscalp_care.care.ScalpCompareActivity;
 import com.example.applicationscalp_care.databinding.FragmentCareBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,6 +57,8 @@ public class CareFragment extends Fragment {
     private ArrayList<String> keyset = null;
     private BoardAdapter adapter = null;
     private RequestQueue queue;
+
+    private BottomNavigationView bnv;
 
     String boradviewURL = "http://192.168.219.57:8089/Boardview";
 
@@ -84,6 +87,9 @@ public class CareFragment extends Fragment {
         if (queue == null) {
             queue = Volley.newRequestQueue(requireContext());
         }
+
+        // bnv 초기화
+        bnv = getActivity().findViewById(R.id.bnv);
 
         getBoardData();
 
@@ -146,6 +152,8 @@ public class CareFragment extends Fragment {
             HomeFragment homeFragment = new HomeFragment();
             transaction.replace(R.id.fl, homeFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.home);
         });
 
         // 두피 비교하기 누를 시, ScalpCompareActivity로 이동
