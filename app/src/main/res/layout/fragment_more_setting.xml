@@ -7,346 +7,371 @@
     android:background="@color/white"
     tools:context=".MoreSettingFragment">
 
-    <TextView
-        android:id="@+id/textView16"
+    <ScrollView
+        android:id="@+id/scrollView11"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/shape_corner_round_gray"
-        app:layout_constraintEnd_toEndOf="@+id/divider2"
-        app:layout_constraintHorizontal_bias="0.039"
-        app:layout_constraintStart_toStartOf="@+id/divider2"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
-
-    <ImageView
-        android:id="@+id/scalpLogo"
-        android:layout_width="141dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="2dp"
-        android:src="@drawable/logo_white_garo"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imvCircularWithStroke"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="80dp"
-        android:padding="3dp"
-        android:src="@drawable/logo_white_sero"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/Circular"
-        app:strokeColor="@color/green"
-        app:strokeWidth="3dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Guest"
-        android:textSize="23sp"
-        app:layout_constraintEnd_toEndOf="@+id/imvCircularWithStroke"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="@+id/imvCircularWithStroke"
-        app:layout_constraintTop_toBottomOf="@+id/imvCircularWithStroke" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                tools:context=".MoreSettingFragment">
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tvNim"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/user_name"
-        app:layout_constraintEnd_toEndOf="@+id/imvCircularWithStroke"
-        app:layout_constraintStart_toEndOf="@+id/user_name"
-        app:layout_constraintTop_toTopOf="@+id/user_name"
-        app:layout_constraintVertical_bias="1.0" />
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/shape_corner_round_gray"
+                    app:layout_constraintEnd_toEndOf="@+id/divider2"
+                    app:layout_constraintHorizontal_bias="0.039"
+                    app:layout_constraintStart_toStartOf="@+id/divider2"
+                    app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="330dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="48dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvCircularWithStroke" />
+                <ImageView
+                    android:id="@+id/scalpLogo"
+                    android:layout_width="141dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/logo_white_garo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/divider10"
-        android:layout_width="370dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="@+id/btnTeamSogae"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/btnTeamSogae"
-        app:layout_constraintTop_toBottomOf="@+id/btnTeamSogae" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imvCircularWithStroke"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="80dp"
+                    android:padding="3dp"
+                    android:src="@drawable/logo_white_sero"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/Circular"
+                    app:strokeColor="@color/green"
+                    app:strokeWidth="3dp" />
 
-    <View
-        android:id="@+id/divider9"
-        android:layout_width="370dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="@+id/btnTaltwe2"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="@+id/btnTaltwe2"
-        app:layout_constraintTop_toBottomOf="@+id/btnTaltwe2" />
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Guest"
+                    android:textSize="23sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imvCircularWithStroke"
+                    app:layout_constraintHorizontal_bias="0.3"
+                    app:layout_constraintStart_toStartOf="@+id/imvCircularWithStroke"
+                    app:layout_constraintTop_toBottomOf="@+id/imvCircularWithStroke" />
 
-    <View
-        android:id="@+id/divider18"
-        android:layout_width="370dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="@+id/btnTaltwe3"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="@+id/btnTaltwe3"
-        app:layout_constraintTop_toBottomOf="@+id/btnTaltwe3" />
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tvNim"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/user_name"
+                    app:layout_constraintEnd_toEndOf="@+id/imvCircularWithStroke"
+                    app:layout_constraintStart_toEndOf="@+id/user_name"
+                    app:layout_constraintTop_toTopOf="@+id/user_name"
+                    app:layout_constraintVertical_bias="1.0" />
 
-    <View
-        android:id="@+id/divider19"
-        android:layout_width="370dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="@+id/btnTaltwe4"
-        app:layout_constraintTop_toBottomOf="@+id/btnTaltwe4" />
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="330dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="48dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imvCircularWithStroke" />
 
-    <View
-        android:id="@+id/divider7"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="32dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                <View
+                    android:id="@+id/divider10"
+                    android:layout_width="370dp"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnTeamSogae"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/btnTeamSogae"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTeamSogae" />
 
-    <View
-        android:id="@+id/divider8"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/btnTaltwe"
-        app:layout_constraintTop_toBottomOf="@+id/btnTaltwe" />
+                <View
+                    android:id="@+id/divider9"
+                    android:layout_width="370dp"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/btnTaltwe2"
+                    app:layout_constraintHorizontal_bias="0.512"
+                    app:layout_constraintStart_toStartOf="@+id/btnTaltwe2"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTaltwe2" />
 
-    <Button
-        android:id="@+id/btnGoCare"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:backgroundTint="@color/grayBg"
-        android:gravity="bottom|center"
-        android:text="@string/btntoGwanlee"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toStartOf="@+id/btnGoTest"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="@+id/textView16" />
+                <View
+                    android:id="@+id/divider18"
+                    android:layout_width="370dp"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/btnTaltwe3"
+                    app:layout_constraintHorizontal_bias="0.39"
+                    app:layout_constraintStart_toStartOf="@+id/btnTaltwe3"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTaltwe3" />
 
-    <Button
-        android:id="@+id/btnGoTest"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:backgroundTint="@color/grayBg"
-        android:gravity="bottom|center|center_vertical"
-        android:text="@string/btntoGumsa"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogout"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnGoCare"
-        app:layout_constraintTop_toTopOf="@+id/btnGoCare"
-        app:layout_constraintVertical_bias="0.0" />
+                <View
+                    android:id="@+id/divider19"
+                    android:layout_width="370dp"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.39"
+                    app:layout_constraintStart_toStartOf="@+id/btnTaltwe4"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTaltwe4" />
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:backgroundTint="@color/grayBg"
-        android:gravity="bottom|center"
-        android:text="@string/btnLogout"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnGoTest"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnGoTest"
-        app:layout_constraintTop_toTopOf="@+id/btnGoTest" />
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="32dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-    <View
-        android:id="@+id/divider5"
-        android:layout_width="1dp"
-        android:layout_height="50dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
-        app:layout_constraintEnd_toEndOf="@+id/btnGoCare"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnGoCare"
-        app:layout_constraintTop_toTopOf="@+id/btnGoCare"
-        app:layout_constraintVertical_bias="0.6" />
+                <View
+                    android:id="@+id/divider8"
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/btnTaltwe"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTaltwe" />
 
-    <View
-        android:id="@+id/divider6"
-        android:layout_width="1dp"
-        android:layout_height="50dp"
-        android:background="?android:attr/listDivider"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="@+id/btnGoTest"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnGoTest"
-        app:layout_constraintTop_toTopOf="@+id/textView16"
-        app:layout_constraintVertical_bias="0.6" />
+                <Button
+                    android:id="@+id/btnGoCare"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:backgroundTint="@color/grayBg"
+                    android:gravity="bottom|center"
+                    android:text="@string/btntoGwanlee"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                    app:layout_constraintEnd_toStartOf="@+id/btnGoTest"
+                    app:layout_constraintStart_toStartOf="@+id/textView16"
+                    app:layout_constraintTop_toTopOf="@+id/textView16" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/shape_circle_white"
-        android:padding="3dp"
-        android:src="@drawable/duhbogi_logout_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/btnLogout"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintStart_toEndOf="@+id/btnGoTest"
-        app:layout_constraintTop_toTopOf="@+id/btnLogout"
-        app:layout_constraintVertical_bias="0.321" />
+                <Button
+                    android:id="@+id/btnGoTest"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:backgroundTint="@color/grayBg"
+                    android:gravity="bottom|center|center_vertical"
+                    android:text="@string/btntoGumsa"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
+                    app:layout_constraintEnd_toStartOf="@+id/btnLogout"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/btnGoCare"
+                    app:layout_constraintTop_toTopOf="@+id/btnGoCare"
+                    app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/shape_circle_white"
-        android:padding="3dp"
-        android:src="@drawable/duhbogi_gwanlee_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
-        app:layout_constraintEnd_toEndOf="@+id/btnGoCare"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="@+id/btnGoCare"
-        app:layout_constraintVertical_bias="0.321" />
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:backgroundTint="@color/grayBg"
+                    android:gravity="bottom|center"
+                    android:text="@string/btnLogout"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnGoTest"
+                    app:layout_constraintEnd_toEndOf="@+id/textView16"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/btnGoTest"
+                    app:layout_constraintTop_toTopOf="@+id/btnGoTest" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/shape_circle_white"
-        android:padding="3dp"
-        android:src="@drawable/duhbogi_gumsa_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="@+id/btnGoTest"
-        app:layout_constraintStart_toEndOf="@+id/btnGoCare"
-        app:layout_constraintTop_toTopOf="@+id/textView16"
-        app:layout_constraintVertical_bias="0.321" />
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
+                    app:layout_constraintEnd_toEndOf="@+id/btnGoCare"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/btnGoCare"
+                    app:layout_constraintTop_toTopOf="@+id/btnGoCare"
+                    app:layout_constraintVertical_bias="0.6" />
 
-    <Button
-        android:id="@+id/btnTaltwe"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="2dp"
-        android:backgroundTint="@color/white"
-        android:gravity="center|left"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="@string/btntaltwe"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnTeamSogae"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnTeamSogae"
-        app:layout_constraintTop_toBottomOf="@+id/btnTeamSogae" />
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:background="?android:attr/listDivider"
+                    android:foregroundGravity="center"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                    app:layout_constraintEnd_toEndOf="@+id/btnGoTest"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/btnGoTest"
+                    app:layout_constraintTop_toTopOf="@+id/textView16"
+                    app:layout_constraintVertical_bias="0.6" />
 
-    <Button
-        android:id="@+id/btnTaltwe2"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/white"
-        android:gravity="center|left"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="공지사항"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/divider8"
-        app:layout_constraintTop_toBottomOf="@+id/divider8" />
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/shape_circle_white"
+                    android:padding="3dp"
+                    android:src="@drawable/duhbogi_logout_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnLogout"
+                    app:layout_constraintEnd_toEndOf="@+id/textView16"
+                    app:layout_constraintStart_toEndOf="@+id/btnGoTest"
+                    app:layout_constraintTop_toTopOf="@+id/btnLogout"
+                    app:layout_constraintVertical_bias="0.321" />
 
-    <Button
-        android:id="@+id/btnTaltwe3"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="2dp"
-        android:backgroundTint="@color/white"
-        android:gravity="center|left"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="개인정보 취급방침"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnTaltwe2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnTaltwe2"
-        app:layout_constraintTop_toBottomOf="@+id/divider9" />
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/shape_circle_white"
+                    android:padding="3dp"
+                    android:src="@drawable/duhbogi_gwanlee_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnGoCare"
+                    app:layout_constraintEnd_toEndOf="@+id/btnGoCare"
+                    app:layout_constraintStart_toStartOf="@+id/textView16"
+                    app:layout_constraintTop_toTopOf="@+id/btnGoCare"
+                    app:layout_constraintVertical_bias="0.321" />
 
-    <Button
-        android:id="@+id/btnTaltwe4"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="2dp"
-        android:backgroundTint="@color/white"
-        android:gravity="center|left"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="FAQ"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnTaltwe3"
-        app:layout_constraintTop_toBottomOf="@+id/divider18" />
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/shape_circle_white"
+                    android:padding="3dp"
+                    android:src="@drawable/duhbogi_gumsa_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                    app:layout_constraintEnd_toEndOf="@+id/btnGoTest"
+                    app:layout_constraintStart_toEndOf="@+id/btnGoCare"
+                    app:layout_constraintTop_toTopOf="@+id/textView16"
+                    app:layout_constraintVertical_bias="0.321" />
 
-    <Button
-        android:id="@+id/btnTaltwe5"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="2dp"
-        android:backgroundTint="@color/white"
-        android:gravity="center|left"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="1:1 문의"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/btnTaltwe4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnTaltwe4"
-        app:layout_constraintTop_toBottomOf="@+id/divider19" />
+                <Button
+                    android:id="@+id/btnTaltwe"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center|left"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/btntaltwe"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintEnd_toEndOf="@+id/btnTeamSogae"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/btnTeamSogae"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTeamSogae" />
 
-    <Button
-        android:id="@+id/btnTeamSogae"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/white"
-        android:gravity="center|left"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="@string/btnTeam"
-        android:textColor="@color/black"
-        app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/divider7"
-        app:layout_constraintStart_toStartOf="@+id/divider7"
-        app:layout_constraintTop_toBottomOf="@+id/divider7" />
+                <Button
+                    android:id="@+id/btnTaltwe2"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center|left"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="공지사항"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/divider8"
+                    app:layout_constraintTop_toBottomOf="@+id/divider8" />
+
+                <Button
+                    android:id="@+id/btnTaltwe3"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center|left"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="개인정보 취급방침"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintEnd_toEndOf="@+id/btnTaltwe2"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/btnTaltwe2"
+                    app:layout_constraintTop_toBottomOf="@+id/divider9" />
+
+                <Button
+                    android:id="@+id/btnTaltwe4"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center|left"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="FAQ"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/btnTaltwe3"
+                    app:layout_constraintTop_toBottomOf="@+id/divider18" />
+
+                <Button
+                    android:id="@+id/btnTaltwe5"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center|left"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="1:1 문의"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintEnd_toEndOf="@+id/btnTaltwe4"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/btnTaltwe4"
+                    app:layout_constraintTop_toBottomOf="@+id/divider19" />
+
+                <Button
+                    android:id="@+id/btnTeamSogae"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center|left"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/btnTeam"
+                    android:textColor="@color/black"
+                    app:cornerRadius="0dp"
+                    app:layout_constraintEnd_toEndOf="@+id/divider7"
+                    app:layout_constraintStart_toStartOf="@+id/divider7"
+                    app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
