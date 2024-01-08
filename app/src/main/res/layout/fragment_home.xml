@@ -328,6 +328,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
                         android:layout_weight="1"
                         android:text="3"
                         android:textColor="@color/lightgreen"
@@ -348,60 +349,12 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView60"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:text="4"
-                        android:textColor="@color/lightgreen"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView61"
-                        android:layout_width="270dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-
-
-                </LinearLayout>
+                    android:orientation="horizontal"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView47"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_weight="1"
-                        android:text="5"
-                        android:textColor="@color/lightgreen"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView48"
-                        android:layout_width="270dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_weight="1"
-                        android:text="TextView" />
-
-
-                </LinearLayout>
+                    android:orientation="horizontal"/>
 
             </LinearLayout>
 
