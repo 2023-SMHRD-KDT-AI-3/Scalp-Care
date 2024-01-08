@@ -157,6 +157,7 @@ public class InfoInsideActivity extends AppCompatActivity {
         // 제목 및 내용
         binding.infoInsideTitle.setText(title);
         binding.infoInsideContent.setText(content);
+
         // 이미지
         Glide.with(this)
                 .load(img)

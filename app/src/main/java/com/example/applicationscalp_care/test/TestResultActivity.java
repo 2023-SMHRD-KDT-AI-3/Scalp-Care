@@ -84,8 +84,10 @@ public class TestResultActivity extends AppCompatActivity {
         // 게시글 작성 누를 시 게시글 작성 페이지로 이동
         binding.btnTestGoBoardWrite.setOnClickListener(v -> {
 
-            Intent mainIntent = new Intent(this, BoardWriteActivity.class);
-            startActivity(mainIntent);
+            Intent writeIntent = new Intent(this, BoardWriteActivity.class);
+            writeIntent.putExtra("result",resultText[Integer.parseInt(result[5])]);
+            writeIntent.putExtra("img",imgUri);
+            startActivity(writeIntent);
             finish();
 
         });

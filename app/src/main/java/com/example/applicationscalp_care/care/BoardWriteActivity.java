@@ -95,6 +95,17 @@ public class BoardWriteActivity extends AppCompatActivity {
         binding = ActivityBoardWriteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Intent writeIntent = getIntent();
+        String result = writeIntent.getStringExtra("result");
+        String imgUri = writeIntent.getStringExtra("img");
+
+        // 검사후 이미지를 가져온다면 이미지 세팅하기
+        if(imgUri != null){
+            Uri uri = Uri.parse(imgUri);
+            binding.imgContent.setImageURI(uri);
+        }
+
+
         // 게시글 추가페이지에 현재 일자 가져옴
         SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY년 MM월 dd일 HH:mm");
         dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
@@ -108,6 +119,20 @@ public class BoardWriteActivity extends AppCompatActivity {
         gyungjungbtn = findViewById(R.id.gyungjungbtn);
         joongdungbtn = findViewById(R.id.joongdungbtn);
         joongjungbtn = findViewById(R.id.joongjungbtn);
+
+        // 검사 후 온 결과에 따라 클릭해놓기
+        if(result != null) {
+            if (result.equals("양호")) {
+                yanghobtn.performClick();
+            } else if (result.equals("경증")) {
+                gyungjungbtn.performClick();
+            } else if (result.equals("중등도")) {
+                joongdungbtn.performClick();
+            } else if (result.equals("중증")) {
+                joongjungbtn.performClick();
+            }
+        }
+
 
         // 뒤로가기
         binding.tvBack.setOnClickListener(v -> {
@@ -172,6 +197,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                         params.put("img",base64_img);
                         params.put("ucUid",ucUid);
                         params.put("indate",currentTime);
+                        params.put("result",String.valueOf(conditionValue));
                         params.put("ucCondition", String.valueOf(conditionValue));
 
                         return params;
