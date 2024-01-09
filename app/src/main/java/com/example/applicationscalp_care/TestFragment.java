@@ -175,7 +175,6 @@ public class TestFragment extends Fragment {
         });
 
 
-
         // 헤어스타일 검사하기 버튼 누를 시, 팝업창
         binding.btnHairTest.setOnClickListener(v -> {
             new AlertDialog.Builder(requireContext()).setTitle("현재 서비스 준비중 입니다.").setMessage("빠른시일 내에 서비스를 제공해 드리겠습니다.")
