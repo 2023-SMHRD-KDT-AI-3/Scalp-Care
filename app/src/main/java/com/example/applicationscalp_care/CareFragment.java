@@ -93,6 +93,10 @@ public class CareFragment extends Fragment {
         // bnv 초기화
         bnv = getActivity().findViewById(R.id.bnv);
 
+        // 저장된 고객 정보 접근
+        SharedPreferences autoLogin = getActivity().getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
+        String uid = autoLogin.getString("uid","null");
+
         // 게시판 출력
         getBoardData();
 
@@ -102,16 +106,19 @@ public class CareFragment extends Fragment {
         editor.commit();
 
 
-
         // RecyclerView를 초기화하고, 레이아웃 매니저를 설정하고, 어댑터를 연결하여 화면에 데이터를 표시하는 기능
         binding.BoardRv.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.BoardRv.setAdapter(adapter);
 
         // 작동 버튼 클릭시 BoardWriteActivity로 이동하는 기능 구현
         binding.btnAddBoard.setOnClickListener(v -> {
+            if(uid.equals("guest")){
+                // 팝업창 or toast → 비회원은 작성할 수 없습니다!
 
-            Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
-            writeLauncher.launch(intent);
+            }else {
+                Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
+                writeLauncher.launch(intent);
+            }
 
         });
 
@@ -188,7 +195,9 @@ public class CareFragment extends Fragment {
         binding.btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("날짜 클릭!","클릭!");
+
+
+
                 // 날짜 보내기
                     StringRequest request = new StringRequest(
                             Request.Method.POST,

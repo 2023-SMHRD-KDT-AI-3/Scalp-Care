@@ -43,10 +43,12 @@ public class MoreSettingFragment extends Fragment {
         // SharedPreferences에 저장된 회원정보 접근
         SharedPreferences autoLogin = getActivity().getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
         String img = autoLogin.getString("img","null");
-        String name = autoLogin.getString("name","guest");
+        String name = autoLogin.getString("name","null");
 
         // 회원 이름 및 이미지 세팅
-        Glide.with(binding.imvCircularWithStroke).load(img).circleCrop().into(binding.imvCircularWithStroke);
+        if(!img.equals("guest")) {
+            Glide.with(binding.imvCircularWithStroke).load(img).circleCrop().into(binding.imvCircularWithStroke);
+        }
         binding.userName.setText(name);
 
         // 로그아웃 후 로그인 페이지로 이동

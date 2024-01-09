@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.applicationscalp_care.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+
+    private BottomNavigationView bnv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +22,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        bnv = this.findViewById(R.id.bnv);
+
         // 실행 할 때 바로 홈 화면 나올 수 있게
         getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+
+        bnv.setSelectedItemId(R.id.home);
 
         // bnv 바 아이콘 클릭 시
         binding.bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -50,21 +57,25 @@ public class MainActivity extends AppCompatActivity {
 
         // 로고 누를 시 홈으로 이동
         String moveFl = getIntent().getStringExtra("moveFl");
-        if(moveFl.equals("home")){
-            getSupportFragmentManager().beginTransaction().replace(
-                    // 1) 어디에
-                    R.id.fl,
-                    // 2) 어떤 프래그먼트
-                    new HomeFragment()
-            ).commit();
-        } else if (moveFl.equals("care")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new CareFragment()).commit();
-        } else if (moveFl.equals("test")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
-        } else if (moveFl.equals("info")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
-        } else if (moveFl.equals("moreset")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+        if(moveFl!=null) {
+            if (moveFl.equals("home")) {
+                getSupportFragmentManager().beginTransaction().replace(
+                        // 1) 어디에
+                        R.id.fl,
+                        // 2) 어떤 프래그먼트
+                        new HomeFragment()
+                ).commit();
+                bnv.setSelectedItemId(R.id.home);
+            } else if (moveFl.equals("care")) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl, new CareFragment()).commit();
+                bnv.setSelectedItemId(R.id.gwanlee);
+            } else if (moveFl.equals("test")) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+            } else if (moveFl.equals("info")) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+            } else if (moveFl.equals("moreset")) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl, new HomeFragment()).commit();
+            }
         }
 
 

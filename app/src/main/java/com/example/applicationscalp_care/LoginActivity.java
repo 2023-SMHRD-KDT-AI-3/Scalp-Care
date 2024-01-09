@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
     private static final String TAG = "LoginActivity";
-    private View loginButton;
     private RequestQueue queue;
 
     String loginURL =  "http://192.168.219.57:8089/join";
@@ -107,6 +106,33 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        // 비회원 로그인
+        binding.btnLoginGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uid = "guest";
+                String name = "guest";
+                String email = "guest@guest.com";
+                String classes = "guest";
+                String img = "guest";
+
+                insertLogin(uid,name,classes,email);
+
+                SharedPreferences autoLogin = getSharedPreferences("autoLogin", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor autoLoginEdit = autoLogin.edit();
+                autoLoginEdit.putString("uid",uid);
+                autoLoginEdit.putString("email",email);
+                autoLoginEdit.putString("name",name);
+                autoLoginEdit.putString("img",img);
+                autoLoginEdit.commit();
+
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(intent);
+
+                finish();
+            }
+        });
     }
 
     private void insertLogin(String uid, String name, String classes, String email){
@@ -149,8 +175,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void saveuser() {
-
-        // 로그인 여부에 따른 UI 설정
+        // 유저 정보 어플에 저장 및 자동 로그인
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
             @Override
             public Unit invoke(User user, Throwable throwable) {
