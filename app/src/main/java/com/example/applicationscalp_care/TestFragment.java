@@ -149,13 +149,6 @@ public class TestFragment extends Fragment {
                             if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                                 ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.CAMERA, android.Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_VIDEO}, 1);
                             } else {
-                                Intent intent = new Intent(Intent.ACTION_PICK);
-                                intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
-                                albumLauncher.launch(intent);
-                            }
-
-
-                            loadingDialog.show(); // 로딩화면 보여주기
                                 // activity_board_write.xml에 있는 플러스 이미지 클릭시, 앨범 또는 카메라를 띄우는 기능
                                 AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
                                 builder.setTitle("이미지 선택")
@@ -165,19 +158,22 @@ public class TestFragment extends Fragment {
                                                         case 0: // 카메라 선택
                                                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                                                             cameraLauncher.launch(intent);
+                                                            loadingDialog.show(); // 로딩화면 보여주기
                                                             break;
                                                         case 1: // 갤러리 선택
                                                             Intent cameraIntent = new Intent(Intent.ACTION_PICK);
                                                             cameraIntent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
                                                             albumLauncher.launch(cameraIntent);
+                                                            loadingDialog.show(); // 로딩화면 보여주기
                                                             break;
                                                     }
                                                 });
                                 builder.create().show();
-                                }
+                            }
                         }
                     }).show();
-            });
+        });
+
 
 
         // 헤어스타일 검사하기 버튼 누를 시, 팝업창
