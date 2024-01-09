@@ -57,6 +57,8 @@ public class TestFragment extends Fragment {
 
     private BottomNavigationView bnv;
 
+    private LoadingDialog loadingDialog = null;
+
     String modelURL = "http://192.168.219.57:5000/model";
 
 
@@ -65,6 +67,7 @@ public class TestFragment extends Fragment {
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
+
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Log.d("런처 실행", "런처실행");
 
@@ -73,6 +76,7 @@ public class TestFragment extends Fragment {
                         Uri imgUri = data.getData();
 
                         predict(imgUri);
+
                     }
                 }
             }
@@ -119,12 +123,11 @@ public class TestFragment extends Fragment {
         queue = Volley.newRequestQueue(getContext());
 
         // 로딩 화면 초기화
-        LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+        loadingDialog = new LoadingDialog(getActivity());
         loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 백그라운드를 투명하게
         loadingDialog.setCancelable(false); // 다이얼로그 외부 클릭으로 종료되지 않게
-        if (loadingDialog.isShowing()) {
 
-        }
+
         // bnv 초기화
         bnv = getActivity().findViewById(R.id.bnv);
 
@@ -158,13 +161,11 @@ public class TestFragment extends Fragment {
                                                         case 0: // 카메라 선택
                                                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                                                             cameraLauncher.launch(intent);
-                                                            loadingDialog.show(); // 로딩화면 보여주기
                                                             break;
                                                         case 1: // 갤러리 선택
                                                             Intent cameraIntent = new Intent(Intent.ACTION_PICK);
                                                             cameraIntent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
                                                             albumLauncher.launch(cameraIntent);
-                                                            loadingDialog.show(); // 로딩화면 보여주기
                                                             break;
                                                     }
                                                 });
@@ -173,7 +174,6 @@ public class TestFragment extends Fragment {
                         }
                     }).show();
         });
-
 
 
         // 헤어스타일 검사하기 버튼 누를 시, 팝업창
@@ -193,6 +193,7 @@ public class TestFragment extends Fragment {
 
 
     public void predict(Uri imgUri){
+        loadingDialog.show(); // 로딩화면 보여주기
         // bitmap으로 변환
         Bitmap bitmap;
         try {
@@ -246,5 +247,13 @@ public class TestFragment extends Fragment {
             }
         };
         queue.add(request);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (loadingDialog != null) {
+            loadingDialog.dismiss();
+        }
     }
 }
