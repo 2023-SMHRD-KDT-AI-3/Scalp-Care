@@ -68,6 +68,7 @@ public class BoardRvActivity extends AppCompatActivity {
         Intent data = getIntent();
         String indate = data.getStringExtra("indate");
         String content = data.getStringExtra("content");
+        String result = data.getStringExtra("result");
         Long ucNum = data.getLongExtra("ucNum",0);
 
         // 데이터 반환
@@ -75,6 +76,7 @@ public class BoardRvActivity extends AppCompatActivity {
         intent.putExtra("indate",indate);
         intent.putExtra("content",content);
         intent.putExtra("ucNum",ucNum);
+        intent.putExtra("result",result);
         setResult(RESULT_OK, intent);
 
     }
@@ -110,10 +112,11 @@ public class BoardRvActivity extends AppCompatActivity {
                                 String indate = BoardRvActivity.this.formatIndate(jsonObject.getString("indate"));
                                 String content = jsonObject.getString("content");
                                 int uc_num = jsonObject.getInt("ucNum");
+                                String result = jsonObject.getString("result");
                                 Log.d("이미지 uc_numuc_num", String.valueOf(uc_num));
 
                                 // 데이터셋에 추가
-                                dataset.add(new BoardVO(uc_num, indate, content));
+                                dataset.add(new BoardVO(uc_num, indate, content, result));
 
                             }
 

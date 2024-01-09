@@ -22,6 +22,7 @@ import com.example.applicationscalp_care.databinding.FragmentInformationBinding;
 import com.example.applicationscalp_care.information.InfoAdapter;
 import com.example.applicationscalp_care.information.InfoInsideActivity;
 import com.example.applicationscalp_care.information.InfoVO;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,6 +45,8 @@ public class InformationFragment extends Fragment {
     private InfoAdapter adapter = null;
     private RequestQueue queue;
 
+    private BottomNavigationView bnv;
+
     String getInfoURL = "http://192.168.219.57:8089/Newsview";
     String NewsviewBestURL = "http://192.168.219.57:8089/NewsviewBest";
 
@@ -58,6 +61,9 @@ public class InformationFragment extends Fragment {
         if (queue == null) {
             queue = Volley.newRequestQueue(requireContext());
         }
+
+        // bnv 초기화
+        bnv = getActivity().findViewById(R.id.bnv);
 
         // 게시판 출력
         getInfoData();
@@ -75,6 +81,8 @@ public class InformationFragment extends Fragment {
             HomeFragment homeFragment = new HomeFragment();
             transaction.replace(R.id.fl, homeFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.home);
         });
 
 

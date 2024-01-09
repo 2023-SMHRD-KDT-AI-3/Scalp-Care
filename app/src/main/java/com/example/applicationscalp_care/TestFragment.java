@@ -38,6 +38,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.applicationscalp_care.databinding.FragmentTestBinding;
 import com.example.applicationscalp_care.test.TestResultActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -48,6 +49,8 @@ public class TestFragment extends Fragment {
 
     private FragmentTestBinding binding;
     private RequestQueue queue;
+
+    private BottomNavigationView bnv;
 
     String modelURL = "http://192.168.219.57:5000/model";
 
@@ -129,12 +132,17 @@ public class TestFragment extends Fragment {
         binding = FragmentTestBinding.inflate(inflater, container, false);
         queue = Volley.newRequestQueue(getContext());
 
+        // bnv 초기화
+        bnv = getActivity().findViewById(R.id.bnv);
+
         // 로고 누를 시, 홈 페이지 이동
         binding.scalpLogo2.setOnClickListener(v -> {
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
             HomeFragment homeFragment = new HomeFragment();
             transaction.replace(R.id.fl, homeFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.home);
         });
 
         // 두피 검사하기 버튼 누를 시, 팝업창

@@ -9,6 +9,8 @@ public class BoardVO {
     private String img;
     private String uid;
 
+    private String result;
+
     // 생성자 생성
     public BoardVO(){}
 
@@ -20,10 +22,11 @@ public class BoardVO {
         this.uid = uid;
     }
 
-    public BoardVO(int uc_num,String indate, String content) {
+    public BoardVO(int uc_num,String indate, String content, String result) {
         this.uc_num = uc_num;
         this.indate = indate;
         this.content = content;
+        this.result = result;
     }
 
 
@@ -49,4 +52,7 @@ public class BoardVO {
         return uid;
     }
 
+    public String getResult() {
+        return result;
+    }
 }

@@ -51,6 +51,10 @@ public class ScalpCompareActivity extends AppCompatActivity {
                     Long img = result.getData().getLongExtra("ucNum", 0);
                     getImage(img);
 
+                    // 결과
+                    String result1 = result.getData().getStringExtra("result");
+                    binding.result11.setText(result1);
+
                 }
             }
     );
@@ -69,6 +73,10 @@ public class ScalpCompareActivity extends AppCompatActivity {
                     // 이미지
                     Long img2 = result.getData().getLongExtra("ucNum", 0);
                     getImage2(img2);
+
+                    // 결과
+                    String result2 = result.getData().getStringExtra("result");
+                    binding.result22.setText(result2);
 
                 }
             }

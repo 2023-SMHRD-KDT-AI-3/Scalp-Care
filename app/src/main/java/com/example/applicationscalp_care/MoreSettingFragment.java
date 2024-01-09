@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.applicationscalp_care.databinding.FragmentMoreSettingBinding;
 import com.example.applicationscalp_care.moresetting.TeamSogaeActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kakao.sdk.user.UserApiClient;
 
 import kotlin.Unit;
@@ -28,11 +29,16 @@ public class MoreSettingFragment extends Fragment {
 
     private FragmentMoreSettingBinding binding;
 
+    private BottomNavigationView bnv;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentMoreSettingBinding.inflate(inflater, container, false);
+
+        // bnv 초기화
+        bnv = getActivity().findViewById(R.id.bnv);
 
         // SharedPreferences에 저장된 회원정보 접근
         SharedPreferences autoLogin = getActivity().getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
@@ -88,6 +94,8 @@ public class MoreSettingFragment extends Fragment {
             HomeFragment homeFragment = new HomeFragment();
             transaction.replace(R.id.fl, homeFragment);
             transaction.commit();
+
+
         });
 
         // 회원탈퇴 누를 시, 팝업창
@@ -118,6 +126,9 @@ public class MoreSettingFragment extends Fragment {
             CareFragment careFragment = new CareFragment();
             transaction.replace(R.id.fl, careFragment);
             transaction.commit();
+
+            // bnv 선택
+            bnv.setSelectedItemId(R.id.gwanlee);
         });
 
         // AI 검사 누를 시, 검사 페이지 이동
@@ -126,6 +137,8 @@ public class MoreSettingFragment extends Fragment {
             TestFragment testFragment = new TestFragment();
             transaction.replace(R.id.fl, testFragment);
             transaction.commit();
+
+            bnv.setSelectedItemId(R.id.gumsa);
         });
 
 
