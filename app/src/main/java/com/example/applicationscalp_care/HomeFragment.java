@@ -36,6 +36,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private RequestQueue queue;
     String NewsviewBestURL = "http://192.168.219.57:8089/NewsviewBest";
+    String getBoardDataRecentURL = "http://192.168.219.52:8089/getBoardDataRecent";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,6 +93,8 @@ public class HomeFragment extends Fragment {
 
         // 인기 정보글 출력
         NewsviewBest();
+        //
+        getBoardDataRecent();
 
         return binding.getRoot();
     }
@@ -223,5 +226,88 @@ public class HomeFragment extends Fragment {
             Log.e("InformationFragment", "날짜 파싱 오류: " + e.getMessage());
             return indateString; // 변환이 실패하면 원본 문자열 반환
         }
+    }
+
+    // 최근 본인 기록 출력
+    public void getBoardDataRecent() {
+        Log.d("최근", "왔니?");
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                getBoardDataRecentURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            if(response.equals("[]")){
+                                binding.tvNoBoard.setVisibility(View.VISIBLE);
+                                binding.goMyBoard.setVisibility(View.GONE);
+                                binding.tvGoMyBoardDate.setVisibility(View.GONE);
+                                binding.tvGoMyBoardContent.setVisibility(View.GONE);
+                            }else{
+                                binding.tvNoBoard.setVisibility(View.GONE);
+                                binding.goMyBoard.setVisibility(View.VISIBLE);
+                                binding.tvGoMyBoardDate.setVisibility(View.VISIBLE);
+                                binding.tvGoMyBoardContent.setVisibility(View.VISIBLE);
+
+                            }
+                            // JsonArray(List<String>)
+                            JSONArray jsonArray = new JSONArray(response);
+
+
+                            // 파싱한 데이터를 데이터셋에 추가
+                            for (int i = 0; i < jsonArray.length(); i++) {
+
+                                String JsonItemString = jsonArray.getString(i);
+                                // Json(Stirng) → 객체화
+                                JSONObject jsonObject = new JSONObject(JsonItemString);
+
+                                Log.d("최근", jsonObject.toString());
+
+                                // 각 필요한 데이터를 추출
+                                String indate = HomeFragment.this.formatIndate(jsonObject.getString("indate"));
+                                String content = jsonObject.getString("content");
+                                Long uc_num = (long) jsonObject.getInt("ucNum");
+                                String img = jsonObject.getString("img");
+
+                                if(i == 0){
+                                    binding.tvGoMyBoardContent.setText(content);
+                                    binding.tvGoMyBoardDate.setText(indate);
+
+                                    // 최근 본인 기록 클릭 시
+                                    binding.goMyBoard.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Log.d("최근!","클릭");
+
+                                            Intent intent = new Intent(getActivity(), InfoInsideActivity.class);
+                                            intent.putExtra("indate", indate);
+                                            intent.putExtra("content", content);
+                                            intent.putExtra("ucNum", uc_num);
+
+                                            Log.d("최근 content!: ", content);
+                                            Log.d("최근 ucNum!: ", String.valueOf(uc_num));
+
+                                            startActivity(intent);
+                                        }
+                                    });
+
+                                }
+
+                            }
+
+                        } catch (JSONException e) {
+                            Log.d("최근 에러", e.toString());
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("최근", "에러2");
+            }
+        }
+        );
+        queue.add(request);
     }
 }
