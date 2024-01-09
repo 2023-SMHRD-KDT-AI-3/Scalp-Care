@@ -10,7 +10,7 @@
 
         <TextView
             android:id="@+id/tvTime"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="TextView"
@@ -25,9 +25,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="10dp"
-            android:text="TextView"
-            android:maxLines="1"
             android:ellipsize="end"
+            android:hint="내용 없습니다..."
+            android:maxLines="1"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.0"

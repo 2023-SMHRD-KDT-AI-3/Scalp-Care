@@ -121,6 +121,14 @@ public class CareFragment extends Fragment {
         int currentMonth = calendar.get(Calendar.MONTH);
         int currentDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
+        // 날짜 형식 지정
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String startDate1 = sdf1.format(new GregorianCalendar(currentYear, currentMonth, currentDayOfMonth).getTime());
+
+        // TextView에 날짜 표시
+        binding.tvStartDate.setText(startDate1);
+        binding.tvEndDate.setText(startDate1);
+
         // 시작 날짜
         binding.tvStartDate.setOnClickListener(v ->{
             // 달력 리스너

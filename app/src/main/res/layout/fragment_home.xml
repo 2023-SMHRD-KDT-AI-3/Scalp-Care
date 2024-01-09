@@ -417,6 +417,8 @@
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
+                        android:hint="내용 없습니다..."
+                        android:textColorHint="@color/black"
                         app:layout_constraintEnd_toEndOf="@+id/goMyBoard"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/tvGoMyBoardDate"
