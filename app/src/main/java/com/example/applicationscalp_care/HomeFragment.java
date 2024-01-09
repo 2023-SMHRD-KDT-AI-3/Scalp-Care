@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
 
     private BottomNavigationView bnv;
     String NewsviewBestURL = "http://192.168.219.57:8089/NewsviewBest";
-    String getBoardDataRecentURL = "http://192.168.219.52:8089/getBoardDataRecent";
+    String getBoardDataRecentURL = "http://192.168.219.57:8089/getBoardDataRecent";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

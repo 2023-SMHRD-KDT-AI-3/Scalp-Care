@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -50,6 +51,8 @@ public class BoardWriteActivity extends AppCompatActivity {
     private ActivityBoardWriteBinding binding;
     private RequestQueue queue;
 
+    String result = null;
+
     String writeURL="http://192.168.219.57:8089/Boardsave";
 
     // 객체 생성
@@ -70,7 +73,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                 }
             }
     );
-
+    //카메라 런처
     private ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -93,8 +96,12 @@ public class BoardWriteActivity extends AppCompatActivity {
         binding = ActivityBoardWriteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+
         Intent writeIntent = getIntent();
-        String result = writeIntent.getStringExtra("result");
+        if(writeIntent.getStringExtra("result") != null){
+            result = writeIntent.getStringExtra("result");
+        }
         String imgUri = writeIntent.getStringExtra("img");
 
         // 검사후 이미지를 가져온다면 이미지 세팅하기
@@ -208,12 +215,16 @@ public class BoardWriteActivity extends AppCompatActivity {
             // 양호/경증/중등도/중증 버튼 중에 클릭 시 1/2/3/4로 변환
             private int getSelectedConditionValue() {
                 if (yanghobtn.isChecked()) {
+                    result = "양호";
                     return 1;
                 } else if (gyungjungbtn.isChecked()) {
+                    result = "경증";
                     return 2;
                 } else if (joongdungbtn.isChecked()) {
+                    result = "중등도";
                     return 3;
                 } else if (joongjungbtn.isChecked()) {
+                    result = "중증";
                     return 4;
                 } else {
                     return 0;
@@ -221,17 +232,33 @@ public class BoardWriteActivity extends AppCompatActivity {
             }
         });
 
-        // activity_board_write.xml에 있는 플러스 이미지 클릭시, 앨범을 띄우는 기능
+        // activity_board_write.xml에 있는 플러스 이미지 클릭시, 앨범 또는 카메라를 띄우는 기능
         binding.imgContent.setOnClickListener(v -> {
             // 권한 물어보기
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.READ_MEDIA_IMAGES,Manifest.permission.READ_MEDIA_VIDEO}, 1);
             }else {
-                Intent intent = new Intent(Intent.ACTION_PICK);
-                intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
-                albumLauncher.launch(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("이미지 선택")
+                        .setItems(new CharSequence[]{"카메라", "갤러리"},
+                                (dialog, which) -> {
+                                    switch (which) {
+                                        case 0: // 카메라 선택
+                                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                            cameraLauncher.launch(intent);
+                                            break;
+                                        case 1: // 갤러리 선택
+                                            Intent cameraIntent = new Intent(Intent.ACTION_PICK);
+                                            cameraIntent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
+                                            albumLauncher.launch(cameraIntent);
+                                            break;
+                                    }
+                                });
+                builder.create().show();
+
             }
         });
+
 
     }
 

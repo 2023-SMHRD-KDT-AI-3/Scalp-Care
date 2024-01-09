@@ -41,6 +41,9 @@ import com.example.applicationscalp_care.test.TestResultActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,60 +69,41 @@ public class TestFragment extends Fragment {
                         // 기본 갤러리에서 선택한 이미지를 Uri값으로 가져온 후 Flask로 보내기
                         Intent data = result.getData();
                         Uri imgUri = data.getData();
-                        // bitmap으로 변환
-                        Bitmap bitmap;
+
+                        predict(imgUri);
+                    }
+                }
+            }
+    );
+
+    //카메라 런처
+    private ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                // 캡쳐한 이미지 저장 공간을 접근 후 가져오기
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        Bundle bundle = data.getExtras();
+                        Bitmap bitmap = (Bitmap) bundle.get("data");
+
+                        // 형변환을 위한 임시 파일 저장
+                        File cacheDir = getContext().getExternalCacheDir();
+                        File tempFile = new File(cacheDir, "temp_image.jpg");
+
                         try {
-                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
-                                bitmap = ImageDecoder.decodeBitmap(ImageDecoder.createSource(getContext().getContentResolver(), imgUri));
-                            } else {
-                                bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), imgUri);
-                            }
-                        } catch (IOException e) {
+                            FileOutputStream out = new FileOutputStream(tempFile);
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+                            out.flush();
+                            out.close();
+
+                        } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
 
-                        // Base64로 변환
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);  // PNG 형식으로 압축
-                        byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        String base64_img = Base64.encodeToString(byteArray, Base64.DEFAULT);
-
-                        Log.d("base64변환은 성공", String.valueOf(base64_img.length()));
-
-                        // 서버통신
-                        StringRequest request = new StringRequest(
-                                Request.Method.POST,
-                                modelURL,
-                                new Response.Listener<String>() {
-                                    @Override
-                                    public void onResponse(String response) {
-                                        Log.d("responseCheck", response);
-                                        Intent intent = new Intent(getActivity(), TestResultActivity.class);
-                                        intent.putExtra("response",response);
-                                        intent.putExtra("img",imgUri.toString());
-                                        startActivity(intent);
-
-                                    }
-                                },
-                                new Response.ErrorListener() {
-                                    @Override
-                                    public void onErrorResponse(VolleyError error) {
-                                        Log.d("responseCheck", error.toString());
-
-                                    }
-                                }
-                        ) {
-                            @Nullable
-                            @Override
-                            protected Map<String, String> getParams() throws AuthFailureError {
-                                Map<String, String> params = new HashMap<>();
-                                params.put("img", base64_img);
-
-                                return params;
-
-                            }
-                        };
-                        queue.add(request);
+                        Uri imgUri = Uri.fromFile(tempFile);
+                        predict(imgUri);
 
                     }
                 }
@@ -156,14 +140,28 @@ public class TestFragment extends Fragment {
                             if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                                 ActivityCompat.requestPermissions(getActivity(), new String[]{android.Manifest.permission.CAMERA, android.Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_VIDEO}, 1);
                             } else {
-                                Intent intent = new Intent(Intent.ACTION_PICK);
-                                intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
-                                albumLauncher.launch(intent);
-                            }
-
+                                // activity_board_write.xml에 있는 플러스 이미지 클릭시, 앨범 또는 카메라를 띄우는 기능
+                                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                                builder.setTitle("이미지 선택")
+                                        .setItems(new CharSequence[]{"카메라", "갤러리"},
+                                                (dialog1, which1) -> {
+                                                    switch (which1) {
+                                                        case 0: // 카메라 선택
+                                                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                                            cameraLauncher.launch(intent);
+                                                            break;
+                                                        case 1: // 갤러리 선택
+                                                            Intent cameraIntent = new Intent(Intent.ACTION_PICK);
+                                                            cameraIntent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
+                                                            albumLauncher.launch(cameraIntent);
+                                                            break;
+                                                    }
+                                                });
+                                builder.create().show();
+                                }
                         }
                     }).show();
-        });
+            });
 
 
         // 헤어스타일 검사하기 버튼 누를 시, 팝업창
@@ -179,5 +177,62 @@ public class TestFragment extends Fragment {
         });
 
         return binding.getRoot();
+    }
+
+
+    public void predict(Uri imgUri){
+        // bitmap으로 변환
+        Bitmap bitmap;
+        try {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P) {
+                bitmap = ImageDecoder.decodeBitmap(ImageDecoder.createSource(getContext().getContentResolver(), imgUri));
+            } else {
+                bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), imgUri);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        // Base64로 변환
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);  // PNG 형식으로 압축
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        String base64_img = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+        Log.d("base64변환은 성공", String.valueOf(base64_img.length()));
+
+        // 서버통신
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                modelURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("responseCheck", response);
+                        Intent intent = new Intent(getActivity(), TestResultActivity.class);
+                        intent.putExtra("response",response);
+                        intent.putExtra("img",imgUri.toString());
+                        startActivity(intent);
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("responseCheck", error.toString());
+
+                    }
+                }
+        ) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("img", base64_img);
+
+                return params;
+
+            }
+        };
+        queue.add(request);
     }
 }
