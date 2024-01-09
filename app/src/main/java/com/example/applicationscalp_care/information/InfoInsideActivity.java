@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,6 +33,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.applicationscalp_care.CareFragment;
 import com.example.applicationscalp_care.InformationFragment;
+import com.example.applicationscalp_care.LoadingDialog;
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.care.BoardVO;
 import com.example.applicationscalp_care.databinding.ActivityInfoInsideBinding;
@@ -76,6 +80,9 @@ public class InfoInsideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // 로딩 화면 초기화
+        LoadingDialog loadingDialog = new LoadingDialog(this);
 
         // 바인딩 초기화
         binding = ActivityInfoInsideBinding.inflate(getLayoutInflater());
@@ -179,18 +186,26 @@ public class InfoInsideActivity extends AppCompatActivity {
         binding.btnlike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 로딩 화면
+                loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 백그라운드를 투명하게
+                loadingDialog.setCancelable(false); // 다이얼로그 외부 클릭으로 종료되지 않게
+                loadingDialog.show(); // 로딩화면 보여주기
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
                         likeInsertURL,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
+                                // 로딩 화면 종료
+                                loadingDialog.dismiss();
                                 Log.d("like","좋아요 성공!");
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
+                                // 로딩 화면 종료
+                                loadingDialog.dismiss();
                                 Log.d("like","다시 도전!");
 
                             }
@@ -238,18 +253,26 @@ public class InfoInsideActivity extends AppCompatActivity {
         binding.btnhate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 로딩 화면
+                loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 백그라운드를 투명하게
+                loadingDialog.setCancelable(false); // 다이얼로그 외부 클릭으로 종료되지 않게
+                loadingDialog.show(); // 로딩화면 보여주기
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
                         hateInsertURL,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
+                                // 로딩 화면 종료
+                                loadingDialog.dismiss();
                                 Log.d("like_hate","싫어요 성공!");
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
+                                // 로딩 화면 종료
+                                loadingDialog.dismiss();
                                 Log.d("like_hate","다시 도전!");
 
                             }
@@ -369,6 +392,7 @@ public class InfoInsideActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
                         Log.d("likeView","Like Count: " + response);
                         binding.likeCount.setText(response);
                     }
@@ -410,6 +434,7 @@ public class InfoInsideActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
                         Log.d("hateView","hate Count: " + response);
                         binding.hateCount.setText(response);
                     }
