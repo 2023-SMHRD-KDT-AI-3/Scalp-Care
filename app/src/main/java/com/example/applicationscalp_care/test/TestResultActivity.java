@@ -3,10 +3,13 @@ package com.example.applicationscalp_care.test;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.applicationscalp_care.LoadingDialog;
 import com.example.applicationscalp_care.TestFragment;
 import com.example.applicationscalp_care.care.BoardWriteActivity;
 import com.example.applicationscalp_care.databinding.ActivityTestResultBinding;

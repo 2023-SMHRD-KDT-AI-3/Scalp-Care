@@ -7,7 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.ImageDecoder;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -132,6 +134,13 @@ public class TestFragment extends Fragment {
         binding = FragmentTestBinding.inflate(inflater, container, false);
         queue = Volley.newRequestQueue(getContext());
 
+        // 로딩 화면 초기화
+        LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+        loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT)); // 백그라운드를 투명하게
+        loadingDialog.setCancelable(false); // 다이얼로그 외부 클릭으로 종료되지 않게
+        if (loadingDialog.isShowing()) {
+
+        }
         // bnv 초기화
         bnv = getActivity().findViewById(R.id.bnv);
 
@@ -161,6 +170,8 @@ public class TestFragment extends Fragment {
                                 albumLauncher.launch(intent);
                             }
 
+
+                            loadingDialog.show(); // 로딩화면 보여주기
                         }
                     }).show();
         });

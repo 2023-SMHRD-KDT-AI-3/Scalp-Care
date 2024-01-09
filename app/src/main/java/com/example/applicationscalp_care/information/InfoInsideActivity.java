@@ -66,8 +66,6 @@ public class InfoInsideActivity extends AppCompatActivity {
     AnimatedVectorDrawableCompat avd;
     AnimatedVectorDrawable avd2;
 
-    LoadingDialog loadingDialog = new LoadingDialog(this);
-
     String getImgURL2 = "http://192.168.219.57:8089/getImage2";
     String likeInsertURL =  "http://192.168.219.57:8089/likeInsert";
     String hateInsertURL =  "http://192.168.219.57:8089/hateInsert";
@@ -82,6 +80,9 @@ public class InfoInsideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // 로딩 화면 초기화
+        LoadingDialog loadingDialog = new LoadingDialog(this);
 
         // 바인딩 초기화
         binding = ActivityInfoInsideBinding.inflate(getLayoutInflater());
@@ -195,12 +196,16 @@ public class InfoInsideActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
+                                // 로딩 화면 종료
+                                loadingDialog.dismiss();
                                 Log.d("like","좋아요 성공!");
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
+                                // 로딩 화면 종료
+                                loadingDialog.dismiss();
                                 Log.d("like","다시 도전!");
 
                             }
@@ -258,12 +263,16 @@ public class InfoInsideActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
+                                // 로딩 화면 종료
+                                loadingDialog.dismiss();
                                 Log.d("like_hate","싫어요 성공!");
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
+                                // 로딩 화면 종료
+                                loadingDialog.dismiss();
                                 Log.d("like_hate","다시 도전!");
 
                             }
@@ -383,8 +392,6 @@ public class InfoInsideActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // 로딩 화면 종료
-                        loadingDialog.dismiss();
 
                         Log.d("likeView","Like Count: " + response);
                         binding.likeCount.setText(response);
@@ -427,8 +434,6 @@ public class InfoInsideActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // 로딩 화면 종료
-                        loadingDialog.dismiss();
 
                         Log.d("hateView","hate Count: " + response);
                         binding.hateCount.setText(response);
