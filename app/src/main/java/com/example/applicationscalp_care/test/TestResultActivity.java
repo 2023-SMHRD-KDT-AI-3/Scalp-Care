@@ -10,19 +10,26 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.applicationscalp_care.LoadingDialog;
+import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.TestFragment;
 import com.example.applicationscalp_care.care.BoardWriteActivity;
 import com.example.applicationscalp_care.databinding.ActivityTestResultBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class TestResultActivity extends AppCompatActivity {
 
     private ActivityTestResultBinding binding;
+
+    private BottomNavigationView bnv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityTestResultBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        // bnv 초기화
+        bnv = TestResultActivity.this.findViewById(R.id.bnv);
 
         Intent intent = getIntent();
         String response = intent.getStringExtra("response");
@@ -75,8 +82,11 @@ public class TestResultActivity extends AppCompatActivity {
         // 확인완료 누를 시 검사 페이지로 이동
         binding.btnTestDone.setOnClickListener(v -> {
 
-            Intent mainIntent = new Intent(this, TestFragment.class);
-            startActivity(mainIntent);
+            Intent testIntent = new Intent(this, TestFragment.class);
+            startActivity(testIntent);
+
+            bnv.setSelectedItemId(R.id.home);
+
             finish();
 
         });
