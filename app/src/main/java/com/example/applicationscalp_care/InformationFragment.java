@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -84,8 +86,6 @@ public class InformationFragment extends Fragment {
 
             bnv.setSelectedItemId(R.id.home);
         });
-
-
 
         // root 리턴
         return binding.getRoot();

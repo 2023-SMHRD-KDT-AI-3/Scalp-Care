@@ -1,8 +1,11 @@
 package com.example.applicationscalp_care;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -11,12 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.applicationscalp_care.care.BoardInsideActivity;
 import com.example.applicationscalp_care.databinding.FragmentHomeBinding;
 import com.example.applicationscalp_care.home.HospitalActivity;
 import com.example.applicationscalp_care.information.InfoInsideActivity;
@@ -28,7 +33,9 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 
@@ -296,7 +303,7 @@ public class HomeFragment extends Fragment {
                                         public void onClick(View v) {
                                             Log.d("최근!","클릭");
 
-                                            Intent intent = new Intent(getActivity(), InfoInsideActivity.class);
+                                            Intent intent = new Intent(getActivity(), BoardInsideActivity.class);
                                             intent.putExtra("indate", indate);
                                             intent.putExtra("content", content);
                                             intent.putExtra("ucNum", uc_num);
@@ -323,7 +330,20 @@ public class HomeFragment extends Fragment {
                 Log.d("최근", "에러2");
             }
         }
-        );
+        ){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                SharedPreferences autoLogin = getActivity().getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
+                String ucUid = autoLogin.getString("uid","null");
+                Log.d("CareFragment",ucUid);
+
+                Map<String, String> params = new HashMap<>();
+                params.put("ucUid",ucUid);
+                return params;
+
+            }
+        };
         queue.add(request);
     }
 }

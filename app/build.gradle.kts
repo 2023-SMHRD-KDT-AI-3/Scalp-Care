@@ -53,4 +53,7 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.10.0")
     implementation("com.github.bumptech.glide:glide:4.14.2")
 
+    // loading 창 (spinkit)
+    implementation ("com.github.ybq:Android-SpinKit:1.4.0")
+
 }
