@@ -50,6 +50,7 @@ public class BoardInsideActivity extends AppCompatActivity {
         String indate = data.getStringExtra("indate");
         String content = data.getStringExtra("content");
         Long ucNum = data.getLongExtra("ucNum",0);
+        String result = data.getStringExtra("result");
 
         Log.d("BoardInsideActivity2",String.valueOf(ucNum));
 
@@ -86,6 +87,7 @@ public class BoardInsideActivity extends AppCompatActivity {
         // 날짜 및 내용
         binding.tvInsideTime.setText(indate);
         binding.tvInsideContent.setText(content);
+        binding.tvResult.setText(result);
 
         // 뒤로가기
         binding.tvBack2.setOnClickListener(v ->{
