@@ -42,7 +42,9 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -61,6 +63,7 @@ public class CareFragment extends Fragment {
     private BottomNavigationView bnv;
 
     String boradviewURL = "http://192.168.219.57:8089/Boardview";
+    String DateViewURL = "http://192.168.219.52:8089/DateView";
 
 
     private ActivityResultLauncher<Intent> writeLauncher = registerForActivityResult(
@@ -83,7 +86,6 @@ public class CareFragment extends Fragment {
         dataset = new ArrayList<>();
         keyset = new ArrayList<>();
         adapter = new BoardAdapter( dataset, keyset );
-
         if (queue == null) {
             queue = Volley.newRequestQueue(requireContext());
         }
@@ -91,6 +93,7 @@ public class CareFragment extends Fragment {
         // bnv 초기화
         bnv = getActivity().findViewById(R.id.bnv);
 
+        // 게시판 출력
         getBoardData();
 
         SharedPreferences nowPage = getActivity().getSharedPreferences("page", Activity.MODE_PRIVATE);
@@ -112,10 +115,11 @@ public class CareFragment extends Fragment {
 
         });
 
-        // 달력 해당 날짜 먼저 보여줌
-        int selectedYear = 2023;
-        int selectedMonth = 5;
-        int selectedDayOfMonth = 10;
+        // 현재 날짜 가져오기
+        Calendar calendar = Calendar.getInstance();
+        int currentYear = calendar.get(Calendar.YEAR);
+        int currentMonth = calendar.get(Calendar.MONTH);
+        int currentDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
         // 시작 날짜
         binding.tvStartDate.setOnClickListener(v ->{
@@ -123,25 +127,35 @@ public class CareFragment extends Fragment {
             DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year1, int monthOfYear1, int dayOfMonth1) {
-                    binding.tvStartDate.setText(year1 + "-" + (monthOfYear1 + 1) + "-" + dayOfMonth1);
+                    // 날짜 형식 지정
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                    String startDate = sdf.format(new GregorianCalendar(year1, monthOfYear1, dayOfMonth1).getTime());
+
+                    // TextView에 날짜 표시
+                    binding.tvStartDate.setText(startDate);
                 }
             };
             // 달력 dialog
-            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateSetListener, selectedYear, selectedMonth, selectedDayOfMonth);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateSetListener, currentYear, currentMonth, currentDayOfMonth);
             // 보여주기
             datePickerDialog.show();
         });
+
         // 종료 날짜
         binding.tvEndDate.setOnClickListener(v ->{
             // 달력 리스너
             DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year2, int monthOfYear2, int dayOfMonth2) {
-                    binding.tvEndDate.setText(year2 + "-" + (monthOfYear2 + 1) + "-" + dayOfMonth2);
+                    // 날짜 형식 지정
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                    String endDate = sdf.format(new GregorianCalendar(year2, monthOfYear2, dayOfMonth2).getTime());
+                    // TextView에 날짜 표시
+                    binding.tvEndDate.setText(endDate);
                 }
             };
             // 달력 dialog
-            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateSetListener, selectedYear, selectedMonth, selectedDayOfMonth);
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateSetListener, currentYear, currentMonth, currentDayOfMonth);
             // 보여주기
             datePickerDialog.show();
         });
@@ -162,9 +176,102 @@ public class CareFragment extends Fragment {
             startActivity(intent);
         });
 
+        // 두피 (날짜)검색 버튼을 누를 시
+        binding.btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("날짜 클릭!","클릭!");
+                // 날짜 보내기
+                    StringRequest request = new StringRequest(
+                            Request.Method.POST,
+                            DateViewURL,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    try {
+                                        if(response.equals("[]")){
+                                            binding.errorImg.setVisibility(View.VISIBLE);
+                                            binding.errorMsg.setVisibility(View.VISIBLE);
+                                            binding.BoardRv.setVisibility(View.GONE);
+                                        }else{
+                                            binding.errorImg.setVisibility(View.GONE);
+                                            binding.errorMsg.setVisibility(View.GONE);
+                                            binding.BoardRv.setVisibility(View.VISIBLE);
+
+                                        }
+                                        // JsonArray(List<String>)
+                                        JSONArray jsonArray = new JSONArray(response);
+
+                                        dataset.clear();
+
+                                        // 파싱한 데이터를 데이터셋에 추가
+                                        for (int i = 0; i < jsonArray.length(); i++) {
+
+                                            String JsonItemString = jsonArray.getString(i);
+                                            // Json(String) → 객체화
+                                            JSONObject jsonObject = new JSONObject(JsonItemString);
+
+                                            Log.d("날짜 string ? ", jsonObject.toString());
+
+                                            // 각 필요한 데이터를 추출
+                                            String indate = CareFragment.this.formatIndate(jsonObject.getString("indate"));
+                                            String content = jsonObject.getString("content");
+                                            int uc_num = jsonObject.getInt("ucNum");
+                                            String result = jsonObject.getString("result");
+
+                                            // 데이터셋에 추가
+                                            dataset.add(new BoardVO(uc_num, indate, content, result));
+
+                                        }
+
+                                        // 어댑터에 데이터셋 변경을 알림
+                                        adapter.notifyDataSetChanged();
+
+                                    } catch (JSONException e) {
+                                        throw new RuntimeException(e);
+                                    }
+
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("날짜","응답 문제 발생!");
+                        }
+                    }
+                    ){
+                        @Nullable
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            SharedPreferences autoLogin = getActivity().getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
+                            String ucUid = autoLogin.getString("uid","null");
+
+                            Map<String, String> params = new HashMap<>();
+                            String startDate = binding.tvStartDate.getText().toString();
+                            String endDate = binding.tvEndDate.getText().toString();
+                            params.put("ucUid",ucUid);
+                            params.put("startDate",startDate);
+                            params.put("endDate", endDate);
+                            Log.d("날짜 ucUid",ucUid);
+                            Log.d("날짜 startDate",startDate);
+                            Log.d("날짜 endDate",endDate);
+
+                            return params;
+
+                        }
+                    };
+                    queue.add(request);
+
+                }
+
+        });
+
         // root 리턴
         return binding.getRoot();
     }
+
+
+
+
 
     // 어댑터에서 사용할 날짜 형식 메서드
     private String formatIndate(String indateString) {
