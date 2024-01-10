@@ -242,7 +242,7 @@ public class HomeFragment extends Fragment {
         try {
             long indateValue = Long.parseLong(indateString);
             Date indateDate = new Date(indateValue);
-            SimpleDateFormat sdf = new SimpleDateFormat("YYYY.MM.dd", Locale.getDefault());
+            SimpleDateFormat sdf = new SimpleDateFormat("YYYY년 MM월 dd일 HH:mm", Locale.getDefault());
             sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
             return sdf.format(indateDate);
         } catch (NumberFormatException e) {
