@@ -107,6 +107,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // 네이버 로그인
+        binding.btnLoginNaver.setOnClickListener(v -> {
+            Toast.makeText(this, "준비중입니다.", Toast.LENGTH_SHORT).show();
+        });
+
+        // 구글 로그인
+        binding.btnLoginGoogle.setOnClickListener(v -> {
+            Toast.makeText(this, "준비중입니다.", Toast.LENGTH_SHORT).show();
+        });
+
         // 비회원 로그인
         binding.btnLoginGuest.setOnClickListener(new View.OnClickListener() {
             @Override

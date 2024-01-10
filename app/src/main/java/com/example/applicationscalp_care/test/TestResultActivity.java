@@ -2,7 +2,9 @@ package com.example.applicationscalp_care.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -10,9 +12,11 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.applicationscalp_care.HomeFragment;
 import com.example.applicationscalp_care.LoadingDialog;
+import com.example.applicationscalp_care.LoginActivity;
 import com.example.applicationscalp_care.MainActivity;
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.TestFragment;
@@ -105,6 +109,21 @@ public class TestResultActivity extends AppCompatActivity {
             if(uid.equals("guest")){
 
                 // 팝업창 or toast → 비회원은 작성할 수 없습니다!
+                new AlertDialog.Builder(this).setTitle("죄송합니다.").setMessage("비회원은 게시글 작성이 불가합니다. \n 로그인 후 이용해 주시기 바랍니다.")
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 확인 누를 시
+                                Toast.makeText(TestResultActivity.this, "확인", Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 취소 누를 시
+                                Toast.makeText(TestResultActivity.this, "취소", Toast.LENGTH_SHORT).show();
+                            }
+                        }).show();
+
 
             }else{
                 Intent writeIntent = new Intent(this, BoardWriteActivity.class);

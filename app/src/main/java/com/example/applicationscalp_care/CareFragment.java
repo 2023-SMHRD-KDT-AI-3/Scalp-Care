@@ -1,8 +1,10 @@
 package com.example.applicationscalp_care;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -114,6 +117,21 @@ public class CareFragment extends Fragment {
         binding.btnAddBoard.setOnClickListener(v -> {
             if(uid.equals("guest")){
                 // 팝업창 or toast → 비회원은 작성할 수 없습니다!
+                new AlertDialog.Builder(requireContext()).setTitle("죄송합니다.").setMessage("비회원은 게시글 작성이 불가합니다. \n 로그인 후 이용해 주시기 바랍니다.")
+                        .setPositiveButton("로그인하러가기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 로그인하러가기 누를 시
+                                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // 취소 누를 시
+                                Toast.makeText(getActivity().getApplicationContext(), "취소", Toast.LENGTH_SHORT).show();
+                            }
+                        }).show();
 
             }else {
                 Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
