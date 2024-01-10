@@ -88,14 +88,12 @@ public class TestResultActivity extends AppCompatActivity {
             startActivity(intent6);
         });
 
-        // 확인완료 누를 시 검사 페이지로 이동
+        // 확인완료 누를 시  메인 페이지로 이동
         binding.btnTestDone.setOnClickListener(v -> {
 
             Intent testIntent = new Intent(TestResultActivity.this, MainActivity.class);
-            testIntent.putExtra("moveFl","care");
+            testIntent.putExtra("moveFl","home");
             startActivity(testIntent);
-
-            bnv.setSelectedItemId(R.id.home);
 
             finish();
 
