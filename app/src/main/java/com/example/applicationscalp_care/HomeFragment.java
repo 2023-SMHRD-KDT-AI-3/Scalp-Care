@@ -291,7 +291,7 @@ public class HomeFragment extends Fragment {
                                 String indate = HomeFragment.this.formatIndate(jsonObject.getString("indate"));
                                 String content = jsonObject.getString("content");
                                 Long uc_num = (long) jsonObject.getInt("ucNum");
-                                String img = jsonObject.getString("img");
+                                String result = jsonObject.getString("result");
 
                                 if(i == 0){
                                     binding.tvGoMyBoardContent.setText(content);
@@ -307,6 +307,7 @@ public class HomeFragment extends Fragment {
                                             intent.putExtra("indate", indate);
                                             intent.putExtra("content", content);
                                             intent.putExtra("ucNum", uc_num);
+                                            intent.putExtra("result",result);
 
                                             Log.d("최근 content!: ", content);
                                             Log.d("최근 ucNum!: ", String.valueOf(uc_num));
