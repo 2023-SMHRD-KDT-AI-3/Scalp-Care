@@ -8,36 +8,10 @@
     tools:context=".care.BoardInsideActivity">
 
     <TextView
-        android:id="@+id/tvBack2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="288dp"
-        android:text="@string/tvBack"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imgBack2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imgBack2"
-        app:layout_constraintTop_toTopOf="@+id/imgBack2"
-        app:layout_constraintVertical_bias="0.805" />
-
-    <ImageView
-        android:id="@+id/imgBack2"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow_left" />
-
-    <TextView
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="52dp"
         android:background="@color/white"
         android:gravity="center"
         android:text="두피일기"
@@ -47,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBack2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView16"
@@ -139,5 +113,60 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView74"
         app:layout_constraintStart_toEndOf="@+id/textView74"
         app:layout_constraintTop_toTopOf="@+id/textView74" />
+
+    <Button
+        android:id="@+id/btnReWrite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:text="@string/btnReWrite"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnDelBoard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.652" />
+
+    <Button
+        android:id="@+id/btnDelBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/green"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:text="@string/btnDelBoard"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnReWrite"
+        app:layout_constraintEnd_toStartOf="@+id/btnAcceptBoard"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnReWrite"
+        app:layout_constraintTop_toTopOf="@+id/btnReWrite" />
+
+    <Button
+        android:id="@+id/btnAcceptBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/green"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:text="@string/btnAcceptBoard"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDelBoard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnDelBoard"
+        app:layout_constraintTop_toTopOf="@+id/btnDelBoard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
