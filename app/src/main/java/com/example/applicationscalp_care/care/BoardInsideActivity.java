@@ -3,12 +3,18 @@ package com.example.applicationscalp_care.care;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -18,8 +24,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.example.applicationscalp_care.LoginActivity;
 import com.example.applicationscalp_care.MainActivity;
+import com.example.applicationscalp_care.SplashActivity;
 import com.example.applicationscalp_care.databinding.ActivityBoardInsideBinding;
+import com.kakao.sdk.user.UserApiClient;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -99,36 +108,50 @@ public class BoardInsideActivity extends AppCompatActivity {
         });
 
         binding.btnDelBoard.setOnClickListener(v ->{
-            StringRequest request1 = new StringRequest(
-                    Request.Method.POST,
-                    boardDeleteURL,
-                    new Response.Listener<String>() {
+
+            new AlertDialog.Builder(BoardInsideActivity.this).setTitle("게시글을 삭제하시겠습니까?")
+                    .setPositiveButton("삭제", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onResponse(String response) {
-                            Log.d("test","통신 성공임!");
+                        public void onClick(DialogInterface dialog, int which) {
+                            StringRequest request1 = new StringRequest(
+                                    Request.Method.POST,
+                                    boardDeleteURL,
+                                    new Response.Listener<String>() {
+                                        @Override
+                                        public void onResponse(String response) {
+                                            Log.d("test","통신 성공임!");
+                                        }
+                                    }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Log.d("test","통신 실패임?");
+                                }
+                            }
+                            ) {
+                                @Nullable
+                                @Override
+                                protected Map<String, String> getParams() throws AuthFailureError {
+                                    Map<String, String> params = new HashMap<>();
+                                    params.put("ucNum", String.valueOf(ucNum));
+                                    Log.d("ucNum", String.valueOf(ucNum));
+                                    return params;
+                                }
+
+                            };
+                            queue.add(request1);
+
+                            // RecyclerView 최신화를 위해 0.5초 딜레이 주기
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent intent = new Intent(BoardInsideActivity.this, MainActivity.class);
+                                    intent.putExtra("moveFl","care");
+                                    startActivity(intent);
+                                }
+                            }, 500);
                         }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.d("test","통신 실패임?");
-                }
-            }
-            ) {
-                @Nullable
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<>();
-                    params.put("ucNum", String.valueOf(ucNum));
-                    Log.d("ucNum", String.valueOf(ucNum));
-                    return params;
-                }
+                    }).show();
 
-            };
-            queue.add(request1);
-
-            Intent intent = new Intent(BoardInsideActivity.this, MainActivity.class);
-            intent.putExtra("moveFl","care");
-            startActivity(intent);
         });
     }
 }
