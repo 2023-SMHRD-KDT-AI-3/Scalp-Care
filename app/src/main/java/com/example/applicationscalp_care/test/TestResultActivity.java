@@ -67,34 +67,20 @@ public class TestResultActivity extends AppCompatActivity {
         binding.result5.setText(resultText[Integer.parseInt(result[4])]);
         binding.result6.setText(resultText[Integer.parseInt(result[5])]);
 
-
-        // 밑줄 긋기
-        binding.tvBedum.setPaintFlags(binding.tvBedum.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        // 밑줄 긋기
-        binding.tvTalmo.setPaintFlags(binding.tvTalmo.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
         // 두피 상태 텍스트 누를 시, 각 두피 상세 페이지 이동
         binding.tvMisae.setOnClickListener(v -> {
-            // 밑줄 긋기
-            binding.tvMisae.setPaintFlags(binding.tvMisae.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             Intent intent1 = new Intent(TestResultActivity.this, MisaeActivity.class);
             startActivity(intent1);
         });
         binding.tvPGee.setOnClickListener(v -> {
-            // 밑줄 긋기
-            binding.tvPGee.setPaintFlags(binding.tvPGee.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             Intent intent2 = new Intent(TestResultActivity.this, PgeeActivity.class);
             startActivity(intent2);
         });
         binding.tvSiee.setOnClickListener(v -> {
-            // 밑줄 긋기
-            binding.tvSiee.setPaintFlags(binding.tvSiee.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             Intent intent3 = new Intent(TestResultActivity.this, SieeHongbanActivity.class);
             startActivity(intent3);
         });
         binding.tvNongpo.setOnClickListener(v -> {
-            // 밑줄 긋기
-            binding.tvNongpo.setPaintFlags(binding.tvNongpo.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             Intent intent4 = new Intent(TestResultActivity.this, HongbanNongActivity.class);
             startActivity(intent4);
         });
