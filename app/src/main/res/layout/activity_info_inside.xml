@@ -215,18 +215,18 @@
                     app:cornerRadius="10dp"
                     app:iconPadding="0dp"
                     app:layout_constraintBottom_toBottomOf="@+id/edtReviewContent"
-                    app:layout_constraintEnd_toEndOf="@+id/infoChatList"
+                    app:layout_constraintEnd_toEndOf="@+id/edtReviewContent"
                     app:layout_constraintStart_toStartOf="@+id/btnlike"
                     app:layout_constraintTop_toTopOf="@+id/edtReviewContent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/infoChatList"
-                    android:layout_width="0dp"
-                    android:layout_height="170dp"
-                    android:layout_marginTop="28dp"
-                    app:layout_constraintEnd_toEndOf="@+id/edtReviewContent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/edtReviewContent"
+                    android:layout_width="320dp"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="21dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView23"
+                    app:layout_constraintStart_toStartOf="@+id/textView23"
                     app:layout_constraintTop_toBottomOf="@+id/edtReviewContent" />
 
                 <ImageView
@@ -250,6 +250,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/avd_scalpcarehate" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/shape_sagakhyung_white"
+                    app:layout_constraintEnd_toEndOf="@+id/edtReviewContent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/edtReviewContent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtReviewContent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
