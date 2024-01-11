@@ -7,5 +7,9 @@
         <item name="android:statusBarColor">@color/white</item>
     </style>
 
+    <style name="Theme.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/invisable</item>
+    </style>
+
     <style name="Theme.ApplicationScalp_care" parent="Base.Theme.ApplicationScalp_care" />
 </resources>
