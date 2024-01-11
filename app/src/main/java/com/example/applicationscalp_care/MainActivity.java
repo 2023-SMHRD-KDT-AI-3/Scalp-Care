@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 로고 누를 시 홈으로 이동
+        // Home Activity에서 원하는 Fragment로 이동할 때
         String moveFl = getIntent().getStringExtra("moveFl");
         if(moveFl!=null) {
             if (moveFl.equals("home")) {

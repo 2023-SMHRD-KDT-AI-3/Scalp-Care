@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.example.applicationscalp_care.MainActivity;
 import com.example.applicationscalp_care.databinding.ActivityBoardInsideBinding;
 
 import java.util.HashMap;
@@ -30,6 +31,9 @@ public class BoardInsideActivity extends AppCompatActivity {
     private RequestQueue queue;
 
     String getImgURL = "http://192.168.219.57:8089/getImage";
+
+    String boardDeleteURL = "http://192.168.219.57:8089/boardDelete";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,11 +94,41 @@ public class BoardInsideActivity extends AppCompatActivity {
         binding.tvResult.setText(result);
 
         // 뒤로가기
-        binding.tvBack2.setOnClickListener(v ->{
+        binding.btnAcceptBoard.setOnClickListener(v ->{
             finish();
         });
-        binding.imgBack2.setOnClickListener(v ->{
-            finish();
+
+        binding.btnDelBoard.setOnClickListener(v ->{
+            StringRequest request1 = new StringRequest(
+                    Request.Method.POST,
+                    boardDeleteURL,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.d("test","통신 성공임!");
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("test","통신 실패임?");
+                }
+            }
+            ) {
+                @Nullable
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("ucNum", String.valueOf(ucNum));
+                    Log.d("ucNum", String.valueOf(ucNum));
+                    return params;
+                }
+
+            };
+            queue.add(request1);
+
+            Intent intent = new Intent(BoardInsideActivity.this, MainActivity.class);
+            intent.putExtra("moveFl","care");
+            startActivity(intent);
         });
     }
 }
