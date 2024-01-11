@@ -8,30 +8,22 @@
     tools:context=".information.InfoInsideActivity">
 
     <ScrollView
-        android:id="@+id/scrollView4"
+        android:id="@+id/scrollView13"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="700dp"
+                android:layout_height="match_parent"
                 android:background="@color/white">
 
                 <TextView
@@ -44,17 +36,6 @@
                     app:layout_constraintHorizontal_bias="0.493"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/infoInsideTitle" />
-
-                <TextView
-                    android:id="@+id/textView51"
-                    android:layout_width="330dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@color/grayText"
-                    app:layout_constraintEnd_toEndOf="@+id/infoInsideContent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/infoInsideContent"
-                    app:layout_constraintTop_toBottomOf="@+id/infoInsideContent" />
 
                 <TextView
                     android:id="@+id/tvBack4"
@@ -84,22 +65,22 @@
 
                 <TextView
                     android:id="@+id/infoInsideTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="330dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text="제목"
                     android:textColor="@color/green"
                     android:textSize="28sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tvBack4"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/imgBack4"
                     app:layout_constraintTop_toBottomOf="@+id/tvBack4" />
 
                 <ImageView
                     android:id="@+id/infoInsideImg"
-                    android:layout_width="220dp"
-                    android:layout_height="220dp"
+                    android:layout_width="180dp"
+                    android:layout_height="140dp"
                     android:layout_marginTop="28dp"
                     app:layout_constraintEnd_toEndOf="@+id/textView38"
                     app:layout_constraintStart_toStartOf="@+id/textView38"
@@ -159,11 +140,11 @@
                     android:id="@+id/btnlike"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    app:layout_constraintEnd_toEndOf="@+id/textView51"
-                    app:layout_constraintHorizontal_bias="0.758"
-                    app:layout_constraintStart_toStartOf="@+id/textView51"
-                    app:layout_constraintTop_toBottomOf="@+id/textView51"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toEndOf="@+id/infoInsideContent"
+                    app:layout_constraintHorizontal_bias="0.781"
+                    app:layout_constraintStart_toStartOf="@+id/infoInsideContent"
+                    app:layout_constraintTop_toBottomOf="@+id/infoInsideContent"
                     app:srcCompat="@drawable/thumbs_up_off" />
 
                 <ImageView
@@ -201,13 +182,14 @@
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="@+id/btnhate"
                     app:layout_constraintStart_toEndOf="@+id/btnhate"
-                    app:layout_constraintTop_toTopOf="@+id/btnhate" />
+                    app:layout_constraintTop_toTopOf="@+id/btnhate"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <EditText
                     android:id="@+id/edtReviewContent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="32dp"
                     android:background="@drawable/shape_corner_round_white"
                     android:ems="10"
                     android:hint="@string/edtHintDetgul"
@@ -216,8 +198,9 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="@+id/btnlike"
-                    app:layout_constraintStart_toStartOf="@+id/textView51"
+                    app:layout_constraintEnd_toEndOf="@+id/infoInsideContent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/infoInsideContent"
                     app:layout_constraintTop_toBottomOf="@+id/btnlike" />
 
                 <Button
@@ -232,56 +215,45 @@
                     app:cornerRadius="10dp"
                     app:iconPadding="0dp"
                     app:layout_constraintBottom_toBottomOf="@+id/edtReviewContent"
-                    app:layout_constraintEnd_toEndOf="@+id/textView51"
-                    app:layout_constraintStart_toEndOf="@+id/btnlike"
+                    app:layout_constraintEnd_toEndOf="@+id/infoChatList"
+                    app:layout_constraintStart_toStartOf="@+id/btnlike"
                     app:layout_constraintTop_toTopOf="@+id/edtReviewContent" />
-
-                <TextView
-                    android:id="@+id/textView63"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/shape_sagakhyung_white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/btnReviewSave"
-                    app:layout_constraintHorizontal_bias="0.508"
-                    app:layout_constraintStart_toStartOf="@+id/edtReviewContent"
-                    app:layout_constraintTop_toBottomOf="@+id/edtReviewContent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/infoChatList"
-                    android:layout_width="315dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView63"
-                    app:layout_constraintEnd_toEndOf="@+id/textView63"
-                    app:layout_constraintStart_toStartOf="@+id/textView63"
-                    app:layout_constraintTop_toTopOf="@+id/textView63" />
+                    android:layout_width="0dp"
+                    android:layout_height="170dp"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintEnd_toEndOf="@+id/edtReviewContent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/edtReviewContent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtReviewContent" />
 
                 <ImageView
                     android:id="@+id/thumbsUpMove"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:alpha="0"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/avd_scalpcarelike"
-                    android:alpha="0"/>
+                    app:srcCompat="@drawable/avd_scalpcarelike" />
 
                 <ImageView
                     android:id="@+id/thumbsDownMove"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
+                    android:alpha="0"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/avd_scalpcarehate"
-                    android:alpha="0"/>
+                    app:srcCompat="@drawable/avd_scalpcarehate" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

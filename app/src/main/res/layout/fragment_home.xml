@@ -284,6 +284,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="TextView" />
 
 
@@ -312,6 +314,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="TextView" />
 
 
@@ -341,6 +345,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="20dp"
                         android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="TextView" />
 
 
