@@ -54,7 +54,7 @@
         <td>개발도구</td>
         <td>
             <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
-            <img src="https://img.shields.io/badge/AndroidStudio-00BF63?style=for-the-badge&logo=AndroidStudio&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Android Studio-00BF63?style=for-the-badge&logo=Android Studio&logoColor=white"/>
             <img src="https://img.shields.io/badge/Colaboratory-yellow?style=for-the-badge&logo=Colaboratory&logoColor=white"/>
             <img src="https://img.shields.io/badge/Jupyter-orange?style=for-the-badge&logo=Jupyter&logoColor=white"/>
         </td>
@@ -63,6 +63,7 @@
         <td>서버환경</td>
         <td>
             <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Flask-black?style=for-the-badge&logo=Flask&logoColor=white"/>
         </td>
     </tr>
     <tr>
