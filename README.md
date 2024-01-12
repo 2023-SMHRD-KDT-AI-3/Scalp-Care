@@ -101,82 +101,82 @@
 
 ## 🖥 화면구성
 - ### Splash 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/61063da8-9310-4cb1-bfaf-972b40deb94c)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/61063da8-9310-4cb1-bfaf-972b40deb94c)
 
 <hr>
 
 - ### 로그인 및 비회원가입 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/f197043c-77b9-4bdf-bc4e-7b49f430c6d3)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/f197043c-77b9-4bdf-bc4e-7b49f430c6d3)
 
 <hr>
 
 - ### 홈 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/02c5caa5-0346-4030-86c9-a474209085e5)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/02c5caa5-0346-4030-86c9-a474209085e5)
 
 <hr>
 
 - ### 근처 병원 찾기 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/2b40b03f-0097-4c09-a50d-18ce3bbaa98c)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/2b40b03f-0097-4c09-a50d-18ce3bbaa98c)
 
 <hr>
 
 - ### 관리 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/433ed38b-a364-4492-9e97-9db919032ed6)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/433ed38b-a364-4492-9e97-9db919032ed6)
 
 <hr>
 
 - ### 게시글 작성 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/5260c7d5-f799-464f-ab50-70669c17529e)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/5260c7d5-f799-464f-ab50-70669c17529e)
 
 <hr>
 
 - ### 게시글 상세 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/89103d93-ccbf-4f54-a43e-eb71ddc151eb)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/89103d93-ccbf-4f54-a43e-eb71ddc151eb)
 
 <hr>
 
 - ### 두피 비교 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/c1fbaf59-d162-423f-a833-b4004c3232c1)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/c1fbaf59-d162-423f-a833-b4004c3232c1)
 
 <hr>
 
 - ### 검사 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/a671096b-6d94-468b-aded-bb80ab6a379a)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/a671096b-6d94-468b-aded-bb80ab6a379a)
 
 <hr>
 
 - ### 검사 결과 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/9be98a1d-42b9-413b-91c2-f3de242533e0)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/9be98a1d-42b9-413b-91c2-f3de242533e0)
 
 <hr>
 
 - ### 두피 원인 및 증상 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/132a8de5-165d-41aa-8a61-36198a9b30a6)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/132a8de5-165d-41aa-8a61-36198a9b30a6)
 
 <hr>
 
 - ### 정보 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/bfba0e1d-41e0-4821-a828-b624cb7943a4)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/bfba0e1d-41e0-4821-a828-b624cb7943a4)
 
 <hr>
 
 - ### 정보글 상세 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/ce1b789f-ddba-4a01-824f-e3ac79af2d57)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/ce1b789f-ddba-4a01-824f-e3ac79af2d57)
 
 <hr>
 
 - ### 더보기 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/d4d442bf-f224-4340-ae16-518c783ff0d8)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/d4d442bf-f224-4340-ae16-518c783ff0d8)
 
 <hr>
 
 - ### 팀원소개 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/5fe4b4d0-afd5-4ff0-ac41-c934faf13ca0)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/5fe4b4d0-afd5-4ff0-ac41-c934faf13ca0)
 
 <hr>
 
 - ### 로그아웃 페이지
-- ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/5c9acb40-01e2-4444-909b-635a0bd10df1)
+  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/5c9acb40-01e2-4444-909b-635a0bd10df1)
 
 
 <br>
@@ -190,20 +190,17 @@
     <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/e701de6e-13f8-4daa-882c-be9c18b76b3e" width="263.76" height="178.71"/></td>
     <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/4a504695-c64c-42ba-a928-81de5bc1af17" width="263.76" height="178.71"/></td>
     <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/153c94a9-5007-417a-9705-21f1cabc34fd" width="263.76" height="178.71"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/5a57f108-eb0b-43be-a190-80c51f8fce48" width="263.76" height="178.71"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>신현욱</strong></td>
-    <td align="center"><strong>박주영</strong></td>
+    <td align="center"><strong>오장렬</strong></td>
+    <td align="center"><strong>이동우</strong></td>
     <td align="center"><strong>김주영</strong></td>
-    <td align="center"><strong>윤대호</strong></td>
     <td align="center"><strong>박조시아</strong></td>
   </tr>
   <tr>
       <td align="center"><br><strong>프로젝트 총괄</strong><hr></td>
-      <td align="center"><br><strong>Backend</strong><hr></td>
-      <td align="center"><br><strong>Backend</strong><hr></td>
       <td align="center"><br><strong>Frontend</strong><hr></td>
+      <td align="center"><br><strong>Backend</strong><hr></td>
       <td align="center"><br><strong>Frontend</strong><hr></td>
   </tr>
   <tr>
