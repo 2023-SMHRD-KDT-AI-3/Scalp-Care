@@ -214,7 +214,7 @@
         <pre>Splash 페이지
 로그인 페이
 메인 페이지
-두피 정보 페이지 데이터 수집</pre></td>
+두피 정보 데이터수집</pre></td>
     <td align="center">
         <pre>Kakao 로그인 API
 Kakao Map API
@@ -224,9 +224,9 @@ Kakao Map API
     <td align="center">
         <pre>UI/UX 설계
 화면 구현
-카메라 및 갤러리 연동
+카메라 및 갤러리연동
 프로그래스 및 좋아요, 
-싫어요 애니메이션</pre></td>
+싫어요애니메이션</pre></td>
       
   <tr>
     <td align="center"><a href="https://github.com/ㅌㅌㅌㅌㅌ" target='_blank'>오장렬님의 github</a></td>
