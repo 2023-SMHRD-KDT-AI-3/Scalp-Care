@@ -84,24 +84,27 @@
 <br>
 
 ## ⚙ 시스템 아키텍처
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/dd829a53-8489-4294-ba8a-8769391f37d3)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/333ab1e9-6454-4f17-9235-cb036b9e051a)
 
 
 ## 📌 유스케이스
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151823/584ab2f1-a300-4b5f-a082-a0030d4dd651)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/87a3ab58-d349-4496-acdc-ef3672407630)
 
 
 ## 📌 서비스 흐름도
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151823/b0131ec2-bd0c-4d73-a6ad-5aa915f8a798)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/fae1b6e0-eeb8-45e7-9905-7f7e2acf1241)
 
 
 ## 📌 ER다이어그램
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/a274926e-6ee4-4d13-b8e3-4240853c0781)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/a0066e75-1d33-4217-b4ee-e73b791b96d3)
 
 
 ## 🖥 화면구성
+- ### Splash 페이지
+
+<hr>
+
 - ### 로그인 및 회원가입 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/b861f1be-18e9-42cc-ba34-372a610b90ff)
 
 <hr>
 
