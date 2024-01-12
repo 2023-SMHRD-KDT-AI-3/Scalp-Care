@@ -184,12 +184,13 @@
 <br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
+
 <table>
   <tr>
     <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/d6844ed4-4138-4b95-8af9-4b9e501610b7" width="263.76" height="178.71"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/e701de6e-13f8-4daa-882c-be9c18b76b3e" width="263.76" height="178.71"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/4a504695-c64c-42ba-a928-81de5bc1af17" width="263.76" height="178.71"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/153c94a9-5007-417a-9705-21f1cabc34fd" width="263.76" height="178.71"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/7a200026-9ff9-4cca-a909-dfab3081071d" width="263.76" height="178.71"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/250008ce-569a-4980-ad6b-8b1b4119ee67" width="263.76" height="178.71"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/bc0d277f-3352-435d-9047-a072ba838345" width="263.76" height="178.71"/></td>
   </tr>
   <tr>
     <td align="center"><strong>오장렬</strong></td>
