@@ -104,55 +104,64 @@
 
 <hr>
 
-- ### 로그인 및 회원가입 페이지
+- ### 로그인 및 비회원가입 페이지
 
 <hr>
 
-- ### 메인페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f35f71ad-539e-4fb4-a2f8-444ca4adcd7e)
+- ### 홈 페이지
 
 <hr>
 
-- ### 검색 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/380c6f19-0623-47e0-9c0e-590b4a742381)
+- ### 근처 병원 찾기 페이지
+
+<hr>
+
+- ### 관리 페이지
 
 <hr>
 
 - ### 게시글 작성 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/8b667a8d-205f-48e4-8e9e-4deb96e420db)
 
 <hr>
 
-- ### 마이페이지 및 자기 게시글 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/d86f5949-d3d3-446e-84df-e67be8a5620e)
+- ### 게시글 상세 페이지
 
 <hr>
 
-- ### 좋아요한 게시물 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/73c939b5-12fd-42e2-a75a-9e54486976d7)
+- ### 두피 비교 페이지
 
 <hr>
 
-- ### 프로필 편집 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/da147042-a45d-4699-b368-fcf515e31af2)
+- ### 검사 페이지
 
 <hr>
 
-- ### 회원정보 수정 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/768883e4-9f7c-4cdf-95b5-d85264254349)
-
+- ### 검사 결과 페이지
 
 <hr>
 
-- ### 팔로워 리스트 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/abc8df4f-c75e-4fcc-96eb-ef53d13887bb)
+- ### 두피 원인 및 증상 페이지
 
 <hr>
- 
-- ### 팔로잉 리스트 페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/97455717-1466-426d-9c36-cecf22ca7300)
+
+- ### 정보 페이지
 
 <hr>
+
+- ### 정보글 상세 페이지
+
+<hr>
+
+- ### 더보기 페이지
+
+<hr>
+
+- ### 팀원소개 페이지
+
+<hr>
+
+- ### 로그아웃 페이지
+
 
 <br>
 <br>
@@ -224,27 +233,14 @@
 
     
   <tr>
-    <td align="center"><a href="https://github.com/hw-Shin" target='_blank'>신현욱님의 github</a></td>
-    <td align="center"><a href="https://github.com/Zuzzang" target='_blank'>박주영님의 github</a></td>
+    <td align="center"><a href="https://github.com/ㅌㅌㅌㅌㅌ" target='_blank'>오장렬님의 github</a></td>
+    <td align="center"><a href="https://github.com/ㅌㅌㅌㅌㅌ" target='_blank'>이동우님의 github</a></td>
     <td align="center"><a href="https://github.com/Kimz00" target='_blank'>김주영님의 github</a></td>
-    <td align="center"><a href="https://github.com/dao7179" target='_blank'>윤대호님의 github</a></td>
     <td align="center"><a href="https://github.com/jrjosh1207" target='_blank'>박조시아님의 github</a></td>
   </tr>
 </table>
 
 ## 🤾‍♂️ 트러블 슈팅
 * ### 문제1<br>
-- <strong>문제점</strong> : 내가 좋아요를 누른 게시물에 여러 사람이 좋아요를 누르면 그 갯수만큼 해당 게시물이 출력되는 문제
-- <strong>해결 방안</strong> : 좋아요를 누른 아이디가 내 아이디인 게시글들만 출력할 수 있도록 쿼리문을 작성해 해결
-
-<hr>
- 
-* ### 문제2<br>
-- <strong>문제점</strong> : 팔로우 여부를 체크하는 기능을 만들던 중 mybatis mapper 안에 해당 기능을 위한 쿼리문을 추가하면서 서버오류가 발생하는 문제
-- <strong>해결 방안</strong> : 팀원이 비슷한 기능을 만들면서 중복된 쿼리문때문에 발생한 문제
-
-<hr>
-
-* ### 문제3<br>
-- <strong>문제점</strong> : 게시글 ID 가지고 있지 않아서 DB에 추가할 수 없었던 문제
-- <strong>해결 방안</strong> : 해시태그를 추가할 때 해당 해시태그를 배열에 집어넣고 가장 마지막에 작성된 게시글 ID를 받아와서 해시태그의 배열 내용을 split을 이용해 반복문으로 하나씩 DB에 넣어줘서 해결 
+- <strong>문제점</strong> : 모델링 학습 정확도 결과
+- <strong>해결 방안</strong> : Effie
