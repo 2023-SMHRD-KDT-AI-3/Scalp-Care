@@ -54,7 +54,7 @@
         <td>개발도구</td>
         <td>
             <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
-            <img src="https://img.shields.io/badge/AndroidStudio-00BF63?style=for-the-badge&logo=AndroidStudio&logoColor=green"/>
+            <img src="https://img.shields.io/badge/AndroidStudio-white?style=for-the-badge&logo=AndroidStudio&logoColor=green"/>
         </td>
     </tr>
     <tr>
