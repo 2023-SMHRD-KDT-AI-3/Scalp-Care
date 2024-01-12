@@ -3,7 +3,8 @@
 </div>
 
 ## 📎ScalpCare(팀명: 아이플러스(I+))
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/afc4de62-49f1-40f9-bb45-de9a3465f2d9)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/049fda7e-2325-4b10-bade-a4e40e6b223e)
+
 
 
 ## 👀 서비스 소개
