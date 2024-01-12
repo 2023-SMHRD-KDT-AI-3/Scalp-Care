@@ -1,5 +1,5 @@
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=3F51B5&height=160&text=Team%20I+++의%20프로젝트%20입니다.&animation=&fontColor=fff&fontSize=60" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=3F51B5&height=160&text=Team%20I"+"의%20프로젝트%20입니다.&animation=&fontColor=fff&fontSize=60" />
 </div>
 
 ## 📎ScalpCare(팀명: 아이플러스(I+))
