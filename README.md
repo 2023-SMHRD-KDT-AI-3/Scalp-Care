@@ -225,7 +225,8 @@ Kakao Map API
         <pre>UI/UX 설계
 화면 구현
 카메라 및 갤러리 연동
-프로그래스 및 좋아요, 싫어요 애니메이션</pre></td>
+프로그래스 및 좋아요, 
+싫어요 애니메이션</pre></td>
       
   <tr>
     <td align="center"><a href="https://github.com/ㅌㅌㅌㅌㅌ" target='_blank'>오장렬님의 github</a></td>
