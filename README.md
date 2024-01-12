@@ -229,8 +229,8 @@ Kakao Map API
 싫어요애니메이션</pre></td>
       
   <tr>
-    <td align="center"><a href="https://github.com/ㅌㅌㅌㅌㅌ" target='_blank'>오장렬님의 github</a></td>
-    <td align="center"><a href="https://github.com/ㅌㅌㅌㅌㅌ" target='_blank'>이동우님의 github</a></td>
+    <td align="center"><a href="https://github.com/OhJangRyeol" target='_blank'>오장렬님의 github</a></td>
+    <td align="center"><a href="https://github.com/diesel428" target='_blank'>이동우님의 github</a></td>
     <td align="center"><a href="https://github.com/Kimz00" target='_blank'>김주영님의 github</a></td>
     <td align="center"><a href="https://github.com/jrjosh1207" target='_blank'>박조시아님의 github</a></td>
   </tr>
