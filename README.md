@@ -55,6 +55,8 @@
         <td>
             <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
             <img src="https://img.shields.io/badge/AndroidStudio-00BF63?style=for-the-badge&logo=AndroidStudio&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Colab-yellow?style=for-the-badge&logo=Colab&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Jupyter-orange?style=for-the-badge&logo=Jupyter&logoColor=white"/>
         </td>
     </tr>
     <tr>
