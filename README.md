@@ -187,10 +187,10 @@
 
 <table>
   <tr>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/d6844ed4-4138-4b95-8af9-4b9e501610b7" width="263.76" height="178.71"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/7a200026-9ff9-4cca-a909-dfab3081071d" width="263.76" height="178.71"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/250008ce-569a-4980-ad6b-8b1b4119ee67" width="263.76" height="178.71"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/bc0d277f-3352-435d-9047-a072ba838345" width="263.76" height="178.71"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/d6844ed4-4138-4b95-8af9-4b9e501610b7" width="243.76" height="178.71"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/7a200026-9ff9-4cca-a909-dfab3081071d" width="230.76" height="178.71"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/250008ce-569a-4980-ad6b-8b1b4119ee67" width="243.76" height="178.71"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Scalp_care/assets/140151815/bc0d277f-3352-435d-9047-a072ba838345" width="200.76" height="178.71"/></td>
   </tr>
   <tr>
     <td align="center"><strong>오장렬</strong></td>
