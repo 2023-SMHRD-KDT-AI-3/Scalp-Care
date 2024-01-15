@@ -102,7 +102,7 @@ public class HospitalActivity extends AppCompatActivity implements MapView.POIIt
                     double currentLongitude = location.getLongitude();
 
                     mapView.setShowCurrentLocationMarker(false);
-                    mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeadingWithoutMapMoving);
+                    mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
 
                     // 현재 위치로 지도 중심 이동
                      MapPoint currentLocation = MapPoint.mapPointWithGeoCoord(currentLatitude, currentLongitude);
@@ -134,7 +134,7 @@ public class HospitalActivity extends AppCompatActivity implements MapView.POIIt
 
         KakaoAPI api = retrofit.create(KakaoAPI.class);
 
-        Call<ResultSearchKeyword> call = api.getSearchKeyword(API_KEY, "탈모",  longitude,latitude);
+        Call<ResultSearchKeyword> call = api.getSearchKeyword(API_KEY, "탈모병원",  longitude,latitude);
         Log.d("현재 위도", String.valueOf(latitude));
         Log.d("현재 경도", String.valueOf(longitude));
 

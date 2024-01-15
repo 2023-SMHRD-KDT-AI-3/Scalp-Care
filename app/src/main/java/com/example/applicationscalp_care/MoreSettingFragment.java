@@ -97,6 +97,7 @@ public class MoreSettingFragment extends Fragment {
             transaction.replace(R.id.fl, homeFragment);
             transaction.commit();
 
+            bnv.setSelectedItemId(R.id.home);
 
         });
 
