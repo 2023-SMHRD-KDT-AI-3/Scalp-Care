@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -152,6 +153,18 @@ public class BoardInsideActivity extends AppCompatActivity {
                         }
                     }).show();
 
+        });
+
+        binding.btnReWrite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent re_intent = new Intent(BoardInsideActivity.this, ReBoardActivity.class);
+                re_intent.putExtra("ucNum",ucNum);
+                re_intent.putExtra("indate",indate);
+                re_intent.putExtra("result",result);
+                re_intent.putExtra("content",content);
+                startActivity(re_intent);
+            }
         });
     }
 }
