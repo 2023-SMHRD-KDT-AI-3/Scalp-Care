@@ -33,7 +33,7 @@ public class ScalpCompareActivity extends AppCompatActivity {
 
     private ActivityScalpCompareBinding binding;
     private RequestQueue queue;
-    String getImageURL = "http://192.168.219.57:8089/getImage";
+    String getImageURL = "http://192.168.219.51:8089/getImage";
 
 
     // 런처 1

@@ -53,7 +53,7 @@ public class BoardWriteActivity extends AppCompatActivity {
 
     String result = null;
 
-    String writeURL="http://192.168.219.57:8089/Boardsave";
+    String writeURL="http://192.168.219.51:8089/Boardsave";
 
     // 객체 생성
     AppCompatRadioButton yanghobtn, gyungjungbtn, joongdungbtn, joongjungbtn;

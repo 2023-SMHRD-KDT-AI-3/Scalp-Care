@@ -40,9 +40,9 @@ public class BoardInsideActivity extends AppCompatActivity {
 
     private RequestQueue queue;
 
-    String getImgURL = "http://192.168.219.57:8089/getImage";
+    String getImgURL = "http://192.168.219.51:8089/getImage";
 
-    String boardDeleteURL = "http://192.168.219.57:8089/boardDelete";
+    String boardDeleteURL = "http://192.168.219.51:8089/boardDelete";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

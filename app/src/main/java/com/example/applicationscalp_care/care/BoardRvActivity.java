@@ -38,7 +38,7 @@ public class BoardRvActivity extends AppCompatActivity {
     private ArrayList<String> keyset = null;
     private BoardAdapter adapter = null;
     private RequestQueue queue;
-    String boradviewURL = "http://192.168.219.57:8089/Boardview";
+    String boradviewURL = "http://192.168.219.51:8089/Boardview";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

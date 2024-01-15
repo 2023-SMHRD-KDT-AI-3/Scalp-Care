@@ -65,8 +65,8 @@ public class CareFragment extends Fragment {
 
     private BottomNavigationView bnv;
 
-    String boradviewURL = "http://192.168.219.57:8089/Boardview";
-    String DateViewURL = "http://192.168.219.52:8089/DateView";
+    String boradviewURL = "http://192.168.219.51:8089/Boardview";
+    String DateViewURL = "http://192.168.219.51:8089/DateView";
 
 
     private ActivityResultLauncher<Intent> writeLauncher = registerForActivityResult(

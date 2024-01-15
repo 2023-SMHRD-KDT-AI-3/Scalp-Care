@@ -45,8 +45,8 @@ public class HomeFragment extends Fragment {
     private RequestQueue queue;
 
     private BottomNavigationView bnv;
-    String NewsviewBestURL = "http://192.168.219.57:8089/NewsviewBest";
-    String getBoardDataRecentURL = "http://192.168.219.57:8089/getBoardDataRecent";
+    String NewsviewBestURL = "http://192.168.219.51:8089/NewsviewBest";
+    String getBoardDataRecentURL = "http://192.168.219.51:8089/getBoardDataRecent";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

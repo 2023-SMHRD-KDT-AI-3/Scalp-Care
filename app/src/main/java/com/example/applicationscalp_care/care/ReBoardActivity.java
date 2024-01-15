@@ -57,9 +57,9 @@ public class ReBoardActivity extends AppCompatActivity {
 
     String result = null;
 
-    String reSaveURL="http://192.168.219.57:8089/resave";
+    String reSaveURL="http://192.168.219.51:8089/resave";
 
-    String getImgURL = "http://192.168.219.57:8089/getImage";
+    String getImgURL = "http://192.168.219.51:8089/getImage";
 
     // 객체 생성
     AppCompatRadioButton yanghobtn, gyungjungbtn, joongdungbtn, joongjungbtn;

@@ -66,16 +66,16 @@ public class InfoInsideActivity extends AppCompatActivity {
     AnimatedVectorDrawableCompat avd;
     AnimatedVectorDrawable avd2;
 
-    String getImgURL2 = "http://192.168.219.57:8089/getImage2";
-    String likeInsertURL =  "http://192.168.219.57:8089/likeInsert";
-    String hateInsertURL =  "http://192.168.219.57:8089/hateInsert";
-    String likeViewURL =  "http://192.168.219.57:8089/likeView";
-    String hateViewURL =  "http://192.168.219.57:8089/hateView";
-    String likeCheckIconURL =  "http://192.168.219.57:8089/likeCheckIcon";
-    String hateCheckIconURL =  "http://192.168.219.57:8089/hateCheckIcon";
-    String reviewInsertURL =  "http://192.168.219.57:8089/reviewInsert";
-    String reviewViewURL =  "http://192.168.219.57:8089/reviewView";
-    String ViewPlusURL =  "http://192.168.219.57:8089/ViewPlus";
+    String getImgURL2 = "http://192.168.219.51:8089/getImage2";
+    String likeInsertURL =  "http://192.168.219.51:8089/likeInsert";
+    String hateInsertURL =  "http://192.168.219.51:8089/hateInsert";
+    String likeViewURL =  "http://192.168.219.51:8089/likeView";
+    String hateViewURL =  "http://192.168.219.51:8089/hateView";
+    String likeCheckIconURL =  "http://192.168.219.51:8089/likeCheckIcon";
+    String hateCheckIconURL =  "http://192.168.219.51:8089/hateCheckIcon";
+    String reviewInsertURL =  "http://192.168.219.51:8089/reviewInsert";
+    String reviewViewURL =  "http://192.168.219.51:8089/reviewView";
+    String ViewPlusURL =  "http://192.168.219.51:8089/ViewPlus";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

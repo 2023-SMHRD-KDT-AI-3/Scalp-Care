@@ -49,8 +49,8 @@ public class InformationFragment extends Fragment {
 
     private BottomNavigationView bnv;
 
-    String getInfoURL = "http://192.168.219.57:8089/Newsview";
-    String NewsviewBestURL = "http://192.168.219.57:8089/NewsviewBest";
+    String getInfoURL = "http://192.168.219.51:8089/Newsview";
+    String NewsviewBestURL = "http://192.168.219.51:8089/NewsviewBest";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

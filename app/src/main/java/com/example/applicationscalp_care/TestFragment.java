@@ -59,7 +59,7 @@ public class TestFragment extends Fragment {
 
     private LoadingDialog loadingDialog = null;
 
-    String modelURL = "http://192.168.219.57:5000/model";
+    String modelURL = "http://192.168.219.51:5000/model";
 
 
     private ActivityResultLauncher<Intent> albumLauncher = registerForActivityResult(
