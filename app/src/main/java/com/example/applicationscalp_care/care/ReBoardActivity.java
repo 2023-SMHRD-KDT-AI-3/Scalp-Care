@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -36,6 +37,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.example.applicationscalp_care.MainActivity;
 import com.example.applicationscalp_care.R;
 import com.example.applicationscalp_care.databinding.ActivityBoardWriteBinding;
 import com.example.applicationscalp_care.databinding.ActivityReBoardBinding;
@@ -55,7 +57,9 @@ public class ReBoardActivity extends AppCompatActivity {
 
     String result = null;
 
-    String writeURL="http://192.168.219.57:8089/Boardsave";
+    String reSaveURL="http://192.168.219.57:8089/resave";
+
+    String getImgURL = "http://192.168.219.57:8089/getImage";
 
     // 객체 생성
     AppCompatRadioButton yanghobtn, gyungjungbtn, joongdungbtn, joongjungbtn;
@@ -98,28 +102,49 @@ public class ReBoardActivity extends AppCompatActivity {
         binding = ActivityReBoardBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        queue= Volley.newRequestQueue(this);
 
         Intent writeIntent = getIntent();
+        String ucNum = String.valueOf(writeIntent.getLongExtra("ucNum",0));
+
         if(writeIntent.getStringExtra("result") != null){
             result = writeIntent.getStringExtra("result");
         }
-        String imgUri = writeIntent.getStringExtra("img");
 
-        // 검사후 이미지를 가져온다면 이미지 세팅하기
-        if(imgUri != null){
-            Uri uri = Uri.parse(imgUri);
-            binding.imgContent.setImageURI(uri);
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                getImgURL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("testBase64",String.valueOf(response.length()));
+                        byte[] decodedBytes = Base64.decode(response, Base64.DEFAULT);
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+                        binding.imgContent.setImageBitmap(bitmap);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("test","통신 실패임?");
+            }
         }
+        ) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("ucNum", String.valueOf(ucNum));
+                Log.d("ucNum", String.valueOf(ucNum));
+                return params;
+            }
+
+        };
+        queue.add(request);
 
 
-        // 게시글 추가페이지에 현재 일자 가져옴
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY년 MM월 dd일 HH:mm");
-        dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
-        long currentTimeMillis = System.currentTimeMillis();
-        Date currentDate = new Date(currentTimeMillis);
-        String currentTime = dateFormat.format(currentDate);
-        binding.tvBoardTime.setText(currentTime);
+        binding.edtTvContent.setText(writeIntent.getStringExtra("content"));
+
+        binding.tvBoardTime.setText(writeIntent.getStringExtra("indate"));
 
         // 초기화 작업
         yanghobtn = findViewById(R.id.yanghobtn);
@@ -149,17 +174,12 @@ public class ReBoardActivity extends AppCompatActivity {
             finish();
         });
 
-        queue= Volley.newRequestQueue(this);
-
         // 저장하기 버튼을 누를시 작동
-        binding.btnAdd.setOnClickListener(new View.OnClickListener() {
+        binding.btnReSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("ClickEvent","클릭 확인됨");
                 Log.d("Base64",Base64.class.getPackage().getImplementationVersion());
-
-                SharedPreferences autoLogin = getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
-                String ucUid = autoLogin.getString("uid","null");
 
                 // img → bitmap → base64(String)
                 String content = binding.edtTvContent.getText().toString();
@@ -174,17 +194,16 @@ public class ReBoardActivity extends AppCompatActivity {
                 String base64_img = Base64.encodeToString(byteArray, Base64.DEFAULT);
                 Log.d("BoardWriteActivity",String.valueOf(base64_img.length()));
 
-                // 1/2/3/4로 변환
-                int conditionValue = getSelectedConditionValue();
-
                 // 작성 내용 DB저장
                 StringRequest request = new StringRequest(
                         Request.Method.POST,
-                        writeURL,
+                        reSaveURL,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                Log.d("responseCheck",response);
+                                Intent goMain = new Intent(ReBoardActivity.this, MainActivity.class);
+                                goMain.putExtra("moveFl","care");
+                                startActivity(goMain);
                                 finish();
                             }
                         },
@@ -200,10 +219,9 @@ public class ReBoardActivity extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new HashMap<>();
+                        params.put("ucNum",ucNum);
                         params.put("content",content);
                         params.put("img",base64_img);
-                        params.put("ucUid",ucUid);
-                        params.put("indate",currentTime);
                         params.put("result",result);
 
                         return params;
