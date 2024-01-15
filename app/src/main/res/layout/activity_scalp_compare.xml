@@ -218,7 +218,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="0000.00.00 00:00"
                     android:textColor="@color/lightgreen"
                     app:layout_constraintBottom_toBottomOf="@+id/textView55"
                     app:layout_constraintEnd_toStartOf="@+id/guideline10"
@@ -227,23 +226,21 @@
                     app:layout_constraintTop_toTopOf="@+id/textView55"
                     app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/indate2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="0000.00.00 00:00"
-        android:textColor="@color/lightgreen"
-        app:layout_constraintBottom_toBottomOf="@+id/textView88"
-        app:layout_constraintStart_toEndOf="@+id/textView88"
-        app:layout_constraintTop_toTopOf="@+id/textView88" />
+                <TextView
+                    android:id="@+id/indate2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/lightgreen"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView88"
+                    app:layout_constraintStart_toEndOf="@+id/textView88"
+                    app:layout_constraintTop_toTopOf="@+id/textView88" />
 
                 <TextView
                     android:id="@+id/result22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="경증"
                     android:textColor="@color/lightgreen"
                     app:layout_constraintBottom_toBottomOf="@+id/textView89"
                     app:layout_constraintStart_toEndOf="@+id/textView89"
@@ -254,7 +251,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:text="양호"
                     android:textColor="@color/lightgreen"
                     app:layout_constraintBottom_toBottomOf="@+id/textView81"
                     app:layout_constraintStart_toEndOf="@+id/textView81"
